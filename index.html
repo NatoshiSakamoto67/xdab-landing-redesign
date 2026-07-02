@@ -855,7 +855,7 @@ header{ position:-webkit-sticky; position:sticky; top:0 }
 /* Einsatzbereiche: klickbar, klappt Detail auf */
 .pf-arrow-item{ cursor:pointer }
 .pf-arrow-detail{ grid-column:1/-1; max-height:0; overflow:hidden; opacity:0; color:var(--muted); font-size:14.5px; line-height:1.55; transition:max-height .3s ease, opacity .25s ease, padding .3s ease; padding:0 }
-.pf-arrow-item.is-open .pf-arrow-detail{ max-height:240px; opacity:1; padding:4px 0 20px }
+.pf-arrow-item.is-open .pf-arrow-detail{ max-height:600px; opacity:1; padding:4px 0 20px }
 .pf-arrow-item.is-open{ background:var(--card) }
 .pf-arrow-item.is-open .pf-arrow-go{ transform:rotate(90deg); color:var(--accent-strong) }
 </style>
@@ -965,7 +965,7 @@ header{ position:-webkit-sticky; position:sticky; top:0 }
 .faq-i::after{ transform:rotate(90deg) }
 .faq-item.is-open .faq-i::after{ transform:rotate(0) }
 .faq-a{ max-height:0; overflow:hidden; opacity:0; transition:max-height .3s ease,opacity .25s ease }
-.faq-item.is-open .faq-a{ max-height:360px; opacity:1 }
+.faq-item.is-open .faq-a{ max-height:1200px; opacity:1 }
 .faq-a p{ font-size:14.5px; line-height:1.65; color:var(--muted); margin:0 0 20px }
 .faq-cta{ max-width:820px; margin:28px auto 0; text-align:center; font-size:14px; color:var(--muted) }
 .faq-cta a{ color:var(--accent-strong); font-weight:600 }
@@ -1100,6 +1100,7 @@ html.xr-on .xr.xr-in{ opacity:1; transform:none }
       <p class="pf-lead">DSGVO-konformer KI-Workspace, 1.880 Experten-Agenten, echte Cybersecurity und externe Datenschutzberatung &mdash; alles auf EU-Infrastruktur in Frankfurt, für den deutschen Mittelstand.</p>
     </div>
 
+    <div class="pf-scrolly">
     <div class="pf-blocks">
       <!-- 0.1 -->
       <article class="pf-block">
@@ -1159,6 +1160,16 @@ html.xr-on .xr.xr-in{ opacity:1; transform:none }
           </div>
         </div>
       </article>
+    </div>
+    <aside class="pf-visual" aria-hidden="true">
+      <div class="pf-visual-frame">
+        <img class="pf-vshot is-on" src="assets/d-home.webp" width="2880" height="1800" loading="lazy" alt="">
+        <img class="pf-vshot" src="assets/d-agenten.webp" width="2880" height="1800" loading="lazy" alt="">
+        <img class="pf-vshot" src="assets/d-security.webp" width="2880" height="1800" loading="lazy" alt="">
+        <img class="pf-vshot" src="assets/d-vergleich.webp" width="2880" height="1800" loading="lazy" alt="">
+      </div>
+      <div class="pf-vdots"><i class="on"></i><i></i><i></i><i></i></div>
+    </aside>
     </div>
   </div>
 </section>
@@ -2763,8 +2774,8 @@ html{scroll-behavior:smooth;}
 .xfx.xin{opacity:1;transform:none;}
 .xfx.d1{transition-delay:.06s}.xfx.d2{transition-delay:.12s}.xfx.d3{transition-delay:.18s}.xfx.d4{transition-delay:.24s}.xfx.d5{transition-delay:.30s}
 .xfx-underline{position:relative;}
-.xfx-underline::after{content:"";position:absolute;left:0;bottom:-.34em;height:2px;width:0;border-radius:2px;background:linear-gradient(90deg,var(--mint),rgba(52,211,153,0));transition:width 1s var(--xfx-ease) .2s;}
-.xfx-underline.xin::after{width:64px;}
+.xfx-underline::after{content:"";position:absolute;left:0;bottom:-.34em;height:2px;width:64px;border-radius:2px;background:linear-gradient(90deg,var(--mint),rgba(52,211,153,0));transform:scaleX(0);transform-origin:left;transition:transform 1s var(--xfx-ease) .2s;}
+.xfx-underline.xin::after{transform:scaleX(1);}
 .pf-block,.cy-tile,.dt-tile,.ov-card{transition:transform .35s var(--xfx-ease),box-shadow .35s var(--xfx-ease),border-color .35s var(--xfx-ease);}
 .pf-block:hover,.cy-tile:hover,.dt-tile:hover{transform:translateY(-3px);}
 .cy-tile:hover,.dt-tile:hover{border-color:var(--mint-line);box-shadow:0 12px 34px rgba(0,0,0,.35);}
@@ -2789,7 +2800,7 @@ html{scroll-behavior:smooth;}
 .ov-card:hover{transform:translateY(-3px);border-color:var(--mint-line);box-shadow:0 12px 30px rgba(0,0,0,.32);}
 .ov-trust{display:flex;flex-wrap:wrap;gap:7px 26px;justify-content:center;margin-top:24px;color:var(--faint);font-size:12.5px;}
 .ov-trust span::before{content:"";display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--mint);margin-right:9px;vertical-align:middle;}
-@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto;}.xfx{opacity:1!important;transform:none!important;transition:none!important;}.xfx-underline::after{width:64px!important;transition:none!important;}.xfx-topscan{display:none!important;}}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto;}.xfx{opacity:1!important;transform:none!important;transition:none!important;}.xfx-underline::after{transform:scaleX(1)!important;transition:none!important;}.xfx-topscan{display:none!important;}}
 </style>
 <script id="xdab-fx-js">
 (function(){
@@ -2810,6 +2821,53 @@ html{scroll-behavior:smooth;}
   window.addEventListener("scroll",sweep,{passive:true});
   window.addEventListener("resize",sweep,{passive:true});
   setTimeout(function(){if(document.querySelectorAll(".xfx.xin").length===0){all.forEach(reveal);}},3500);
+})();
+</script>
+<script id="xdab-scrolly-js">
+(function(){
+  'use strict';
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // Scrollytelling: Screenshot-Panel folgt den /0.x-Bloecken
+  var blocks=[].slice.call(document.querySelectorAll('#plattform .pf-block'));
+  var shots=[].slice.call(document.querySelectorAll('.pf-vshot'));
+  var dots=[].slice.call(document.querySelectorAll('.pf-vdots i'));
+  function setActive(i){
+    shots.forEach(function(s,k){ s.classList.toggle('is-on',k===i); });
+    dots.forEach(function(d,k){ d.classList.toggle('on',k===i); });
+  }
+  if(blocks.length===4 && shots.length===4 && 'IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ setActive(blocks.indexOf(e.target)); } });
+    },{rootMargin:'-38% 0px -38% 0px',threshold:0});
+    blocks.forEach(function(b){ io.observe(b); });
+  }
+  // Stats-Count-up (nur numerische Werte, respektiert reduced-motion)
+  var stats=[].slice.call(document.querySelectorAll('.h3-stats b'));
+  function animate(el,target){
+    var t0=null, dur=1300;
+    function frame(t){ if(!t0)t0=t; var p=Math.min(1,(t-t0)/dur); p=1-Math.pow(1-p,3);
+      el.textContent=Math.round(target*p).toLocaleString('de-DE'); if(p<1)requestAnimationFrame(frame); }
+    requestAnimationFrame(frame);
+  }
+  if(stats.length && !reduce && 'IntersectionObserver' in window){
+    var done=false;
+    var sio=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting && !done){ done=true;
+        stats.forEach(function(el){ var raw=(el.textContent||'').trim(); var num=raw.replace(/\./g,'');
+          if(/^\d+$/.test(num)) animate(el,parseInt(num,10)); });
+        sio.disconnect(); } });
+    },{threshold:.4});
+    sio.observe(stats[0].parentElement.parentElement);
+  }
+  // Hero-Kartenwand ausserhalb des Viewports pausieren (Akku/GPU)
+  var wall=document.querySelector('.hc-bg');
+  if(wall && 'IntersectionObserver' in window){
+    var cols=[].slice.call(wall.querySelectorAll('.hc-col'));
+    var wio=new IntersectionObserver(function(es){
+      es.forEach(function(e){ cols.forEach(function(c){ c.style.animationPlayState=e.isIntersecting?'running':'paused'; }); });
+    },{threshold:0});
+    wio.observe(wall);
+  }
 })();
 </script>
 <style id="xdab-pw-css">
@@ -2899,6 +2957,19 @@ html{scroll-behavior:smooth;}
 .shot-phone{ position:absolute; right:-10px; bottom:-70px; width:190px; margin:0; border:6px solid #050506; border-radius:30px; overflow:hidden; background:#050506; box-shadow:0 30px 70px -18px rgba(0,0,0,.8), 0 0 0 1px rgba(255,255,255,.05); transform:rotate(2deg) }
 .shot-phone img{ display:block; width:100%; height:auto }
 @media(max-width:760px){ .shot-phone{ display:none } .shot-section{ padding-bottom:56px } }
+/* Scrollytelling Plattform */
+.pf-visual{ display:none }
+@media(min-width:980px){
+  .pf-scrolly{ display:grid; grid-template-columns:1.02fr .98fr; gap:44px; align-items:start }
+  .pf-visual{ display:block; position:sticky; top:96px }
+}
+.pf-visual-frame{ position:relative; aspect-ratio:16/10; border:1px solid var(--line2); border-radius:12px; overflow:hidden; background:#0a0a0c; box-shadow:0 30px 80px -30px rgba(0,0,0,.6) }
+.pf-vshot{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:top; opacity:0; transition:opacity .5s var(--xfx-ease,ease) }
+.pf-vshot.is-on{ opacity:1 }
+.pf-vdots{ display:flex; gap:7px; justify-content:center; margin-top:12px }
+.pf-vdots i{ width:7px; height:7px; border-radius:50%; background:var(--line2); transition:background .3s, transform .3s }
+.pf-vdots i.on{ background:var(--mint); transform:scale(1.25) }
+.xfx.xin{ will-change:auto }
 </style>
 </body>
 </html>

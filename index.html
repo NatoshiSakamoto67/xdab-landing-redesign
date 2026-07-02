@@ -2229,53 +2229,73 @@ html.xr-on .xr.xr-in{ opacity:1; transform:none }
 
 </div>
 <div class="lp-page" data-page="pakete">
-<section id="module"><div class="wrap">
-  <div class="sec-head"><div class="eyebrow">Fünf Module</div><h2>Bausteine, die zusammenpassen</h2><p>Stellen Sie Ihr Paket aus den Modulen zusammen — innerhalb der rechtlichen Grenzen, die unser System automatisch durchsetzt.</p></div>
-  <div class="grid mods">
-    <div class="mod"><div class="tag">MODUL A</div><h3>Externer DSB</h3><p>Simon wird als Datenschutzbeauftragter bei Ihnen benannt — formal, gemeldet, haftungsklar.</p></div>
-    <div class="mod"><div class="tag">MODUL B</div><h3>Datenschutz-Beratung</h3><p>Audits, Verarbeitungsverzeichnis (VVT), TOMs, DSFA — ohne formale DSB-Benennung.</p></div>
-    <div class="mod"><div class="tag">MODUL C</div><h3>KI-Integration</h3><p>KI-Gateway-Proxy mit PII-Scan: nutzen Sie Claude, Mistral & Co. — pseudonymisiert, EU-konform.</p></div>
-    <div class="mod"><div class="tag">MODUL D</div><h3>Cybersecurity</h3><p>Desktop-Agent + Live-Scans: Software-Inventar, Verschlüsselung, Schwachstellen-Monitoring.</p></div>
-    <div class="mod"><div class="tag">MODUL E</div><h3>KI-Schulungen</h3><p>Kompetenzschulungen nach Art. 4 EU AI Act — Pflicht für jeden, der KI im Betrieb einsetzt.</p></div>
-  </div>
-</div></section>
-
-<section id="konfigurator"><div class="wrap">
-  <div class="sec-head"><div class="eyebrow">Paket-Konfigurator</div><h2>Was passt zu Ihnen?</h2><p>Wählen Sie Ihre Module. Unser System prüft live, ob die Kombination rechtlich zulässig ist (Art. 38 Abs. 6 DSGVO).</p></div>
-  <div class="cfg">
-    <div>
-      <h3>Module wählen</h3>
-      <div class="hint">Modul A (formaler DSB) lässt sich aus rechtlichen Gründen nicht mit C oder D kombinieren.</div>
-      <div id="modOpts"></div>
+<section id="konfigurator" class="pw-section"><div class="wrap">
+  <div class="sec-head"><div class="eyebrow">Pakete &amp; Preise</div><h2>Zwei Wege. Ein Partner.</h2><p>Eine Frage entscheidet, welcher Weg zu Ihnen passt — der Rest ist ein Festpreis.</p></div>
+  <div class="pw-weiche">
+    <div class="pw-frage">Sollen wir Ihr benannter Datenschutzbeauftragter werden?</div>
+    <div class="pw-wahl">
+      <a class="pw-card" href="#pakete">
+        <div class="pw-k">Nein — wir brauchen die Software</div>
+        <div class="pw-t">KI-Workspace, Datenschutz-Beratung, Cybersecurity und Schulungen im Monats-Abo. Sofort startklar.</div>
+        <div class="pw-go">Zur Linie <b>Plattform</b> &rarr;</div>
+      </a>
+      <a class="pw-card" href="#mandat">
+        <div class="pw-k">Ja — wir brauchen einen DSB</div>
+        <div class="pw-t">Simon wird formal als externer Datenschutzbeauftragter benannt und der Behörde gemeldet. Start per Erstgespräch.</div>
+        <div class="pw-go">Zur Linie <b>Mandat</b> &rarr;</div>
+      </a>
     </div>
-    <div class="cfg-out">
-      <div class="ks" id="ksMsg"></div>
-      <div class="pkgname" id="outName">Noch nichts gewählt</div>
-      <div class="price" id="outPrice">—</div>
-      <ul id="outMods"></ul>
-      <a class="btn btn-primary" id="outCta" href="#pakete" style="margin-top:auto">Passendes Paket ansehen</a>
-    </div>
+    <p class="pw-law-hint">Beides zusammen geht bewusst nicht: Als Ihr DSB dürften wir unsere eigene KI- und Security-Technik bei Ihnen nicht kontrollieren (Art.&nbsp;38 Abs.&nbsp;6 DSGVO — keine Selbstkontrolle). <a href="#mandat">Warum, steht hier &darr;</a></p>
   </div>
 </div></section>
 
 <section id="pakete"><div class="wrap">
-  <div class="sec-head"><div class="eyebrow">Pakete & Preise</div><h2>Transparent, monatlich kündbar</h2><p>Self-Service-Pakete buchen Sie direkt. Pakete mit formalem DSB-Mandat (Modul A) starten mit einem persönlichen Erstgespräch — gesetzlich vorgeschrieben.<span class="price-note">Alle Preise pro Monat, monatlich kündbar, netto — Kleinunternehmer gem. §19 UStG, es wird keine Umsatzsteuer ausgewiesen. Angebot richtet sich an Unternehmen (B2B).</span></p></div>
+  <div class="sec-head"><div class="eyebrow">Linie 1 · Plattform</div><h2>Software im Abo — sofort startklar</h2><p>Drei Stufen, jede enthält die vorherige.<span class="price-note">Endpreise pro Monat; gemäß §&nbsp;19 UStG wird keine Umsatzsteuer erhoben. Monatlich kündbar. Angebot richtet sich an Unternehmen (B2B).</span></p></div>
   <div class="grid pkgs" id="pkgGrid"></div>
+  <div class="pw-fokus" id="fokusRow"></div>
+</div></section>
+
+<section id="mandat" class="pw-mandat"><div class="wrap">
+  <div class="sec-head"><div class="eyebrow">Linie 2 · Mandat</div><h2>Ihr externer Datenschutzbeauftragter</h2><p>Persönlich, formal benannt, der Aufsichtsbehörde gemeldet. Start immer mit einem persönlichen Erstgespräch — gesetzlich vorgesehen.</p></div>
+  <div class="grid pkgs pkgs-2" id="mandatGrid"></div>
+  <div class="pw-law">
+    <div class="pw-law-h">Warum gibt es Mandat und Plattform nicht zusammen?</div>
+    <p>Ein Datenschutzbeauftragter darf nicht kontrollieren, was er selbst betreibt (Art.&nbsp;38 Abs.&nbsp;6 DSGVO — Interessenkonflikt). Deshalb betreiben wir für Mandats-Kunden keine eigene KI- oder Security-Technik. Wenn Sie beides brauchen: <b>Plattform von uns, DSB von einem unabhängigen Partner</b> — wir vermitteln und arbeiten sauber zusammen. <a href="mailto:kontakt@xdab-ki.de?subject=Plattform%20%2B%20unabh%C3%A4ngiger%20DSB">Kurz anfragen</a>.</p>
+  </div>
+</div></section>
+
+<section id="projekte" class="pw-projekte"><div class="wrap">
+  <div class="sec-head"><div class="eyebrow">Linie 3 · Projekte</div><h2>Webseiten, Web-Apps &amp; Managed KI-Server</h2><p>Kein Abo, sondern Projektgeschäft: Festpreis nach Angebot, Betrieb auf Wunsch inklusive.</p></div>
+  <div class="pw-proj-grid">
+    <div class="pw-proj"><h3>Webseiten &amp; Web-Apps</h3><p>Moderne, datenschutzkonforme Websites und Progressive Web Apps — von Anfang an rechtssicher umgesetzt, inklusive Beratung zu E-Rechnung und revisionssicherer Archivierung.</p><a class="btn" href="mailto:kontakt@xdab-ki.de?subject=Projektanfrage%20Website%2FWeb-App">Projekt anfragen</a></div>
+    <div class="pw-proj"><h3>Software-on-Demand &amp; Betrieb</h3><p>Ihre KI-Modelle auf dedizierten EU-Servern oder lokal bei Ihnen — vollständig betrieben, gewartet und überwacht. Für Berufsgeheimnisträger die abgeschottete Variante.</p><a class="btn" href="mailto:kontakt@xdab-ki.de?subject=Projektanfrage%20Managed%20Service">Projekt anfragen</a></div>
+  </div>
+</div></section>
+
+<section id="module" class="pw-glossar"><div class="wrap">
+  <div class="sec-head"><div class="eyebrow">Klartext</div><h2>Was die Bausteine bedeuten</h2></div>
+  <dl class="pw-dl">
+    <div><dt>KI-Workspace</dt><dd>DSGVO-konformer KI-Arbeitsplatz mit Gateway, PII-Maskierung vor jedem Cloud-Aufruf, Experten-Agenten, Wissensbasis und Exporten.</dd></div>
+    <div><dt>Datenschutz-Beratung</dt><dd>Audits, Verarbeitungsverzeichnis (VVT), technisch-organisatorische Maßnahmen (TOMs), Datenschutz-Folgenabschätzung (DSFA) — ohne formale DSB-Benennung.</dd></div>
+    <div><dt>Cybersecurity</dt><dd>Website-/Domain-Scans (TLS, OWASP-Header, DNS) und Endpoint-Monitoring: Software-Inventar, Verschlüsselungsstatus, Schwachstellen.</dd></div>
+    <div><dt>KI-Schulung</dt><dd>Kompetenzschulung nach Art.&nbsp;4 EU AI Act mit Teilnahme-Zertifikat — Pflicht für jeden Betrieb, der KI einsetzt.</dd></div>
+    <div><dt>DSB-Mandat</dt><dd>Formale Benennung als externer Datenschutzbeauftragter inklusive Meldung an die Aufsichtsbehörde — Ansprechpartner für Betroffene und Behörden.</dd></div>
+  </dl>
 </div></section>
 
 <section id="token" class="tk-section"><div class="wrap">
   <div class="sec-head"><div class="eyebrow">Token einfach erklärt</div><h2>Wie viel KI steckt in einem Paket?</h2><p>KI rechnet in „Token". Damit Sie genau wissen, was Sie bekommen — hier alles ohne Fachchinesisch.</p></div>
   <div class="tk-grid">
     <div class="tk-card xr"><div class="tk-ic">1</div><div class="tk-h">Was ist ein Token?</div><p>Ein Token ist ein Wortbaustein. Faustregel: <b>1.000 Token ≈ 750 Wörter ≈ 1,5 DIN-A4-Seiten</b>. Sie zahlen nichts pro Token — die Mengen sind im Paket enthalten.</p></div>
-    <div class="tk-card xr"><div class="tk-ic">2</div><div class="tk-h">Wie viel ist enthalten?</div><p><b>KI Sicher: 3 Mio. Token / Monat.</b> <b>Tech Komplett: 7 Mio. Token / Monat.</b> Richtwerte (Fair Use), fair teilbar zwischen allen Nutzern Ihres Unternehmens.</p></div>
-    <div class="tk-card xr"><div class="tk-ic">3</div><div class="tk-h">Reicht das?</div><p>Eine normale Frage kostet ~1.000–3.000 Token, eine ausführliche Agenten-Analyse ~20.000–60.000. <b>3 Mio. ≈ ~30.000 Fragen oder ~500 Analysen</b> im Monat.</p></div>
+    <div class="tk-card xr"><div class="tk-ic">2</div><div class="tk-h">Wie viel ist enthalten?</div><p><b>Workspace: 3 Mio. Token / Monat.</b> <b>Komplett: 7 Mio. Token / Monat.</b> Richtwerte (Fair Use), frei aufteilbar auf alle Nutzer Ihres Unternehmens.</p></div>
+    <div class="tk-card xr"><div class="tk-ic">3</div><div class="tk-h">Reicht das?</div><p>Eine normale Frage kostet ~1.000–3.000 Token, eine ausführliche Agenten-Analyse ~20.000–60.000. <b>3 Mio. ≈ ~1.500 normale Fragen oder ~75 ausführliche Analysen</b> im Monat — genug für ein Team, das täglich damit arbeitet.</p></div>
     <div class="tk-card xr"><div class="tk-ic">4</div><div class="tk-h">Und wenn sie leer sind?</div><p>Kein harter Stopp: Sie k&ouml;nnen auf das <b>lokale EU-Modell (ohne Aufpreis)</b> umsteigen oder ein Token-Paket dazubuchen. Die Premium-Modelle stehen im Folgemonat wieder bereit.</p></div>
   </div>
   <div class="tk-meter xr">
-    <div class="tk-meter-h">Was 3 Mio. Token im Monat bedeuten (KI Sicher)</div>
-    <div class="tk-row"><label>Kurze Fragen &amp; Antworten</label><div class="tk-bar"><span style="width:96%"></span></div><b>~30.000</b></div>
-    <div class="tk-row"><label>Längere Dokumente &amp; Berichte</label><div class="tk-bar"><span style="width:48%"></span></div><b>~3.000</b></div>
-    <div class="tk-row"><label>Ausführliche Agenten-Analysen</label><div class="tk-bar"><span style="width:16%"></span></div><b>~500</b></div>
+    <div class="tk-meter-h">Was 3 Mio. Token im Monat bedeuten (Stufe Workspace)</div>
+    <div class="tk-row"><label>Kurze Fragen &amp; Antworten (~1.000 Token)</label><div class="tk-bar"><span style="width:96%"></span></div><b>~3.000</b></div>
+    <div class="tk-row"><label>Längere Dokumente &amp; Berichte (~7.500 Token)</label><div class="tk-bar"><span style="width:40%"></span></div><b>~400</b></div>
+    <div class="tk-row"><label>Ausführliche Agenten-Analysen (~40.000 Token)</label><div class="tk-bar"><span style="width:14%"></span></div><b>~75</b></div>
   </div>
 </div></section>
 
@@ -2442,78 +2462,55 @@ html.xr-on .xr.xr-in{ opacity:1; transform:none }
 <script>
 (function(){(function(){
   "use strict";
-  // Module
-  var MODS=[
-    {id:"A",name:"Externer DSB (formal)",desc:"Simon als benannter DSB"},
-    {id:"B",name:"Datenschutz-Beratung",desc:"Audits, VVT, TOMs, DSFA"},
-    {id:"C",name:"KI-Integration",desc:"KI-Gateway mit PII-Schutz"},
-    {id:"D",name:"Cybersecurity",desc:"Desktop-Agent + Scans"},
-    {id:"E",name:"KI-Schulungen",desc:"Art. 4 EU AI Act"}
-  ];
-  // Pakete: A-haltige = DSB (Erstgespräch), sonst Self-Service
-  var PKGS=[
-    {key:"starter",name:"Starter",price:99,mods:["B","E"],feat:["KI-Schulung","Erstberatung Datenschutz","E-Mail-Support"]},
-    {key:"dsb_pur",name:"DSB Pur",price:169,mods:["A","E"],dsb:true,feat:["Formaler DSB (Simon)","Behörden-Meldung","KI-Schulung"]},
-    {key:"dsb_plus",name:"DSB Plus",price:269,mods:["A","B","E"],dsb:true,feat:["Formaler DSB","Volle DS-Beratung","KI-Schulung"]},
-    {key:"ki_sicher",name:"KI Sicher",price:379,mods:["B","C","E"],featured:true,tok:"3 Mio.",feat:["KI-Gateway + PII-Schutz","DS-Beratung","KI-Schulung"]},
-    {key:"security",name:"Security",price:349,mods:["B","D","E"],feat:["Cybersecurity-Agent","DS-Beratung","KI-Schulung"]},
-    {key:"tech",name:"Tech Komplett",price:549,mods:["B","C","D","E"],tok:"7 Mio.",feat:["KI + Security zusammen","DS-Beratung","KI-Schulung"]},
-    {key:"schulung",name:"Schulung Only",price:49,mods:["E"],feat:["KI-Kompetenzschulung","Art. 4 EU AI Act","Zertifikat"]}
-  ];
-  var sel={};
-  function locked(id){ // A sperrt C/D und umgekehrt
-    if(id==="A") return !!(sel.C||sel.D);
-    if(id==="C"||id==="D") return !!sel.A;
-    return false;
+  // EINE Datenquelle für Karten, Fokus-Zeile und Detail-Modal (Zwei-Linien-Modell)
+  var PW={
+    plattform:[
+      {key:"basis",name:"Basis",price:99,who:"Kleine Betriebe, die Datenschutz-Grundlagen und KI-Kompetenz aufbauen wollen.",feat:["Datenschutz-Erstberatung","KI-Kompetenzschulung (Art. 4 EU AI Act) mit Zertifikat","E-Mail-Support"]},
+      {key:"workspace",name:"Workspace",price:379,featured:true,tok:"3 Mio.",tokuse:"~1.500 normale Fragen oder ~75 ausführliche Agenten-Analysen pro Monat — erfahrungsgemäß 5–8 aktive Nutzer",plus:"Basis",who:"Teams, die KI produktiv und DSGVO-konform einsetzen wollen.",feat:["KI-Workspace mit PII-Schutz","Experten-Agenten & Wissensbasis","3 Mio. Token / Monat inklusive"]},
+      {key:"komplett",name:"Komplett",price:549,tok:"7 Mio.",tokuse:"~3.500 normale Fragen oder ~175 ausführliche Agenten-Analysen pro Monat — erfahrungsgemäß 12–18 aktive Nutzer",plus:"Workspace",who:"Das volle Tech-Paket: KI und Cybersecurity zusammen.",feat:["Cybersecurity: Website-Scans + Endpoint-Monitoring","Prioritäts-Support","7 Mio. Token / Monat inklusive"]}
+    ],
+    fokus:[
+      {key:"schulung",name:"Nur Schulung",price:49,who:"Nur die gesetzlich geforderte KI-Kompetenzschulung (Art. 4 EU AI Act).",feat:["KI-Kompetenzschulung","Teilnahme-Zertifikat"]},
+      {key:"security",name:"Security ohne KI",price:349,who:"Betriebe mit Fokus auf IT-Sicherheit und NIS2-Vorbereitung — ohne KI-Workspace.",feat:["Cybersecurity-Scans + Endpoint-Monitoring","Datenschutz-Beratung","KI-Schulung"]}
+    ],
+    mandat:[
+      {key:"dsb",name:"DSB-Mandat",price:169,dsb:true,who:"Unternehmen mit DSB-Pflicht, die einen externen Datenschutzbeauftragten benötigen.",feat:["Formale Benennung als DSB (Simon)","Meldung an die Aufsichtsbehörde","Ansprechpartner für Betroffene & Behörden","KI-Schulung inklusive"]},
+      {key:"dsb_plus",name:"DSB-Mandat + Beratung",price:269,dsb:true,plus:"DSB-Mandat",who:"DSB-Pflicht plus laufende, aktive Datenschutz-Beratung.",feat:["Laufende Datenschutz-Beratung","Audits & Verarbeitungsverzeichnis (VVT)","TOMs & Datenschutz-Folgenabschätzung (DSFA)"]}
+    ]
+  };
+  window.XDAB_PW=PW;
+  function mailCta(p){
+    return p.dsb
+      ? '<a class="btn btn-primary" href="mailto:kontakt@xdab-ki.de?subject=Erstgespräch%20'+encodeURIComponent(p.name)+'">Erstgespräch vereinbaren</a>'
+      : '<a class="btn btn-primary" href="mailto:kontakt@xdab-ki.de?subject='+encodeURIComponent("Paket "+p.name)+'">Direkt anfragen</a>';
   }
-  function findPkg(){
-    var keys=Object.keys(sel).filter(function(k){return sel[k];}).sort().join("");
-    var best=null;
-    PKGS.forEach(function(p){ if(p.mods.slice().sort().join("")===keys) best=p; });
-    return best;
-  }
-  function render(){
-    var opts=document.getElementById("modOpts"); opts.innerHTML="";
-    MODS.forEach(function(m){
-      var lk=locked(m.id), on=!!sel[m.id];
-      var d=document.createElement("div");
-      d.className="mod-opt"+(on?" on":"")+(lk?" locked":"");
-      d.innerHTML='<div class="cb">'+(on?"✓":"")+'</div><div><div class="mt">Modul '+m.id+" · "+m.name+'</div><div class="md">'+m.desc+"</div></div>";
-      if(!lk) d.onclick=function(){ sel[m.id]=!sel[m.id]; render(); };
-      opts.appendChild(d);
-    });
-    var ks=document.getElementById("ksMsg");
-    if((sel.A&&(sel.C||sel.D))){ ks.className="ks show"; ks.textContent="Modul A (formaler DSB) und Modul C/D sind nicht kombinierbar (Art. 38 Abs. 6 DSGVO — Interessenkonflikt). Bitte eines abwählen."; }
-    else ks.className="ks";
-    var anySel=Object.keys(sel).some(function(k){return sel[k];});
-    var p=findPkg();
-    document.getElementById("outName").textContent=p?("Empfohlen: "+p.name):(anySel?"Individuelle Kombination":"Noch nichts gewählt");
-    document.getElementById("outPrice").innerHTML=p?(p.price+' <span>€/Monat'+(p.dsb?" · Erstgespräch":"")+"</span>"):"—";
-    var ul=document.getElementById("outMods"); ul.innerHTML="";
-    (p?p.feat:[]).forEach(function(f){ var li=document.createElement("li"); li.textContent=f; ul.appendChild(li); });
-    var cta=document.getElementById("outCta");
-    if(p&&p.dsb){ cta.textContent="Erstgespräch mit Simon vereinbaren"; cta.setAttribute("href","mailto:kontakt@xdab-ki.de?subject=Erstgespräch%20"+encodeURIComponent(p.name)); }
-    else if(p){ cta.textContent="„"+p.name+"\" anfragen"; cta.setAttribute("href","mailto:kontakt@xdab-ki.de?subject="+encodeURIComponent("Paket "+p.name)); }
-    else { cta.textContent="Passendes Paket ansehen"; cta.setAttribute("href","#pakete"); }
-  }
-  // Pakete-Grid
-  var g=document.getElementById("pkgGrid");
-  PKGS.forEach(function(p){
+  function card(p){
     var el=document.createElement("div");
     el.className="pkg"+(p.featured?" featured":""); el.setAttribute("data-pkg",p.key);
     var feats=p.feat.map(function(f){return "<li>"+f+"</li>";}).join("");
     el.innerHTML=(p.featured?'<span class="badge">Beliebt</span>':"")
       +"<h3>"+p.name+'</h3><div class="pp">'+p.price+' <span>€/Monat</span></div>'
-      +'<div class="mods-line">Module '+p.mods.join(" + ")+"</div>"
-      +(p.tok?'<div class="pkg-tok">\u26a1 '+p.tok+' Token / Monat inklusive</div>':"")
-      +(p.dsb?'<div class="dsb-note">⚖ Mit formalem DSB — Start per Erstgespräch (Art. 38 DSGVO)</div>':"")
+      +(p.plus?'<div class="mods-line">Alles aus '+p.plus+', plus:</div>':'<div class="mods-line">'+(p.dsb?"Persönliches Mandat:":"Im Abo enthalten:")+"</div>")
+      +(p.tok?'<div class="pkg-tok">⚡ '+p.tok+' Token / Monat inklusive</div>':"")
+      +(p.dsb?'<div class="dsb-note">⚖ Start per persönlichem Erstgespräch (Art. 38 DSGVO)</div>':"")
       +"<ul>"+feats+"</ul>"
-      +(p.dsb
-        ? '<a class="btn" href="mailto:kontakt@xdab-ki.de?subject=Erstgespräch%20'+encodeURIComponent(p.name)+'">Erstgespräch vereinbaren</a>'
-        : '<div class="pkg-cta"><button class="btn btn-cart" data-add="'+p.key+'" data-name="'+p.name+'" data-price="'+p.price+'">In den Warenkorb</button><a class="btn btn-primary" href="mailto:kontakt@xdab-ki.de?subject='+encodeURIComponent("Paket "+p.name)+'">Direkt anfragen</a></div>');
-    g.appendChild(el);
-  });
-  render();
+      +'<div class="pkg-cta">'+mailCta(p)+"</div>";
+    return el;
+  }
+  var g=document.getElementById("pkgGrid");
+  if(g) PW.plattform.forEach(function(p){ g.appendChild(card(p)); });
+  var m=document.getElementById("mandatGrid");
+  if(m) PW.mandat.forEach(function(p){ m.appendChild(card(p)); });
+  var f=document.getElementById("fokusRow");
+  if(f){
+    var h=document.createElement("div"); h.className="pw-fokus-h"; h.textContent="Spezielle Zuschnitte:"; f.appendChild(h);
+    PW.fokus.forEach(function(p){
+      var el=document.createElement("div"); el.className="pw-fokus-card"; el.setAttribute("data-pkg",p.key);
+      el.innerHTML='<div><b>'+p.name+'</b> · '+p.price+' €/Monat<div class="pw-fokus-d">'+p.who+"</div></div>"
+        +'<a class="btn" href="mailto:kontakt@xdab-ki.de?subject='+encodeURIComponent("Paket "+p.name)+'">Anfragen</a>';
+      f.appendChild(el);
+    });
+  }
 })();})();
 
 /* ---- Reiter/Tabs (Showcase) ---- */
@@ -2524,37 +2521,6 @@ document.addEventListener('click',function(e){
   sec.querySelectorAll('.sc-tab').forEach(function(b){ b.classList.toggle('is-active',b===t); });
   sec.querySelectorAll('.sc-panel').forEach(function(p){ p.classList.toggle('is-active',p.getAttribute('data-panel')===id); });
 });
-/* ---- Einkaufskorb ---- */
-(function(){
-  var KEY='xdab-cart-v1';
-  function load(){ try{return JSON.parse(localStorage.getItem(KEY)||'[]');}catch(e){return[];} }
-  function persist(c){ try{localStorage.setItem(KEY,JSON.stringify(c));}catch(e){} }
-  function fmt(n){ return n.toLocaleString('de-DE'); }
-  var fab=document.createElement('button'); fab.className='cart-fab'; fab.setAttribute('aria-label','Warenkorb');
-  fab.innerHTML='<svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg><span>Warenkorb</span><span class="cart-count">0</span>';
-  document.body.appendChild(fab);
-  var back=document.createElement('div'); back.className='cart-back';
-  back.innerHTML='<div class="cart-drawer" role="dialog" aria-label="Warenkorb"><div class="cart-h"><h3>Ihr Warenkorb</h3><button class="cart-x" aria-label="Schließen">&times;</button></div><div class="cart-items"></div><div class="cart-foot"><div class="cart-total"><span>Summe / Monat</span><span class="cart-sum">0 &euro;</span></div><button class="btn btn-primary cart-checkout" style="width:100%">Bestellung anfragen</button><div class="cart-note">Nach Ihrer Anfrage melden wir uns mit Auftragsbestätigung &amp; Zugang. Verbindliche Buchung &amp; Zahlung folgen (Stripe in Vorbereitung).</div></div></div>';
-  document.body.appendChild(back);
-  var itemsEl=back.querySelector('.cart-items'), sumEl=back.querySelector('.cart-sum');
-  function open(){ back.classList.add('open'); }
-  function close(){ back.classList.remove('open'); }
-  function render(){
-    var c=load();
-    fab.querySelector('.cart-count').textContent=c.length;
-    fab.hidden=false;
-    if(!c.length){ itemsEl.innerHTML='<div class="cart-empty">Noch nichts ausgewählt.<br>Wählen Sie unten ein Paket.</div>'; sumEl.textContent='0 €'; return; }
-    var sum=0;
-    itemsEl.innerHTML=c.map(function(x){ sum+=(+x.price||0); return '<div class="cart-item"><div><div class="ci-n">'+x.name+'</div><div class="ci-p">'+fmt(+x.price||0)+' € / Monat</div></div><button class="ci-rm" data-rm="'+x.key+'" aria-label="Entfernen">&times;</button></div>'; }).join('');
-    sumEl.textContent=fmt(sum)+' €';
-  }
-  function add(key,name,price){ var c=load(); if(!c.some(function(x){return x.key===key;})){ c.push({key:key,name:name,price:+price}); persist(c); } render(); open(); }
-  function rm(key){ persist(load().filter(function(x){return x.key!==key;})); render(); }
-  fab.addEventListener('click',open);
-  back.addEventListener('click',function(e){ if(e.target===back||e.target.closest('.cart-x')) close(); var r=e.target.closest&&e.target.closest('[data-rm]'); if(r) rm(r.getAttribute('data-rm')); var co=e.target.closest&&e.target.closest('.cart-checkout'); if(co){ var c=load(); if(!c.length){return;} var body='Ich möchte folgende Pakete buchen:%0D%0A'+c.map(function(x){return '- '+x.name+' ('+x.price+' EUR/Monat)';}).join('%0D%0A')+'%0D%0A%0D%0AName:%0D%0AFirma:%0D%0ATelefon:'; location.href='mailto:kontakt@xdab-ki.de?subject=Bestellung%20XDAB&body='+body; } });
-  document.addEventListener('click',function(e){ var b=e.target&&e.target.closest?e.target.closest('[data-add]'):null; if(b){ e.preventDefault(); add(b.getAttribute('data-add'),b.getAttribute('data-name'),b.getAttribute('data-price')); } });
-  render();
-})();
 
 </script>
 
@@ -2607,40 +2573,32 @@ document.addEventListener('click',function(e){
   }
   nsInput.addEventListener('input',runSearch);
 
-  // ---- Paket-Detail-Modal ----
-  var MODS={A:{n:'Externer Datenschutzbeauftragter (DSB)',d:'Simon wird formal als DSB benannt und der Aufsichtsbehörde gemeldet: Überwachung der DSGVO-Einhaltung, Schulung, Ansprechpartner für Betroffene und Behörden.'},
-    B:{n:'Datenschutz-Beratung',d:'Audits, Verarbeitungsverzeichnis (VVT), technisch-organisatorische Maßnahmen (TOMs) und Datenschutz-Folgenabschätzung (DSFA) – ohne formale DSB-Benennung.'},
-    C:{n:'KI-Integration',d:'DSGVO-konformer KI-Workspace mit Gateway-Proxy, PII-Maskierung vor jedem Cloud-Aufruf, EU-Hosting Frankfurt, Multi-Model (Claude, ChatGPT, Gemini, Mistral) und Experten-Agenten.'},
-    D:{n:'Cybersecurity',d:'Desktop-Agent + Live-Scans: Software-Inventar, Verschlüsselungsstatus, Schwachstellen-Monitoring sowie Website-/Domain-Scanner (TLS, OWASP-Header, DNS).'},
-    E:{n:'KI-Schulungen',d:'Kompetenzschulungen nach Art. 4 EU AI Act für alle Mitarbeiter, die KI einsetzen – mit Zertifikat.'}};
-  var PKG={
-    starter:{name:'Starter',price:99,mods:['B','E'],who:'Kleine Betriebe, die Datenschutz-Grundlagen und KI-Kompetenz aufbauen wollen.',feat:['KI-Kompetenzschulung','Erstberatung Datenschutz','E-Mail-Support']},
-    dsb_pur:{name:'DSB Pur',price:169,mods:['A','E'],dsb:true,who:'Unternehmen mit DSB-Pflicht, die einen externen Datenschutzbeauftragten benötigen.',feat:['Formaler DSB (Simon)','Behörden-Meldung','KI-Schulung']},
-    dsb_plus:{name:'DSB Plus',price:269,mods:['A','B','E'],dsb:true,who:'DSB-Pflicht plus laufende, aktive Datenschutz-Beratung.',feat:['Formaler DSB','Volle Datenschutz-Beratung','KI-Schulung']},
-    ki_sicher:{name:'KI Sicher',price:379,mods:['B','C','E'],featured:true,tok:'3 Mio.',tokuse:'erfahrungsgemäß ca. 5-8 aktive Nutzer (~30.000 Fragen oder ~500 ausführliche Agenten-Analysen pro Monat)',who:'Teams, die KI produktiv und DSGVO-konform einsetzen wollen.',feat:['KI-Gateway + PII-Schutz','Datenschutz-Beratung','KI-Schulung']},
-    security:{name:'Security',price:349,mods:['B','D','E'],who:'Betriebe mit Fokus auf IT-Sicherheit und NIS2.',feat:['Cybersecurity-Agent + Scans','Datenschutz-Beratung','KI-Schulung']},
-    tech:{name:'Tech Komplett',price:549,mods:['B','C','D','E'],tok:'7 Mio.',tokuse:'erfahrungsgemäß ca. 12-18 aktive Nutzer (~70.000 Fragen oder ~1.150 Agenten-Analysen pro Monat)',who:'Das volle Tech-Paket: KI-Integration und Cybersecurity zusammen.',feat:['KI-Gateway + Cybersecurity','Datenschutz-Beratung','KI-Schulung']},
-    schulung:{name:'Schulung Only',price:49,mods:['E'],who:'Nur die gesetzlich geforderte KI-Kompetenzschulung (Art. 4 EU AI Act).',feat:['KI-Kompetenzschulung','Art. 4 EU AI Act','Teilnahme-Zertifikat']}
-  };
+  // ---- Paket-Detail-Modal (liest aus window.XDAB_PW — eine Datenquelle) ----
+  function pwFind(key){
+    var PW=window.XDAB_PW||{}, hit=null;
+    ['plattform','fokus','mandat'].forEach(function(line){
+      (PW[line]||[]).forEach(function(p){ if(p.key===key){ hit={p:p,line:line}; } });
+    });
+    return hit;
+  }
   var modal=document.getElementById('pkgModal'), mbody=document.getElementById('pkgModalBody');
   function openModal(key){
-    var p=PKG[key]; if(!p) return;
-    var mods=p.mods.map(function(m){ return '<div class="pm-mod"><div class="pm-mt">Modul '+m+' · '+MODS[m].n+'</div><div class="pm-md">'+MODS[m].d+'</div></div>'; }).join('');
+    var hit=pwFind(key); if(!hit||!modal) return;
+    var p=hit.p;
+    var lineName=hit.line==='mandat'?'Linie Mandat — persönlich':'Linie Plattform — Software im Abo';
     var feats=p.feat.map(function(f){ return '<li>'+f+'</li>'; }).join('');
-    var hasKI = p.mods.indexOf('C')>=0;
-    var tokBox = hasKI
-      ? '<div class="pm-h">KI-Workspace \u00b7 Token</div><div class="pm-tok"><div class="pm-tok-big">'+(p.tok||'\u2014')+' <span>Token / Monat (Richtwert, Fair Use)</span></div><div class="pm-tok-d">Reicht für '+(p.tokuse||'')+'. Sind die inkludierten Token aufgebraucht, können Sie auf das lokale EU-Modell (ohne Aufpreis) umsteigen oder jederzeit ein Token-Paket dazubuchen. Die Premium-Modelle stehen im Folgemonat wieder voll bereit.</div></div>'
-      : '<div class="pm-h">KI-Workspace</div><div class="pm-tok"><div class="pm-tok-d">Dieses Paket enthält keinen KI-Workspace. Modul C (KI-Integration mit eigenem Token-Kontingent) ist jederzeit als Zusatz buchbar.</div></div>';
+    var tokBox = p.tok
+      ? '<div class="pm-h">KI-Workspace · Token</div><div class="pm-tok"><div class="pm-tok-big">'+p.tok+' <span>Token / Monat (Richtwert, Fair Use)</span></div><div class="pm-tok-d">Das entspricht '+(p.tokuse||'')+'. Sind die inkludierten Token aufgebraucht, können Sie auf das lokale EU-Modell (ohne Aufpreis) umsteigen oder ein Token-Paket dazubuchen. Die Premium-Modelle stehen im Folgemonat wieder voll bereit.</div></div>'
+      : '';
     var cta = p.dsb
       ? '<a class="btn btn-primary" href="mailto:kontakt@xdab-ki.de?subject=Erstgespräch%20'+encodeURIComponent(p.name)+'">Erstgespräch vereinbaren</a>'
-      : '<button class="btn btn-primary" data-add="'+key+'" data-name="'+p.name+'" data-price="'+p.price+'">In den Warenkorb</button><a class="btn" href="mailto:kontakt@xdab-ki.de?subject='+encodeURIComponent("Paket "+p.name)+'">Direkt anfragen</a>';
-    mbody.innerHTML='<div class="pm-tag">Paket</div><div class="pm-name">'+p.name+'</div>'
+      : '<a class="btn btn-primary" href="mailto:kontakt@xdab-ki.de?subject='+encodeURIComponent("Paket "+p.name)+'">Direkt anfragen</a><a class="btn" href="mailto:kontakt@xdab-ki.de?subject='+encodeURIComponent("Frage zu Paket "+p.name)+'">Frage stellen</a>';
+    mbody.innerHTML='<div class="pm-tag">'+lineName+'</div><div class="pm-name">'+p.name+'</div>'
       +'<div class="pm-price">'+p.price+' <span>&euro; / Monat</span></div>'
       +'<p class="pm-desc">'+p.who+'</p>'
       +(p.dsb?'<div class="pm-dsb">⚖ Mit formalem DSB-Mandat – Start per persönlichem Erstgespräch (Art. 38 DSGVO).</div>':'')
       +tokBox
-      +'<div class="pm-h">Enthaltene Module</div>'+mods
-      +'<div class="pm-h">Leistungen</div><ul class="pm-feats">'+feats+'</ul>'
+      +'<div class="pm-h">Enthalten</div><ul class="pm-feats">'+(p.plus?'<li><b>Alles aus '+p.plus+'</b></li>':'')+feats+'</ul>'
       +'<div class="pm-cta">'+cta+'</div>';
     modal.hidden=false; document.body.style.overflow='hidden';
   }
@@ -2651,10 +2609,10 @@ document.addEventListener('click',function(e){
   document.addEventListener('click',function(e){
     if(!e.target.closest) return;
     if(e.target.closest('#pkgModal')) return;
-    var card=e.target.closest('.pkg');
-    if(card && !e.target.closest('a,button')){ var k=card.getAttribute('data-pkg'); if(k&&PKG[k]) openModal(k); }
+    var card=e.target.closest('.pkg,[data-pkg].pw-fokus-card');
+    if(card && !e.target.closest('a,button')){ var k=card.getAttribute('data-pkg'); if(k) openModal(k); }
   });
-  // "Mehr Details" Hinweis an Karten anhängen (nach Konfigurator-Render)
+  // "Mehr Details" Hinweis an Karten anhängen
   function tagCards(){ document.querySelectorAll('.pkg[data-pkg]').forEach(function(c){ if(!c.querySelector('.pkg-more')){ var d=document.createElement('div'); d.className='pkg-more'; d.textContent='Details ansehen →'; c.appendChild(d); } }); }
   setTimeout(tagCards,300); setTimeout(tagCards,1200);
 })();
@@ -2820,5 +2778,55 @@ html{scroll-behavior:smooth;}
   setTimeout(function(){if(document.querySelectorAll(".xfx.xin").length===0){all.forEach(reveal);}},3500);
 })();
 </script>
+<style id="xdab-pw-css">
+/* ===== Pakete-Neustruktur (Zwei-Linien-Modell) + Serif-Markenklammer ===== */
+.sec-head h2, .h3-title, .pw-frage{ font-family:var(--font-serif) }
+.pw-section{ padding-bottom:26px }
+.pw-weiche{ max-width:880px; margin:0 auto }
+.pw-frage{ text-align:center; font-size:clamp(21px,3vw,28px); font-style:italic; color:var(--text); margin-bottom:26px }
+.pw-wahl{ display:grid; grid-template-columns:1fr 1fr; gap:18px }
+@media(max-width:720px){ .pw-wahl{ grid-template-columns:1fr } }
+.pw-card{ display:block; background:var(--card); border:1px solid var(--line); border-radius:16px; padding:26px 24px; transition:transform .2s var(--xfx-ease,ease), border-color .2s, box-shadow .2s }
+.pw-card:hover{ transform:translateY(-4px); border-color:var(--mint-line,#34d39955); box-shadow:0 14px 40px rgba(0,0,0,.35) }
+.pw-k{ font-weight:700; font-size:17px; margin-bottom:8px }
+.pw-t{ color:var(--muted); font-size:14px; line-height:1.55; margin-bottom:14px }
+.pw-go{ color:var(--mint); font-size:13.5px; font-weight:600 }
+.pw-law-hint{ text-align:center; color:var(--faint); font-size:13px; max-width:640px; margin:22px auto 0 }
+.pw-law-hint a{ color:var(--muted); text-decoration:underline }
+/* Plattform-Karten aufwerten */
+.pkgs{ align-items:stretch }
+.pkg{ transition:transform .2s var(--xfx-ease,ease), border-color .2s, box-shadow .2s }
+.pkg:hover{ transform:translateY(-4px); border-color:var(--line2); box-shadow:0 14px 40px rgba(0,0,0,.3); cursor:pointer }
+.pkg.featured{ border-color:var(--mint-line,#34d399); box-shadow:0 0 0 1px var(--mint-line,#34d39944), 0 18px 50px rgba(0,0,0,.35) }
+.pkg.featured .badge{ background:var(--mint) }
+.pkg .pkg-cta{ margin-top:auto; display:flex; gap:8px; flex-wrap:wrap }
+.pkgs-2{ max-width:760px; margin:0 auto }
+/* Fokus-Zeile */
+.pw-fokus{ margin-top:22px; border-top:1px dashed var(--line); padding-top:16px; display:flex; flex-direction:column; gap:10px }
+.pw-fokus-h{ font-size:12px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:var(--accent) }
+.pw-fokus-card{ display:flex; align-items:center; justify-content:space-between; gap:14px; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; transition:border-color .15s }
+.pw-fokus-card:hover{ border-color:var(--line2); cursor:pointer }
+.pw-fokus-card b{ font-size:15px }
+.pw-fokus-d{ color:var(--muted); font-size:13px; margin-top:2px }
+@media(max-width:600px){ .pw-fokus-card{ flex-direction:column; align-items:flex-start } }
+/* Mandat & Recht */
+.pw-mandat{ background:var(--bg2) }
+.pw-law{ max-width:760px; margin:26px auto 0; background:var(--card); border-left:3px solid var(--mint); border-radius:10px; padding:18px 20px }
+.pw-law-h{ font-weight:700; margin-bottom:8px }
+.pw-law p{ color:var(--muted); font-size:14px; line-height:1.6 }
+.pw-law a{ color:var(--text); text-decoration:underline }
+/* Projekte */
+.pw-proj-grid{ display:grid; grid-template-columns:1fr 1fr; gap:18px; max-width:880px; margin:0 auto }
+@media(max-width:720px){ .pw-proj-grid{ grid-template-columns:1fr } }
+.pw-proj{ background:var(--card); border:1px solid var(--line); border-radius:16px; padding:24px }
+.pw-proj h3{ font-size:17px; margin-bottom:8px }
+.pw-proj p{ color:var(--muted); font-size:14px; line-height:1.55; margin-bottom:16px }
+/* Glossar */
+.pw-glossar .pw-dl{ display:grid; grid-template-columns:1fr 1fr; gap:14px 26px; max-width:880px; margin:0 auto }
+@media(max-width:720px){ .pw-glossar .pw-dl{ grid-template-columns:1fr } }
+.pw-dl > div{ background:var(--card); border:1px solid var(--line); border-radius:12px; padding:16px 18px }
+.pw-dl dt{ font-weight:700; margin-bottom:5px }
+.pw-dl dd{ color:var(--muted); font-size:13.5px; line-height:1.55; margin:0 }
+</style>
 </body>
 </html>

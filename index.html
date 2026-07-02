@@ -1176,7 +1176,7 @@ html.xr-on .xr.xr-in{ opacity:1; transform:none }
 
 <section id="unikate" class="uq-section">
   <div class="wrap">
-    <div class="sec-head"><div class="eyebrow">Nur bei XDAB</div><h2>Systeme, die es woanders nicht gibt.</h2><p>Vier Beispiele aus dem echten Arbeitsplatz &mdash; keine Konzeptbilder.</p></div>
+    <div class="sec-head"><div class="eyebrow">Nur bei XDAB</div><h2>Systeme, die es woanders nicht gibt.</h2><p>Ein Blick in den echten Arbeitsplatz &mdash; echte Screenshots, keine Konzeptbilder.</p></div>
     <div class="uq-grid">
       <figure class="uq-card">
         <div class="uq-shot"><img src="assets/d-schwarm.webp" width="2880" height="1800" loading="lazy" alt="XDAB Experten-Team: 73 Fach-Spezialisten zur parallelen Auswahl"></div>
@@ -1193,6 +1193,14 @@ html.xr-on .xr.xr-in{ opacity:1; transform:none }
       <figure class="uq-card">
         <div class="uq-shot"><img src="assets/d-concierge.webp" width="2880" height="1800" loading="lazy" alt="XDAB Concierge: eingebaute Hilfe direkt im Arbeitsplatz"></div>
         <figcaption><b>Concierge</b>Erklärt Ihnen den Arbeitsplatz direkt in der App, beantwortet Fragen und führt Sie zum richtigen Werkzeug.</figcaption>
+      </figure>
+      <figure class="uq-card">
+        <div class="uq-shot"><img src="assets/d-audit.webp" width="2880" height="1800" loading="lazy" alt="XDAB Audit: Recht- und Security-Prüfung im Arbeitsplatz"></div>
+        <figcaption><b>Recht- &amp; Security-Audit</b>Prüft Vorhaben, Verträge und Websites auf rechtliche und technische Risiken &mdash; mit belegten Befunden statt Bauchgefühl.</figcaption>
+      </figure>
+      <figure class="uq-card">
+        <div class="uq-shot"><img src="assets/d-katalog.webp" width="2880" height="1800" loading="lazy" alt="XDAB Modellkatalog: transparente Übersicht der verfügbaren KI-Modelle"></div>
+        <figcaption><b>Modellkatalog</b>Alle verfügbaren Modelle offen nebeneinander &mdash; Sie sehen, was womit läuft, statt einer Blackbox.</figcaption>
       </figure>
     </div>
   </div>
@@ -2995,8 +3003,9 @@ html{scroll-behavior:smooth;}
 .pf-vdots i.on{ background:var(--mint); transform:scale(1.25) }
 .xfx.xin{ will-change:auto }
 /* Nur-bei-XDAB-Galerie */
-.uq-grid{ display:grid; grid-template-columns:1fr 1fr; gap:18px; max-width:980px; margin:0 auto }
-@media(max-width:760px){ .uq-grid{ grid-template-columns:1fr } }
+.uq-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; max-width:1080px; margin:0 auto }
+@media(max-width:900px){ .uq-grid{ grid-template-columns:1fr 1fr } }
+@media(max-width:600px){ .uq-grid{ grid-template-columns:1fr } }
 .uq-card{ margin:0; background:var(--card); border:1px solid var(--line); border-radius:16px; overflow:hidden; transition:transform .2s var(--xfx-ease,ease), border-color .2s, box-shadow .2s }
 .uq-card:hover{ transform:translateY(-4px); border-color:var(--line2); box-shadow:0 16px 44px rgba(0,0,0,.35) }
 .uq-shot{ aspect-ratio:16/10; overflow:hidden; border-bottom:1px solid var(--line); background:#0a0a0c }

@@ -24,7 +24,7 @@ class CDP {
 }
 
 (async () => {
-  const chrome = spawn(CHROME, ["--headless=new", "--disable-gpu", "--no-first-run", "--remote-debugging-port=" + PORT, "--hide-scrollbars", "--allow-file-access-from-files", "about:blank"], { stdio: "ignore" });
+  const chrome = spawn(CHROME, ["--headless=new", "--user-data-dir=/tmp/chrome-vs-"+PORT, "--disable-gpu", "--no-first-run", "--remote-debugging-port=" + PORT, "--hide-scrollbars", "--allow-file-access-from-files", "about:blank"], { stdio: "ignore" });
   let t;
   for (let i = 0; i < 50; i++) { try { const l = await httpJSON(`http://localhost:${PORT}/json`); t = l.find((x) => x.type === "page" && x.webSocketDebuggerUrl); if (t) break; } catch (_) {} await sleep(250); }
   const ws = new WebSocket(t.webSocketDebuggerUrl);

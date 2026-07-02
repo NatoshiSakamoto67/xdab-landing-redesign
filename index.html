@@ -1046,24 +1046,9 @@ html.xr-on .xr.xr-in{ opacity:1; transform:none }
   </div>
   <div class="h3-phone-wrap">
     <div class="h3-phone">
-      <div class="h3-pscreen"><div class="h3-island" aria-hidden="true"></div>
-        <div class="h3-ptop"><span class="h3-pmenu"></span><span class="h3-pmodel">Claude Opus 4.8 &middot; EU</span><span class="h3-pnew"></span></div>
-        <div class="h3-pconv">
-          <div class="h3-scene h3-scene-a">
-            <div class="h3-pq">Fasse diese 12-seitige Ausschreibung zusammen.</div>
-            <div class="h3-pa"><span class="h3-pax"><svg viewBox="0 0 512 512" fill="currentColor"><path d="M126 120 L196 120 L256 224 L226 256 L256 288 L196 392 L126 392 L210 256 Z"/><path d="M386 120 L316 120 L256 224 L286 256 L256 288 L316 392 L386 392 L302 256 Z"/></svg></span><div>Kernpunkte: Liefertermin 30.09., Angebotsfrist 12.08., Eignungsnachweis nötig. 3 Risiken markiert.<div class="h3-psrc">EU / Frankfurt &middot; 3 Belege</div></div></div>
-          </div>
-          <div class="h3-scene h3-scene-b">
-            <div class="h3-pq">Erstelle ein Angebot für Meyer GmbH.</div>
-            <div class="h3-pa"><span class="h3-pax"><svg viewBox="0 0 512 512" fill="currentColor"><path d="M126 120 L196 120 L256 224 L226 256 L256 288 L196 392 L126 392 L210 256 Z"/><path d="M386 120 L316 120 L256 224 L286 256 L256 288 L316 392 L386 392 L302 256 Z"/></svg></span><div>Angebot über 3 Beratungstage a 1.200 EUR &mdash; in Ihrem Layout, versandfertig als PDF.<div class="h3-psrc">Entwurf &middot; noch nicht gesendet</div></div></div>
-          </div>
-          <div class="h3-scene h3-scene-c">
-            <div class="h3-pq">Recherchiere die 3 günstigsten Edelstahl-Lieferanten.</div>
-            <div class="h3-pagent"><span class="dot"></span>Beschaffungs-Scout &middot; läuft<div class="h3-pbar"><span></span></div></div>
-            <div class="h3-pa"><span class="h3-pax"><svg viewBox="0 0 512 512" fill="currentColor"><path d="M126 120 L196 120 L256 224 L226 256 L256 288 L196 392 L126 392 L210 256 Z"/><path d="M386 120 L316 120 L256 224 L286 256 L256 288 L316 392 L386 392 L302 256 Z"/></svg></span><div>3 Anbieter verglichen: Preis, Lieferzeit, Mindestmenge. Tabelle erstellt.<div class="h3-psrc">Recherche &middot; EU-Suche</div></div></div>
-          </div>
-        </div>
-        <div class="h3-pcomp"><span>Nachricht schreiben&hellip;</span><span class="h3-psend pp-send"></span></div>
+      <div class="h3-pscreen h3-pscreen-shot"><div class="h3-island" aria-hidden="true"></div>
+        <img class="h3-shot h3-shot-a" src="assets/m-home.webp" width="780" height="1688" fetchpriority="high" alt="XDAB auf dem Smartphone: Startbildschirm mit Begrüßung und Arbeitsmodi">
+        <img class="h3-shot h3-shot-b" src="assets/m-chat.webp" width="780" height="1688" loading="lazy" alt="XDAB auf dem Smartphone: Antwort des Experten-Teams mit Art.-50-Kennzeichnung">
       </div>
     </div>
   </div>
@@ -1089,6 +1074,21 @@ html.xr-on .xr.xr-in{ opacity:1; transform:none }
       <article class="ov-card"><span class="ov-num">03</span><h3 class="ov-t">Software&#8209;on&#8209;Demand &amp; Betrieb</h3><p class="ov-d">Ihre KI&#8209;Modelle auf dedizierten EU&#8209;Servern &mdash; vollständig betrieben, gewartet und überwacht.</p><span class="ov-tag">Managed Service</span></article>
     </div>
     <div class="ov-trust"><span>EU&#8209;Hosting Frankfurt</span><span>Zertifizierter Datenschutzbeauftragter</span><span>NIS2&#8209;ready</span><span>E&#8209;Rechnung &amp; GoBD</span></div>
+  </div>
+</section>
+
+<section id="produkt" class="shot-section">
+  <div class="wrap">
+    <div class="sec-head"><div class="eyebrow">Das Produkt</div><h2>So sieht Ihr Arbeitsplatz aus.</h2><p>Keine Mockups &mdash; echte Bildschirmaufnahmen des XDAB&#8209;Workspace, am Desktop und unterwegs.</p></div>
+    <div class="shot-stage xfx">
+      <figure class="shot-browser">
+        <div class="shot-chrome" aria-hidden="true"><span></span><span></span><span></span><div class="shot-url">Ihr XDAB&#8209;Arbeitsplatz</div></div>
+        <img src="assets/d-home.webp" width="2880" height="1800" loading="lazy" alt="XDAB-Workspace am Desktop: Begrüßung, sieben Arbeitsmodi und Eingabefeld mit Modellwahl">
+      </figure>
+      <figure class="shot-phone" aria-hidden="true">
+        <img src="assets/m-menu.webp" width="780" height="1688" loading="lazy" alt="">
+      </figure>
+    </div>
   </div>
 </section>
 
@@ -2655,7 +2655,7 @@ document.addEventListener('click',function(e){
 <script id="lp-v6-js">
 (function(){
   'use strict';
-  var MAP={ top:'start', plattform:'start', einsatz:'start', warum:'start', ueberblick:'start', leistungen:'start', 'pakete-teaser':'start', 'kontakt-cta':'start',
+  var MAP={ top:'start', plattform:'start', einsatz:'start', warum:'start', ueberblick:'start', leistungen:'start', produkt:'start', 'pakete-teaser':'start', 'kontakt-cta':'start',
     showcase:'funktionen', ablauf:'funktionen', wissensbasis:'funktionen',
     'datenschutz-detail':'datenschutz', 'auftragsverarbeitung':'datenschutz', 'cyber-detail':'sicherheit',
     module:'pakete', konfigurator:'pakete', pakete:'pakete', mandat:'pakete', projekte:'pakete', token:'pakete', team:'pakete', fragerunde:'beratung', faq:'beratung' };
@@ -2794,7 +2794,7 @@ html{scroll-behavior:smooth;}
 <script id="xdab-fx-js">
 (function(){
   var reduce=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var sel=".sec-head,.ov-card,.pf-block,.pf-arrow-item,.cy-tile,.dt-tile,.tk-ic,.fr-qh,.fl-body";
+  var sel=".sec-head,.ov-card,.pf-block,.pf-arrow-item,.cy-tile,.dt-tile,.tk-ic,.fr-qh,.fl-body,.shot-stage,.cta-box";
   var content=[].slice.call(document.querySelectorAll(sel));
   var heads=[].slice.call(document.querySelectorAll(".sec-head h2,.pf-h2"));
   content.forEach(function(el){el.classList.add("xfx");});
@@ -2881,6 +2881,24 @@ html{scroll-behavior:smooth;}
 .cta-box p{ color:var(--muted); max-width:560px; margin:0 auto 24px }
 .cta-mail{ margin-top:18px; color:var(--faint); font-size:13.5px }
 .cta-mail a{ color:var(--muted); text-decoration:underline }
+/* Hero-Phone: echte Screenshots mit Crossfade */
+.h3-pscreen-shot{ overflow:hidden; background:#101012 }
+.h3-shot{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center bottom; display:block }
+.h3-shot-b{ opacity:0; animation:h3shot 16s ease-in-out infinite }
+@keyframes h3shot{ 0%,42%{opacity:0} 50%,92%{opacity:1} 100%{opacity:0} }
+.h3-island{ z-index:3 }
+@media (prefers-reduced-motion: reduce){ .h3-shot-b{ animation:none; opacity:0 } }
+/* Produkt-Showcase: Browser-Frame + überlappendes Phone */
+.shot-section{ padding-bottom:110px }
+.shot-stage{ position:relative; max-width:960px; margin:0 auto }
+.shot-browser{ margin:0; border:1px solid var(--line2); border-radius:14px; overflow:hidden; background:#0a0a0c; box-shadow:0 40px 100px -30px rgba(0,0,0,.65), 0 0 0 1px rgba(255,255,255,.03) }
+.shot-chrome{ display:flex; align-items:center; gap:6px; padding:10px 14px; background:#151518; border-bottom:1px solid var(--line) }
+.shot-chrome span{ width:10px; height:10px; border-radius:50%; background:#2e2e35 }
+.shot-url{ flex:1; text-align:center; font-size:12px; color:var(--faint); background:#0f0f11; border:1px solid var(--line); border-radius:7px; padding:4px 10px; margin:0 8%; max-width:420px }
+.shot-browser img{ display:block; width:100%; height:auto }
+.shot-phone{ position:absolute; right:-10px; bottom:-70px; width:190px; margin:0; border:6px solid #050506; border-radius:30px; overflow:hidden; background:#050506; box-shadow:0 30px 70px -18px rgba(0,0,0,.8), 0 0 0 1px rgba(255,255,255,.05); transform:rotate(2deg) }
+.shot-phone img{ display:block; width:100%; height:auto }
+@media(max-width:760px){ .shot-phone{ display:none } .shot-section{ padding-bottom:56px } }
 </style>
 </body>
 </html>

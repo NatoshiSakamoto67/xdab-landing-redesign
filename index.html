@@ -1410,13 +1410,13 @@ html.xr-on .xr.xr-in{ opacity:1; transform:none }
       <div class="sc-panel is-active" data-panel="01" role="tabpanel">
         <div class="sc-copy">
           <span class="sc-kicker">01 &mdash; Multi-Model-KI</span>
-          <h3>Fragen Sie. Vier Modelle antworten &mdash; alle über das EU-Gateway.</h3>
-          <p>Claude Opus 4.8, ChatGPT, Gemini und Mistral, erreichbar im selben Composer. Jeder Aufruf läuft über das EU-Gateway in AWS Bedrock Frankfurt &mdash; kein US-Drittland im Standardpfad.</p>
-          <p>Quellen aus der DSGVO-Websuche (SearXNG, Frankfurt) werden direkt am Ergebnis als Chip ausgewiesen. Kein Training auf Ihren API-Daten.</p>
+          <h3>Fragen Sie. Die besten Modelle antworten.</h3>
+          <p>Claude, ChatGPT, Gemini und Mistral &mdash; alle im selben Eingabefeld. Sie wechseln das Modell mit einem Klick, XDAB kümmert sich um den Rest.</p>
+          <p>Quellen aus der Websuche stehen direkt am Ergebnis. Und: Auf Ihren Daten wird nicht trainiert.</p>
           <ul class="sc-pts">
             <li><svg viewBox="0 0 24 24" class="sc-i"><path d="M20 6 9 17l-5-5"/></svg>Modellwechsel mit einem Klick</li>
-            <li><svg viewBox="0 0 24 24" class="sc-i"><path d="M20 6 9 17l-5-5"/></svg>Belegte Quellen, keine Halluzinations-Blackbox</li>
-            <li><svg viewBox="0 0 24 24" class="sc-i"><path d="M20 6 9 17l-5-5"/></svg>Vorlesen nach WCAG 2.2, 6 Sprachen</li>
+            <li><svg viewBox="0 0 24 24" class="sc-i"><path d="M20 6 9 17l-5-5"/></svg>Belegte Quellen statt Blackbox</li>
+            <li><svg viewBox="0 0 24 24" class="sc-i"><path d="M20 6 9 17l-5-5"/></svg>Liest Ihnen Ergebnisse auf Wunsch vor</li>
           </ul>
         </div>
         <div class="sc-mock">
@@ -1449,7 +1449,7 @@ html.xr-on .xr.xr-in{ opacity:1; transform:none }
           <span class="sc-kicker">02 &mdash; 1.880 Experten-Agenten</span>
           <h3>Spezialisierte Agenten plus Lotse, der den richtigen findet.</h3>
           <p>Vom Datenschutz-Audit bis zur Fördermittel-Recherche: 1.880 vorkonfigurierte Experten-Agenten stehen bereit. Der Lotse wählt den passenden, Sie starten per Klick.</p>
-          <p>Analysen laufen serverseitig auf Bedrock-EU weiter &mdash; auch wenn die App geschlossen ist. Das Ergebnis wird automatisch als Datei in Ihrer Ablage gespeichert.</p>
+          <p>Lange Analysen laufen im Hintergrund weiter &mdash; auch wenn Sie die App längst geschlossen haben. Das fertige Ergebnis liegt danach automatisch in Ihrer Ablage.</p>
           <ul class="sc-pts">
             <li><svg viewBox="0 0 24 24" class="sc-i"><path d="M20 6 9 17l-5-5"/></svg>Läuft im Hintergrund weiter</li>
             <li><svg viewBox="0 0 24 24" class="sc-i"><path d="M20 6 9 17l-5-5"/></svg>Auto-Speicherung als PDF/Word/Excel</li>
@@ -1496,7 +1496,7 @@ html.xr-on .xr.xr-in{ opacity:1; transform:none }
         <div class="sc-copy">
           <span class="sc-kicker">03 &mdash; PII-Maskierung</span>
           <h3>Namen und Orte verlassen Ihr Haus nie im Klartext.</h3>
-          <p>Vor jedem Cloud-Aufruf erkennt eine deutschsprachige NER-Pipeline (Presidio plus Flair) personenbezogene Daten und maskiert sie zu Platzhaltern wie [NAME] oder [ORT].</p>
+          <p>Bevor eine Anfrage Ihr Haus verlässt, erkennt XDAB automatisch Namen, Orte und andere persönliche Daten &mdash; und ersetzt sie durch Platzhalter wie [NAME] oder [ORT].</p>
           <p>Das Modell verarbeitet nur die maskierte Variante. Nach der Antwort werden die Platzhalter lokal wieder zurückgesetzt &mdash; vollautomatisch.</p>
           <ul class="sc-pts">
             <li><svg viewBox="0 0 24 24" class="sc-i"><path d="M20 6 9 17l-5-5"/></svg>Deutsche NER, kein generisches Regex</li>
@@ -1529,9 +1529,9 @@ html.xr-on .xr.xr-in{ opacity:1; transform:none }
       <div class="sc-panel" data-panel="04" role="tabpanel">
         <div class="sc-copy">
           <span class="sc-kicker">04 &mdash; Security-Scanner</span>
-          <h3>Echter Scan: TLS, Header, DNS &mdash; in einer Note zusammengefasst.</h3>
-          <p>Der Scanner prüft TLS-Enumeration, OWASP-Header, DNS (SPF/DKIM/DMARC/DNSSEC/CAA) und security.txt. Heraus kommt ein Mozilla-Observatory-Score von A+ bis F.</p>
-          <p>Ergänzt durch einen Desktop-Agenten für Endpoint, Software-Inventar und Verschlüsselung &mdash; Schwachstellen werden konkret benannt, nicht nur gezählt.</p>
+          <h3>Ein echter Sicherheits-Check &mdash; mit Schulnote.</h3>
+          <p>XDAB prüft Ihre Website und Ihre Domain auf die Punkte, die Angreifer zuerst suchen &mdash; und fasst alles in einer Note von A+ bis F zusammen.</p>
+          <p>Auf Wunsch schauen wir auch auf Ihre Rechner: Welche Software läuft, ist die Festplatte verschlüsselt, wo fehlt ein Update? Schwachstellen werden konkret benannt, nicht nur gezählt.</p>
           <ul class="sc-pts">
             <li><svg viewBox="0 0 24 24" class="sc-i"><path d="M20 6 9 17l-5-5"/></svg>Konkrete Befunde, keine Pauschalwerte</li>
             <li><svg viewBox="0 0 24 24" class="sc-i"><path d="M20 6 9 17l-5-5"/></svg>Wiederholbar, dokumentiert, exportierbar</li>
@@ -1565,11 +1565,11 @@ html.xr-on .xr.xr-in{ opacity:1; transform:none }
         <div class="sc-copy">
           <span class="sc-kicker">05 &mdash; RAG-Wissensbasis</span>
           <h3>Ihre Dokumente werden zur durchsuchbaren Wissensbasis.</h3>
-          <p>Laden Sie Verträge, Richtlinien und Handbücher hoch. Embeddings entstehen über Bedrock-EU, gespeichert in pgvector &mdash; die Suche findet die relevanten Passagen, nicht nur Dateinamen.</p>
+          <p>Laden Sie Verträge, Richtlinien und Handbücher hoch &mdash; XDAB findet die passende Stelle, nicht nur den Dateinamen. Fragen Sie einfach in Ihren eigenen Worten.</p>
           <p>Antworten zitieren die Fundstelle mit Quelle und Treffer-Score, sodass jede Aussage nachvollziehbar bleibt.</p>
           <ul class="sc-pts">
-            <li><svg viewBox="0 0 24 24" class="sc-i"><path d="M20 6 9 17l-5-5"/></svg>Semantische Suche statt Stichwort</li>
-            <li><svg viewBox="0 0 24 24" class="sc-i"><path d="M20 6 9 17l-5-5"/></svg>Embeddings EU-nativ, kein US-Pfad</li>
+            <li><svg viewBox="0 0 24 24" class="sc-i"><path d="M20 6 9 17l-5-5"/></svg>Versteht die Frage, nicht nur Stichworte</li>
+            <li><svg viewBox="0 0 24 24" class="sc-i"><path d="M20 6 9 17l-5-5"/></svg>Jede Antwort mit Fundstelle belegt</li>
           </ul>
         </div>
         <div class="sc-mock">
@@ -1615,7 +1615,7 @@ html.xr-on .xr.xr-in{ opacity:1; transform:none }
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
           </div>
           <h3>Eingabe im Workspace</h3>
-          <p>Mitarbeiter:in formuliert die Anfrage &mdash; ganz normal, im Klartext. Lokal im Browser, noch nichts verlassen das Haus.</p>
+          <p>Sie formulieren Ihre Anfrage &mdash; ganz normal, im Klartext. Lokal im Browser: Noch verlässt nichts das Haus.</p>
         </div>
       </div>
 

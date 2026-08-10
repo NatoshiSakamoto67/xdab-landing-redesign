@@ -291,6 +291,101 @@
 .bild-band::after{ content:''; position:absolute; inset:0;
                   background:linear-gradient(180deg,rgba(15,15,17,.55) 0%,rgba(15,15,17,.30) 45%,var(--bg) 100%) }
 @media (prefers-reduced-motion:reduce){ .ov-bild img,.ov-card:hover .ov-bild img{ transition:none; transform:none } }
+
+/* ================= Design-Sprache: ein Kasten heisst "hier kann man klicken" =================
+   Drei Gruppen, drei Regeln:
+   1. Anklickbar  -> darf Flaeche, Rahmen und Radius tragen, braucht sichtbare Zustaende.
+   2. Visualisierung (nachgebaute Produkt-Oberflaechen, Tabellen, Diagramme)
+      -> darf Rahmen tragen, aber zurueckhaltender als ein Schalter.
+   3. Alles andere -> blanke Schrift. Struktur entsteht durch Rhythmus und Haarlinien,
+      nicht durch Umrandung. Kein Inhalt sitzt ohne Grund in einer Box.            */
+
+/* --- 3. Stumme Kaesten verlieren ihre Huelle --- */
+.dt-tile, .cy-tile, .tk-card, .avv-card, .fl-step, .rg-step, .rg-conn-tile,
+.team3-card, .uq-card, .pw-law, .cy-note, .rg-foot-note, .fr-note, .dt-trust{
+  background:none !important; border:0 !important; border-radius:0 !important;
+  box-shadow:none !important;
+}
+.dt-tile, .cy-tile, .tk-card, .avv-card{
+  border-top:1px solid var(--line) !important; padding:19px 0 0 !important;
+}
+.fl-step, .rg-step{ padding:0 0 0 18px !important; border-left:1px solid var(--line2) !important }
+.rg-conn-tile, .team3-card{ padding:0 !important }
+.uq-card{ padding:0 !important }
+.uq-card figcaption{ padding:14px 2px 0 }
+.pw-law, .cy-note, .rg-foot-note, .fr-note, .dt-trust{ padding:16px 0 0 !important;
+  border-top:1px solid var(--line) !important }
+
+/* --- 3b. Pillen, die keine Schalter sind, werden zu ruhigen Textmarken --- */
+.pf-tag, .dt-badge, .ov-tag, .dt-chip, .avv-tag, .fl-tag, .fl-pill, .rg-pill-eu, .dt-tier{
+  background:none !important; border:0 !important; border-radius:0 !important;
+  padding:0 !important; font-weight:600;
+}
+.pf-tag, .dt-badge, .dt-chip{ color:var(--faint) !important }
+/* Trennzeichen statt Umrandung, damit eine Reihe lesbar bleibt */
+.pf-block-tags, .dt-badges, .dt-chips{ gap:0 !important; flex-wrap:wrap }
+.pf-block-tags > * + *::before, .dt-badges > * + *::before, .dt-chips > * + *::before{
+  content:"·"; color:var(--line2); margin:0 10px; font-weight:400;
+}
+
+/* --- 1. Was anklickbar ist, sieht auch danach aus und reagiert --- */
+.ov-card, .pw-fokus-card, .pw-proj{
+  cursor:pointer; text-decoration:none; color:inherit; display:flex; flex-direction:column;
+  transition:border-color .3s var(--xfx-ease), transform .3s var(--xfx-ease),
+             background-color .3s var(--xfx-ease);
+}
+.ov-card:hover, .pw-fokus-card:hover, .pw-proj:hover{
+  border-color:var(--mint-line); transform:translateY(-3px); background:rgba(52,211,153,.035);
+}
+.ov-card:focus-visible, .pw-fokus-card:focus-visible, .pw-proj:focus-visible{
+  outline:2px solid var(--mint); outline-offset:3px;
+}
+/* Der Pfeil macht die Klickbarkeit sichtbar, ohne Text zu kosten */
+.ov-card .ov-tag{ color:var(--mint) !important }
+.ov-card::after{ content:"→"; align-self:flex-start; margin-top:12px; color:var(--mint);
+  font-size:15px; transition:transform .3s var(--xfx-ease) }
+.ov-card:hover::after{ transform:translateX(5px) }
+
+/* --- 2. Visualisierungen bleiben, treten aber zurueck --- */
+.dt-table-frame, .avv-table-frame, .pf-table-frame{
+  background:none !important; border-radius:0 !important;
+  border:0 !important; border-top:1px solid var(--line2) !important;
+}
+
+/* --- Nachzuegler: die letzten stummen Kaesten --- */
+/* Hero-Abzeichen und die Aufgabenliste darunter sahen aus wie Schalter, waren aber keine */
+.h3-badge{ background:none !important; border:0 !important; border-radius:0 !important;
+  padding:0 !important; color:var(--faint); letter-spacing:.05em }
+.hc-usecases{ gap:0 !important; flex-wrap:wrap; justify-content:center }
+.hc-usecases span{ background:none !important; border:0 !important; border-radius:0 !important;
+  padding:0 !important; color:var(--muted) }
+.hc-usecases span + span::before{ content:"·"; color:var(--line2); margin:0 11px }
+
+/* Der Schluss-Aufruf braucht keine Box -- die Schaltflaechen darin sind der Aufruf */
+.cta-box{ background:none !important; border:0 !important; border-radius:0 !important;
+  box-shadow:none !important; padding:38px 0 0 !important; border-top:1px solid var(--line) !important }
+
+/* Sinnbilder und Namenskuerzel: das Zeichen zaehlt, nicht sein Rahmen */
+.dt-tile-icon, .dt-trust-icon, .cy-pillar-ic{
+  background:none !important; border:0 !important; border-radius:0 !important;
+  width:auto !important; height:auto !important; padding:0 !important; color:var(--mint) }
+.team3-av{ background:none !important; border-radius:0 !important; width:auto !important;
+  height:auto !important; color:var(--mint) !important; font-size:12px; letter-spacing:.14em;
+  font-weight:800; align-items:flex-start !important }
+.team3-av2{ color:var(--accent-strong) !important }
+
+/* Die zwei Saeulen tragen ihre Ordnung ueber die Nummer, nicht ueber eine Umrandung */
+.cy-pillar{ background:none !important; border:0 !important; border-radius:0 !important;
+  box-shadow:none !important; padding:22px 0 0 !important;
+  border-top:1px solid var(--line2) !important }
+
+/* Klartext-Eintraege: Begriff und Erklaerung, mehr braucht es nicht */
+.pw-dl > div{ background:none !important; border:0 !important; border-radius:0 !important;
+  padding:16px 0 0 !important; border-top:1px solid var(--line) !important }
+
+/* Zitat: Kante statt Kasten */
+.dt-quote{ background:none !important; border:0 !important; border-radius:0 !important;
+  border-left:2px solid var(--mint-line) !important; padding:2px 0 2px 20px !important }
 </style>
 <style id="xdab-landing-v3">
 :root{ --navy:#1b3a6b; --navy-soft:rgba(40,86,160,.14); --navy-line:rgba(80,130,210,.32); --mint:#34d399; --mint-soft:rgba(52,211,153,.12); --mint-line:rgba(52,211,153,.34); }
@@ -1277,9 +1372,9 @@ html.xr-on .xr.xr-in{ opacity:1; transform:none }
       <p class="pf-lead">Rechtssichere KI, Webentwicklung und Betrieb &mdash; drei Leistungen, ein Partner. KI&#8209;Verarbeitung in der EU (Frankfurt), begleitet vom externen Datenschutzbeauftragten aus Braunschweig.</p>
     </div>
     <div class="ov-grid">
-      <article class="ov-card"><div class="ov-bild"><img src="assets/bild/karte-01-plattform-640.webp" srcset="assets/bild/karte-01-plattform-640.webp 640w, assets/bild/karte-01-plattform-1280.webp 1280w" sizes="(max-width:780px) 100vw, 33vw" width="1536" height="1024" loading="lazy" decoding="async" alt="Serverschrank, einen Spalt geöffnet, mit Lichtschein — sinnbildlich für die KI-Plattform"></div><span class="ov-num">01</span><h3 class="ov-t">KI&#8209;Plattform &amp; Compliance</h3><p class="ov-d">DSGVO&#8209;konformer KI&#8209;Workspace, externer Datenschutzbeauftragter, Cybersecurity &amp; Schulungen &mdash; modular kombinierbar.</p><span class="ov-tag">Schulung 49 &euro; &middot; KI&#8209;Workspace 379 &euro;/Monat</span></article>
-      <article class="ov-card"><div class="ov-bild"><img src="assets/bild/karte-02-web-640.webp" srcset="assets/bild/karte-02-web-640.webp 640w, assets/bild/karte-02-web-1280.webp 1280w" sizes="(max-width:780px) 100vw, 33vw" width="1536" height="1024" loading="lazy" decoding="async" alt="Zeichentisch von oben mit leeren technischen Blättern — sinnbildlich für Webentwicklung"></div><span class="ov-num">02</span><h3 class="ov-t">Webseiten &amp; Web&#8209;Apps</h3><p class="ov-d">Moderne, datenschutzkonforme Websites und Web&#8209;Anwendungen &mdash; von Anfang an rechtssicher umgesetzt.</p><span class="ov-tag">Projektgeschäft</span></article>
-      <article class="ov-card"><div class="ov-bild"><img src="assets/bild/karte-03-betrieb-640.webp" srcset="assets/bild/karte-03-betrieb-640.webp 640w, assets/bild/karte-03-betrieb-1280.webp 1280w" sizes="(max-width:780px) 100vw, 33vw" width="1536" height="1024" loading="lazy" decoding="async" alt="Dunkler Geräteschrank mit einer Statusleuchte — sinnbildlich für den laufenden Betrieb"></div><span class="ov-num">03</span><h3 class="ov-t">Software&#8209;on&#8209;Demand &amp; Betrieb</h3><p class="ov-d">Ihre KI&#8209;Modelle auf dedizierten EU&#8209;Servern &mdash; vollständig betrieben, gewartet und überwacht.</p><span class="ov-tag">Managed Service</span></article>
+      <a class="ov-card" href="#pakete"><div class="ov-bild"><img src="assets/bild/karte-01-plattform-640.webp" srcset="assets/bild/karte-01-plattform-640.webp 640w, assets/bild/karte-01-plattform-1280.webp 1280w" sizes="(max-width:780px) 100vw, 33vw" width="1536" height="1024" loading="lazy" decoding="async" alt="Serverschrank, einen Spalt geöffnet, mit Lichtschein — sinnbildlich für die KI-Plattform"></div><span class="ov-num">01</span><h3 class="ov-t">KI&#8209;Plattform &amp; Compliance</h3><p class="ov-d">DSGVO&#8209;konformer KI&#8209;Workspace, externer Datenschutzbeauftragter, Cybersecurity &amp; Schulungen &mdash; modular kombinierbar.</p><span class="ov-tag">Schulung 49 &euro; &middot; KI&#8209;Workspace 379 &euro;/Monat</span></a>
+      <a class="ov-card" href="#projekte"><div class="ov-bild"><img src="assets/bild/karte-02-web-640.webp" srcset="assets/bild/karte-02-web-640.webp 640w, assets/bild/karte-02-web-1280.webp 1280w" sizes="(max-width:780px) 100vw, 33vw" width="1536" height="1024" loading="lazy" decoding="async" alt="Zeichentisch von oben mit leeren technischen Blättern — sinnbildlich für Webentwicklung"></div><span class="ov-num">02</span><h3 class="ov-t">Webseiten &amp; Web&#8209;Apps</h3><p class="ov-d">Moderne, datenschutzkonforme Websites und Web&#8209;Anwendungen &mdash; von Anfang an rechtssicher umgesetzt.</p><span class="ov-tag">Projektgeschäft</span></a>
+      <a class="ov-card" href="#projekte"><div class="ov-bild"><img src="assets/bild/karte-03-betrieb-640.webp" srcset="assets/bild/karte-03-betrieb-640.webp 640w, assets/bild/karte-03-betrieb-1280.webp 1280w" sizes="(max-width:780px) 100vw, 33vw" width="1536" height="1024" loading="lazy" decoding="async" alt="Dunkler Geräteschrank mit einer Statusleuchte — sinnbildlich für den laufenden Betrieb"></div><span class="ov-num">03</span><h3 class="ov-t">Software&#8209;on&#8209;Demand &amp; Betrieb</h3><p class="ov-d">Ihre KI&#8209;Modelle auf dedizierten EU&#8209;Servern &mdash; vollständig betrieben, gewartet und überwacht.</p><span class="ov-tag">Managed Service</span></a>
     </div>
     <div class="ov-trust"><span>EU&#8209;Verarbeitung Frankfurt</span><span>Externer Datenschutzbeauftragter</span><span>NIS2&#8209;ready</span><span>E&#8209;Rechnung &amp; GoBD</span></div>
   </div>

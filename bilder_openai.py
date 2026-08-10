@@ -23,8 +23,8 @@ MOTIVE = {
         "an architect's drafting table seen from directly overhead, blank technical "
         "drawing sheets neatly squared, a single brass ruler resting across them."),
     "karte-03-betrieb": ("1536x1024",
-        "a row of identical dark server units seated in a rack, exactly one small "
-        "petrol-teal status light lit among them."),
+        "a tall dark equipment cabinet seen straight on, its front panel lined with "
+        "evenly spaced horizontal slots, a single small teal indicator glowing."),
     "souveraenitaet": ("1536x1024",
         "a single heavy steel vault door, closed, set flush into a dark wall, a thin "
         "seam of petrol-teal light tracing its edge. Nothing else in frame."),

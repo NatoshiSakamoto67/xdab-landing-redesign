@@ -17,23 +17,23 @@ MODELLE = ("gpt-image-2", "gpt-image-1.5", "gpt-image-1")
 # Motiv -> (Groesse, Beschreibung). Quer = 1536x1024, hoch/quadratisch = 1024x1024.
 MOTIVE = {
     "karte-01-plattform": ("1536x1024",
-        "a matte dark server rack door standing slightly ajar, a thin blade of "
-        "petrol-teal light escaping from the gap. Nothing else in frame."),
+        "brushed dark steel, a single hairline seam of petrol-teal light running "
+        "diagonally across the grain."),
     "karte-02-web": ("1536x1024",
-        "an architect's drafting table seen from directly overhead, blank technical "
-        "drawing sheets neatly squared, a single brass ruler resting across them."),
+        "the stacked edges of many sheets of dark paper, one thin brass filament "
+        "laid across them, everything else falling into shadow."),
     "karte-03-betrieb": ("1536x1024",
-        "a tall dark equipment cabinet seen straight on, its front panel lined with "
-        "evenly spaced horizontal slots, a single small teal indicator glowing."),
+        "a dark perforated metal mesh in extreme close-up, exactly one aperture "
+        "lit from behind in petrol-teal."),
     "souveraenitaet": ("1536x1024",
-        "a single heavy steel vault door, closed, set flush into a dark wall, a thin "
-        "seam of petrol-teal light tracing its edge. Nothing else in frame."),
+        "the machined joint where two heavy dark metal plates meet, a thin line of "
+        "petrol-teal light escaping the seam between them."),
     "ueber-uns": ("1536x1024",
-        "a disused control desk with rows of toggle switches and brass detailing, "
-        "seen straight on, unlit and quiet."),
+        "dark woven linen at grazing light, a single brass fibre catching the "
+        "light among the weave."),
     "aktenwerk": ("1536x1024",
-        "a dark steel archive cabinet with one drawer half open, suspension files "
-        "inside, brass handle catching the light."),
+        "the cut edges of densely stacked dark card stock, raking light picking out "
+        "the layers, one edge faintly teal."),
 }
 
 

@@ -1,59 +1,53 @@
 # Bildsprache XDAB
 
-**Stand 10.08.2026** · Umsetzung von Punkt 4 des Redesign-Konzepts vom 05.08.
+**Stand 11.08.2026** · ersetzt die Fassung vom 10.08.
 
-Das Konzept nennt die Festlegung der Bildsprache den „wichtigsten Punkt" — wichtiger als
-die Wahl des Generators. Genau die steht hier. Die Motive selbst sind **noch nicht erzeugt**:
-Gemini meldet `prepayment credits are depleted`, Higgsfield antwortet nicht. Sobald eines der
-beiden Konten wieder Guthaben hat, erzeugt `bilder-erzeugen.sh` alle Motive in einem Durchlauf.
+## Die Entscheidung: keine dekorativen Bilder
 
-## Der gemeinsame Stil-Prompt
+Der erste Versuch waren sechs erzeugte Motive — Tresortür für Souveränität,
+Zeichentisch für Webentwicklung, Serverschrank für die Plattform. Das war
+Metaphern-Denken von der Stange. Der zweite Versuch ersetzte sie durch abstrakte
+Materialstudien (gebürsteter Stahl, Schnittkanten, Gewebe). Besser, aber die
+eigentliche Frage blieb unbeantwortet: **Wozu?**
 
-Er steht in `stil.txt` und wird **jedem** Motiv vorangestellt. Nur so sieht die Serie nach
-einer Handschrift aus statt nach Stock-Material:
+Ein Bild, das weder etwas belegt noch etwas bedient, ist Füllmaterial. Damit
+fällt es unter dieselbe Hausregel wie ein Kasten ohne Funktion. Deshalb tragen
+jetzt drei Dinge die Bildebene — und sonst nichts:
 
-> Dark, meticulously ordered still life photograph. Near-black ink background (#0f0f11).
-> Only muted petrol-teal and desaturated brass accents — no other colours whatsoever.
-> Strictly frontal, centred composition. Subject is technical hardware and objects —
-> never people, never faces, never hands.
-> One soft directional light from the left, deep falling shadows, fine film grain, subtle vignette.
-> Photographic realism, medium-format look, shallow depth of field.
-> Absolutely no text, no lettering, no logos, no screens, no user interface, no cartoon,
-> no 3D-render or CGI look. Editorial, serious, restrained, expensive.
+| Ebene | Was | Warum sie bleibt |
+|---|---|---|
+| **Produkt-Screenshots** | echte Bildschirmaufnahmen des Workspace | Sie sind der Beweis. Ohne sie ist die Seite Behauptung. |
+| **Höhenlinienfeld** | ein großes Hintergrundbild, 3840×2160 | Trägt den Hero, ohne mit Inhalt zu konkurrieren. |
+| **Sektions-Animationen** | vier Canvas-Varianten | Atmosphäre in Bewegung, kein Standbild. |
 
-Die Regeln dahinter, damit auch spätere Motive passen:
+## Das Höhenlinienfeld
 
-| Regel | Warum |
-|---|---|
-| Tinte als Grund, Petrol + Messing als einzige Akzente | Bindet an `--bg`, `--mint` und die Messing-Note der Marke |
-| Keine Gesichter, keine Hände | Menschenbilder kippen sofort ins Stock-Hafte |
-| Keine Bildschirme, keine Oberflächen | Echte Screenshots übernehmen diese Aufgabe — die Bilder sind Atmosphäre, kein Beweis |
-| Kein Text im Bild | Generatoren setzen Schrift unzuverlässig; Text kommt aus dem HTML |
-| Streng frontal oder sauber isometrisch | Ruhe statt Dynamik — passt zur Operations-Ästhetik |
-| Feines Filmkorn | Nimmt den digitalen Plastik-Look |
+Echt in **3840×2160 gerendert**, nicht hochgerechnet — deshalb auch auf 5K-Bildschirmen
+scharf. Erzeugt durch `verify/hintergrund-rendern.cjs`: gesätes Gitterrauschen mit weicher
+Interpolation, daraus Iso-Linien in 21 Bändern. Jede Linie hat einen scharfen Kern und
+eine weite Glut — nur diese Kombination wirkt bei 4K scharf statt bloß weich leuchtend.
 
-## Die Motive
+Dateigrößen: **244 KB** für 4K, **79 KB** für 1920. Dunkle Flächen komprimieren
+außerordentlich gut. `image-set()` liefert die kleine Fassung an einfache Bildschirme.
 
-| # | Slot | Motiv | Format | Status |
-|---|---|---|---|---|
-| 1 | Angebots-Karte 01 · KI-Plattform | Matte Serverschrank-Tür, einen Spalt offen, dünnes Petrol-Licht dringt heraus | 4:3 | offen |
-| 2 | Angebots-Karte 02 · Webseiten | Zeichentisch von direkt oben, leere technische Blätter, Messing-Lineal | 4:3 | offen |
-| 3 | Angebots-Karte 03 · Betrieb | Reihe identischer dunkler Server-Einschübe, eine Statusleuchte in Petrol | 4:3 | offen |
-| 4 | Souveränität / EU | Schwere Stahl-Tresortür, geschlossen, Petrol-Lichtnaht entlang der Kante | 16:9 | offen |
-| 5 | Über uns | Verlassenes Schaltpult mit Kippschaltern, Messing-Details | 16:9 | offen |
-| 6 | Aktenwerk (Reserve) | Archivschrank mit halb geöffneter Schublade, Hängeregistratur | 4:3 | offen |
-| 7 | **og:image** | — | 1200×630 | **fertig** |
+Warum Topografie: Sie ist die geospatiale Handschrift, aus der die Operations-Ästhetik
+kommt — und sie ist gegenstandslos. Kein Symbol, das man falsch verstehen kann.
 
-Motiv 7 ist bewusst **nicht** KI-erzeugt: Ein Vorschaubild lebt von scharfer Typografie, und
-genau die setzen Bildgeneratoren unzuverlässig. Es wird stattdessen aus dem eigenen
-Design-System gerendert (`assets/og-image.png`), inklusive der Netzgraph-Formensprache aus
-den Sektions-Hintergründen. Dadurch stimmt es garantiert mit der Marke überein.
+## Screenshots: lesbar, weil vergrößerbar
 
-## Einbau nach der Erzeugung
+Vorher wurden Aufnahmen mit 2880×1800 in Kacheln von 348–477 px gepresst — eine
+6- bis 8-fache Verkleinerung, in der nichts zu entziffern war, ohne jede Möglichkeit
+zu vergrößern. Jetzt:
 
-1. `bilder-erzeugen.sh` laufen lassen → PNGs in `assets/roh/`
-2. Nach AVIF **und** WebP wandeln, je in 640 / 1280 / 1920 px Breite
-3. Mit `srcset` einbinden, `width`/`height` immer setzen (sonst Layoutsprung)
-4. Nur das Hero-Motiv `fetchpriority="high"`, alle anderen `loading="lazy"`
+1. Im Fluss liegt eine **720-px-Vorschau** (259 KB für alle 13 statt 1,0 MB).
+2. Ein Klick öffnet die **volle Auflösung** im Vollbild, mit Bildunterschrift.
+3. Bedienbar mit Maus, Tastatur (Enter/Escape) und Screenreader.
 
-Die Bilder sind Atmosphäre. Die Beweislast trägt weiterhin der echte Screenshot.
+Damit folgt das Bild zugleich der Design-Regel: Was wie ein Bedienelement aussieht,
+ist eines.
+
+## Falls doch wieder erzeugte Bilder gebraucht werden
+
+`bilder_openai.py` (gpt-image-2) und `bilder-erzeugen.sh` (Gemini) bleiben im Repo,
+samt Stil-Prompt in `stil.txt`. Die Regel dazu: Ein erzeugtes Bild kommt nur auf die
+Seite, wenn es eine Frage beantwortet, die Text nicht beantworten kann.

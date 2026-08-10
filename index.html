@@ -160,12 +160,12 @@
 
 /* Akt 1 — der Auftrag tippt sich ein */
 .ph-prompt{ background:#17171b; border:1px solid #26262d; border-radius:9px; padding:9px 10px;
-            font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:10.5px; white-space:nowrap }
+            font-family:var(--font-mono); font-size:10.5px; white-space:nowrap }
 .ph-type{ display:inline-block; overflow:hidden; vertical-align:bottom; width:0 }
 .ph-caret{ display:inline-block; width:1px; height:11px; background:var(--accent-strong); vertical-align:-1px }
 
 /* Akt 2 — das PII-Gate maskiert */
-.ph-mask{ display:flex; align-items:center; gap:8px; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:10.5px }
+.ph-mask{ display:flex; align-items:center; gap:8px; font-family:var(--font-mono); font-size:10.5px }
 .ph-was{ color:var(--muted) }
 .ph-arr{ color:var(--faint) }
 .ph-blk{ display:inline-block; height:9px; width:0; overflow:hidden;
@@ -388,6 +388,39 @@
 .dt-quote{ background:none !important; border:0 !important; border-radius:0 !important;
   border-left:2px solid var(--mint-line) !important; padding:2px 0 2px 20px !important }
 
+
+/* ============ Lupe: Screenshots sind lesbar, weil man sie oeffnen kann ============
+   Ein Produktbild im Layout ist 6- bis 8-fach verkleinert -- darin ist nichts zu
+   entziffern. Statt es groesser zu setzen (dafuer fehlt der Platz) wird es
+   anklickbar: Vorschau im Fluss, volle Aufloesung im Vollbild.
+   Damit folgt es zugleich der Hausregel -- was wie ein Bedienelement aussieht,
+   ist eines.                                                                     */
+.lupe{ cursor:zoom-in; transition:opacity .3s var(--xfx-ease) }
+.lupe:hover{ opacity:.86 }
+.lupe:focus-visible{ outline:2px solid var(--mint); outline-offset:3px }
+/* Hinweis am Bildrahmen, damit die Moeglichkeit nicht verborgen bleibt */
+.uq-shot, .shot-stage, .pf-visual-frame{ position:relative }
+.uq-shot::after, .shot-stage::after, .pf-visual-frame::after{
+  content:"VERGRÖSSERN"; position:absolute; right:10px; bottom:10px; z-index:2;
+  font-family:var(--font-mono); font-size:9.5px; letter-spacing:.14em; color:var(--text);
+  background:rgba(10,10,12,.74); padding:5px 9px; pointer-events:none;
+  opacity:0; transition:opacity .3s var(--xfx-ease) }
+.uq-shot:hover::after, .shot-stage:hover::after, .pf-visual-frame:hover::after{ opacity:1 }
+
+.lupe-schicht{ position:fixed; inset:0; z-index:9999; background:rgba(8,8,10,.96);
+  display:flex; align-items:center; justify-content:center; flex-direction:column;
+  gap:18px; padding:34px; opacity:0; pointer-events:none; transition:opacity .28s var(--xfx-ease) }
+.lupe-schicht.auf{ opacity:1; pointer-events:auto }
+.lupe-schicht img{ max-width:100%; max-height:calc(100vh - 130px); object-fit:contain;
+  border:1px solid var(--line2) }
+.lupe-bu{ font-family:var(--font-mono); font-size:11.5px; letter-spacing:.06em;
+  color:var(--muted); max-width:80ch; text-align:center }
+.lupe-zu{ position:absolute; top:20px; right:22px; background:none; border:1px solid var(--line2);
+  color:var(--text); font-family:var(--font-mono); font-size:11px; letter-spacing:.12em;
+  padding:9px 14px; cursor:pointer; border-radius:2px }
+.lupe-zu:hover{ border-color:var(--mint); color:var(--mint) }
+@media (prefers-reduced-motion:reduce){ .lupe-schicht,.lupe{ transition:none } }
+
 </style>
 <style id="xdab-landing-v3">
 :root{ --navy:#1b3a6b; --navy-soft:rgba(40,86,160,.14); --navy-line:rgba(80,130,210,.32); --mint:#34d399; --mint-soft:rgba(52,211,153,.12); --mint-line:rgba(52,211,153,.34); }
@@ -605,7 +638,7 @@
 .fl-body h3{font-size:15.5px;font-weight:700;margin:0 0 6px;letter-spacing:-.01em;padding-right:34px}
 .fl-body p{font-size:13px;line-height:1.5;color:var(--muted);margin:0}
 .fl-body p strong{color:var(--accent-strong)}
-.fl-ph{color:#9cbcf0;font-weight:700;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.92em}
+.fl-ph{color:#9cbcf0;font-weight:700;font-family:var(--font-mono);font-size:.92em}
 
 .fl-arrow{display:none}
 
@@ -615,7 +648,7 @@
 .fl-tag{font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:6px;white-space:nowrap;flex:none}
 .fl-tag--in{background:var(--card2);color:var(--faint);border:1px solid var(--line2)}
 .fl-tag--out{background:var(--navy-soft);color:#9cbcf0;border:1px solid var(--line2)}
-.fl-mock-text{font-size:13px;color:var(--text);font-family:ui-monospace,SFMono-Regular,Menlo,monospace;min-width:0;overflow:hidden;text-overflow:ellipsis}
+.fl-mock-text{font-size:13px;color:var(--text);font-family:var(--font-mono);min-width:0;overflow:hidden;text-overflow:ellipsis}
 .fl-mock-mid{display:flex;justify-content:flex-start;padding:6px 0 6px 4px;color:#6f9be0}
 .fl-mock-mid svg{width:16px;height:16px}
 
@@ -1374,9 +1407,9 @@ html.xr-on .xr.xr-in{ opacity:1; transform:none }
       <p class="pf-lead">Rechtssichere KI, Webentwicklung und Betrieb &mdash; drei Leistungen, ein Partner. KI&#8209;Verarbeitung in der EU (Frankfurt), begleitet vom externen Datenschutzbeauftragten aus Braunschweig.</p>
     </div>
     <div class="ov-grid">
-      <a class="ov-card" href="#pakete"><div class="ov-bild"><img src="assets/bild/karte-01-plattform-640.webp" srcset="assets/bild/karte-01-plattform-640.webp 640w, assets/bild/karte-01-plattform-1280.webp 1280w" sizes="(max-width:780px) 100vw, 33vw" width="1536" height="1024" loading="lazy" decoding="async" alt="Serverschrank, einen Spalt geöffnet, mit Lichtschein — sinnbildlich für die KI-Plattform"></div><span class="ov-num">01</span><h3 class="ov-t">KI&#8209;Plattform &amp; Compliance</h3><p class="ov-d">DSGVO&#8209;konformer KI&#8209;Workspace, externer Datenschutzbeauftragter, Cybersecurity &amp; Schulungen &mdash; modular kombinierbar.</p><span class="ov-tag">Schulung 49 &euro; &middot; KI&#8209;Workspace 379 &euro;/Monat</span></a>
-      <a class="ov-card" href="#projekte"><div class="ov-bild"><img src="assets/bild/karte-02-web-640.webp" srcset="assets/bild/karte-02-web-640.webp 640w, assets/bild/karte-02-web-1280.webp 1280w" sizes="(max-width:780px) 100vw, 33vw" width="1536" height="1024" loading="lazy" decoding="async" alt="Zeichentisch von oben mit leeren technischen Blättern — sinnbildlich für Webentwicklung"></div><span class="ov-num">02</span><h3 class="ov-t">Webseiten &amp; Web&#8209;Apps</h3><p class="ov-d">Moderne, datenschutzkonforme Websites und Web&#8209;Anwendungen &mdash; von Anfang an rechtssicher umgesetzt.</p><span class="ov-tag">Projektgeschäft</span></a>
-      <a class="ov-card" href="#projekte"><div class="ov-bild"><img src="assets/bild/karte-03-betrieb-640.webp" srcset="assets/bild/karte-03-betrieb-640.webp 640w, assets/bild/karte-03-betrieb-1280.webp 1280w" sizes="(max-width:780px) 100vw, 33vw" width="1536" height="1024" loading="lazy" decoding="async" alt="Dunkler Geräteschrank mit einer Statusleuchte — sinnbildlich für den laufenden Betrieb"></div><span class="ov-num">03</span><h3 class="ov-t">Software&#8209;on&#8209;Demand &amp; Betrieb</h3><p class="ov-d">Ihre KI&#8209;Modelle auf dedizierten EU&#8209;Servern &mdash; vollständig betrieben, gewartet und überwacht.</p><span class="ov-tag">Managed Service</span></a>
+      <a class="ov-card" href="#pakete"><span class="ov-num">01</span><h3 class="ov-t">KI&#8209;Plattform &amp; Compliance</h3><p class="ov-d">DSGVO&#8209;konformer KI&#8209;Workspace, externer Datenschutzbeauftragter, Cybersecurity &amp; Schulungen &mdash; modular kombinierbar.</p><span class="ov-tag">Schulung 49 &euro; &middot; KI&#8209;Workspace 379 &euro;/Monat</span></a>
+      <a class="ov-card" href="#projekte"><span class="ov-num">02</span><h3 class="ov-t">Webseiten &amp; Web&#8209;Apps</h3><p class="ov-d">Moderne, datenschutzkonforme Websites und Web&#8209;Anwendungen &mdash; von Anfang an rechtssicher umgesetzt.</p><span class="ov-tag">Projektgeschäft</span></a>
+      <a class="ov-card" href="#projekte"><span class="ov-num">03</span><h3 class="ov-t">Software&#8209;on&#8209;Demand &amp; Betrieb</h3><p class="ov-d">Ihre KI&#8209;Modelle auf dedizierten EU&#8209;Servern &mdash; vollständig betrieben, gewartet und überwacht.</p><span class="ov-tag">Managed Service</span></a>
     </div>
     <div class="ov-trust"><span>EU&#8209;Verarbeitung Frankfurt</span><span>Externer Datenschutzbeauftragter</span><span>NIS2&#8209;ready</span><span>E&#8209;Rechnung &amp; GoBD</span></div>
   </div>
@@ -1388,10 +1421,10 @@ html.xr-on .xr.xr-in{ opacity:1; transform:none }
     <div class="shot-stage xfx">
       <figure class="shot-browser">
         <div class="shot-chrome" aria-hidden="true"><span></span><span></span><span></span><div class="shot-url">Ihr XDAB&#8209;Arbeitsplatz</div></div>
-        <img src="assets/d-home.webp" width="2880" height="1800" loading="lazy" alt="XDAB-Workspace am Desktop: Begrüßung, sieben Arbeitsmodi und Eingabefeld mit Modellwahl">
+        <img class="lupe" src="assets/vorschau/d-home-720.webp" data-gross="assets/d-home.webp" width="2880" height="1800" loading="lazy" alt="XDAB-Workspace am Desktop: Begrüßung, sieben Arbeitsmodi und Eingabefeld mit Modellwahl">
       </figure>
       <figure class="shot-phone" aria-hidden="true">
-        <img src="assets/m-menu.webp" width="780" height="1688" loading="lazy" alt="">
+        <img class="lupe" src="assets/vorschau/m-menu-720.webp" data-gross="assets/m-menu.webp" width="780" height="1688" loading="lazy" alt="">
       </figure>
     </div>
   </div>
@@ -1561,10 +1594,10 @@ html.xr-on .xr.xr-in{ opacity:1; transform:none }
     </div>
     <aside class="pf-visual" aria-hidden="true">
       <div class="pf-visual-frame">
-        <img class="pf-vshot is-on" src="assets/d-home.webp" width="2880" height="1800" loading="lazy" alt="">
-        <img class="pf-vshot" src="assets/d-agenten.webp" width="2880" height="1800" loading="lazy" alt="">
-        <img class="pf-vshot" src="assets/d-security.webp" width="2880" height="1800" loading="lazy" alt="">
-        <img class="pf-vshot" src="assets/d-vergleich.webp" width="2880" height="1800" loading="lazy" alt="">
+        <img class="lupe pf-vshot is-on" src="assets/vorschau/d-home-720.webp" data-gross="assets/d-home.webp" width="2880" height="1800" loading="lazy" alt="">
+        <img class="lupe pf-vshot" src="assets/vorschau/d-agenten-720.webp" data-gross="assets/d-agenten.webp" width="2880" height="1800" loading="lazy" alt="">
+        <img class="lupe pf-vshot" src="assets/vorschau/d-security-720.webp" data-gross="assets/d-security.webp" width="2880" height="1800" loading="lazy" alt="">
+        <img class="lupe pf-vshot" src="assets/vorschau/d-vergleich-720.webp" data-gross="assets/d-vergleich.webp" width="2880" height="1800" loading="lazy" alt="">
       </div>
       <div class="pf-vdots"><i class="on"></i><i></i><i></i><i></i></div>
     </aside>
@@ -1782,27 +1815,27 @@ html.xr-on .xr.xr-in{ opacity:1; transform:none }
     <div class="sec-head"><div class="eyebrow">Nur bei XDAB</div><h2>Systeme, die es woanders nicht gibt.</h2><p>Ein Blick in den echten Arbeitsplatz &mdash; echte Screenshots, keine Konzeptbilder.</p></div>
     <div class="uq-grid">
       <figure class="uq-card">
-        <div class="uq-shot"><img src="assets/d-schwarm.webp" width="2880" height="1800" loading="lazy" alt="XDAB Experten-Team: 73 Fach-Spezialisten zur parallelen Auswahl"></div>
+        <div class="uq-shot"><img class="lupe" src="assets/vorschau/d-schwarm-720.webp" data-gross="assets/d-schwarm.webp" width="2880" height="1800" loading="lazy" alt="XDAB Experten-Team: 73 Fach-Spezialisten zur parallelen Auswahl"></div>
         <figcaption><b>Experten&#8209;Team</b>Bis zu 73 Fach&#8209;Spezialisten arbeiten parallel &mdash; eine abgestimmte Antwort statt vieler Einzelmeinungen.</figcaption>
       </figure>
       <figure class="uq-card">
-        <div class="uq-shot"><img src="assets/d-kosten.webp" width="2880" height="1800" loading="lazy" alt="XDAB Kosten-Killer: Kostenkontrolle für jede KI-Anfrage"></div>
+        <div class="uq-shot"><img class="lupe" src="assets/vorschau/d-kosten-720.webp" data-gross="assets/d-kosten.webp" width="2880" height="1800" loading="lazy" alt="XDAB Kosten-Killer: Kostenkontrolle für jede KI-Anfrage"></div>
         <figcaption><b>Kosten&#8209;Killer</b>Sie sehen jede KI&#8209;Ausgabe, bevor sie entsteht &mdash; Budget&#8209;Wächter statt böser Überraschung.</figcaption>
       </figure>
       <figure class="uq-card">
-        <div class="uq-shot"><img src="assets/d-tierrouter.webp" width="2880" height="1800" loading="lazy" alt="XDAB Tier-Router: automatische Modellwahl nach Aufgabe"></div>
+        <div class="uq-shot"><img class="lupe" src="assets/vorschau/d-tierrouter-720.webp" data-gross="assets/d-tierrouter.webp" width="2880" height="1800" loading="lazy" alt="XDAB Tier-Router: automatische Modellwahl nach Aufgabe"></div>
         <figcaption><b>Tier&#8209;Router</b>Wählt automatisch das günstigste Modell, das Ihre Aufgabe wirklich schafft.</figcaption>
       </figure>
       <figure class="uq-card">
-        <div class="uq-shot"><img src="assets/d-concierge.webp" width="2880" height="1800" loading="lazy" alt="XDAB Concierge: eingebaute Hilfe direkt im Arbeitsplatz"></div>
+        <div class="uq-shot"><img class="lupe" src="assets/vorschau/d-concierge-720.webp" data-gross="assets/d-concierge.webp" width="2880" height="1800" loading="lazy" alt="XDAB Concierge: eingebaute Hilfe direkt im Arbeitsplatz"></div>
         <figcaption><b>Concierge</b>Erklärt den Arbeitsplatz direkt in der App und führt Sie zum richtigen Werkzeug.</figcaption>
       </figure>
       <figure class="uq-card">
-        <div class="uq-shot"><img src="assets/d-audit.webp" width="2880" height="1800" loading="lazy" alt="XDAB Audit: Recht- und Security-Prüfung im Arbeitsplatz"></div>
+        <div class="uq-shot"><img class="lupe" src="assets/vorschau/d-audit-720.webp" data-gross="assets/d-audit.webp" width="2880" height="1800" loading="lazy" alt="XDAB Audit: Recht- und Security-Prüfung im Arbeitsplatz"></div>
         <figcaption><b>Recht- &amp; Security-Audit</b>Prüft Verträge und Websites auf rechtliche und technische Risiken &mdash; mit belegten Befunden.</figcaption>
       </figure>
       <figure class="uq-card">
-        <div class="uq-shot"><img src="assets/d-katalog.webp" width="2880" height="1800" loading="lazy" alt="XDAB Modellkatalog: transparente Übersicht der verfügbaren KI-Modelle"></div>
+        <div class="uq-shot"><img class="lupe" src="assets/vorschau/d-katalog-720.webp" data-gross="assets/d-katalog.webp" width="2880" height="1800" loading="lazy" alt="XDAB Modellkatalog: transparente Übersicht der verfügbaren KI-Modelle"></div>
         <figcaption><b>Modellkatalog</b>Alle Modelle offen nebeneinander statt Blackbox.</figcaption>
       </figure>
     </div>
@@ -1931,7 +1964,6 @@ html.xr-on .xr.xr-in{ opacity:1; transform:none }
 </section>
 
 <section id="wissensbasis" class="rg-section">
-  <div class="bild-band" style="--bild-pos:center 50%"><img src="assets/bild/aktenwerk-1280.webp" srcset="assets/bild/aktenwerk-640.webp 640w, assets/bild/aktenwerk-1280.webp 1280w" sizes="100vw" width="1536" height="1024" loading="lazy" decoding="async" alt="Archivschrank mit halb geöffneter Schublade und Hängeregistratur — sinnbildlich für die eigene Wissensbasis"></div>
   <div class="wrap">
     <div class="sec-head rg-head">
       <span class="eyebrow rg-eyebrow">Wissensbasis &middot; Vektordatenbank</span>
@@ -2082,7 +2114,6 @@ html.xr-on .xr.xr-in{ opacity:1; transform:none }
 </div>
 <div class="lp-page" data-page="datenschutz">
 <section id="datenschutz-detail" class="has-bgfx dt-section">
-  <div class="bild-band"><img src="assets/bild/souveraenitaet-1280.webp" srcset="assets/bild/souveraenitaet-640.webp 640w, assets/bild/souveraenitaet-1280.webp 1280w" sizes="100vw" width="1536" height="1024" loading="lazy" decoding="async" alt="Geschlossene Stahl-Tresortür mit Lichtnaht — sinnbildlich für Datensouveränität"></div>
   <canvas class="bgfx" data-fx="strom" aria-hidden="true"></canvas>
   <div class="wrap">
     <div class="dt-head">
@@ -2583,7 +2614,6 @@ html.xr-on .xr.xr-in{ opacity:1; transform:none }
 </div></details>
 
 <section id="team" class="team3">
-  <div class="bild-band" style="--bild-pos:center 55%"><img src="assets/bild/ueber-uns-1280.webp" srcset="assets/bild/ueber-uns-640.webp 640w, assets/bild/ueber-uns-1280.webp 1280w" sizes="100vw" width="1536" height="1024" loading="lazy" decoding="async" alt="Schaltpult mit Kippschaltern und Messing-Details — sinnbildlich für die Menschen hinter XDAB"></div>
   <div class="wrap">
   <div class="sec-head"><div class="eyebrow">Wer dahinter steht</div><h2>Das Team hinter XDAB &mdash; Compliance, die hält.</h2></div>
   <div class="team3-grid">
@@ -3382,6 +3412,28 @@ th{ font-weight:400; letter-spacing:.1em }
 /* Fliesstext bleibt ruhig, damit der Kontrast wirkt */
 p, li, td{ font-family:var(--font-sans) }
 .pf-lead, .sc-lead, .dt-lead, .cy-lead, .rg-lead{ font-weight:400; letter-spacing:-.005em }
+/* ============ Grosses Hintergrundbild: Hoehenlinienfeld in echtem 4K ============
+   Nicht hochgerechnet, sondern in 3840x2160 gerendert -- deshalb auch auf grossen
+   und hochaufloesenden Bildschirmen scharf. 244 KB, weil dunkle Flaechen sehr gut
+   komprimieren. image-set liefert die kleine Fassung an einfache Bildschirme.     */
+.hero3::before{
+  content:""; position:absolute; inset:0; z-index:0; pointer-events:none;
+  background-image:image-set(url("assets/hintergrund-1920.webp") 1x,
+                             url("assets/hintergrund-4k.webp") 2x);
+  background-image:-webkit-image-set(url("assets/hintergrund-1920.webp") 1x,
+                                     url("assets/hintergrund-4k.webp") 2x);
+  background-size:cover; background-position:center 32%;
+  opacity:.62;
+}
+/* Kein pauschales position:relative auf die Kinder -- das nimmt der absolut
+   gesetzten Kaertchen-Wand ihre Positionierung und schiebt sie in den Textfluss.
+   Das ::before liegt ohnehin hinter allen echten Kindern.
+   Die Wand tritt nur in der Deckkraft zurueck, damit das Feld traegt. */
+.hc-bg{ opacity:.34 !important }
+.hero3::before{ opacity:1 }
+/* Abdunklung nur dort stark, wo Text steht -- aussen darf das Feld atmen */
+.hc-overlay{ background:radial-gradient(128% 92% at 50% 30%,
+  rgba(15,15,17,.92) 0%, rgba(15,15,17,.60) 46%, rgba(15,15,17,.16) 100%) !important }
 </style>
 <script id="xdab-phone-tilt-js">
 (function(){
@@ -3552,6 +3604,48 @@ p, li, td{ font-family:var(--font-sans) }
 (function(){
   var offen=document.querySelector('.sc-panel.is-active');
   if(offen){ offen.classList.add('stagger','in'); }
+})();
+</script>
+<script id="xdab-lupe-js">
+(function(){
+  'use strict';
+  var bilder=[].slice.call(document.querySelectorAll('img.lupe[data-gross]'));
+  if(!bilder.length) return;
+  var schicht=document.createElement('div');
+  schicht.className='lupe-schicht'; schicht.setAttribute('role','dialog');
+  schicht.setAttribute('aria-modal','true'); schicht.hidden=true;
+  schicht.innerHTML='<button class="lupe-zu" type="button">SCHLIESSEN ✕</button>'
+    +'<img alt=""><p class="lupe-bu"></p>';
+  document.body.appendChild(schicht);
+  var gross=schicht.querySelector('img'), bu=schicht.querySelector('.lupe-bu'),
+      zu=schicht.querySelector('.lupe-zu'), zurueck=null;
+
+  function oeffnen(bild){
+    zurueck=bild;
+    gross.src=bild.getAttribute('data-gross');
+    gross.alt=bild.alt||'';
+    bu.textContent=bild.alt||'';
+    schicht.hidden=false;
+    requestAnimationFrame(function(){ schicht.classList.add('auf'); zu.focus(); });
+    document.body.style.overflow='hidden';
+  }
+  function schliessen(){
+    schicht.classList.remove('auf');
+    document.body.style.overflow='';
+    setTimeout(function(){ schicht.hidden=true; gross.removeAttribute('src'); },280);
+    if(zurueck) zurueck.focus();
+  }
+  bilder.forEach(function(b){
+    b.tabIndex=0; b.setAttribute('role','button');
+    b.setAttribute('aria-label',(b.alt?b.alt+' — ':'')+'vergrößern');
+    b.addEventListener('click',function(){ oeffnen(b); });
+    b.addEventListener('keydown',function(e){
+      if(e.key==='Enter'||e.key===' '){ e.preventDefault(); oeffnen(b); } });
+  });
+  zu.addEventListener('click',schliessen);
+  schicht.addEventListener('click',function(e){ if(e.target===schicht) schliessen(); });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape' && !schicht.hidden) schliessen(); });
 })();
 </script>
 </body>

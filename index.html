@@ -113,6 +113,27 @@
   .foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
   .foot a{color:var(--muted)}.foot a:hover{color:var(--text)}
   .foot-links{display:flex;gap:18px;flex-wrap:wrap}
+
+/* --- Falt-Bloecke "Tiefe": Landing bleibt kurz, Belege bleiben erreichbar --- */
+.tiefe{ border-top:1px solid var(--line); background:linear-gradient(180deg,var(--bg) 0%,var(--bg2) 100%) }
+.tiefe > .tiefe-sum{ list-style:none; cursor:pointer; display:flex; align-items:center; gap:16px;
+  max-width:var(--maxw); margin:0 auto; padding:26px 24px; color:var(--muted);
+  transition:color .25s var(--xfx-ease) }
+.tiefe > .tiefe-sum::-webkit-details-marker{ display:none }
+.tiefe > .tiefe-sum:hover,.tiefe > .tiefe-sum:focus-visible{ color:var(--text) }
+.tiefe-k{ font-size:12px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; color:var(--accent);
+  flex:0 0 auto; padding-right:16px; border-right:1px solid var(--line2) }
+.tiefe-t{ flex:1 1 auto; font-size:15px; line-height:1.5 }
+.tiefe-i{ flex:0 0 auto; width:26px; height:26px; position:relative; border:1px solid var(--line2); border-radius:50% }
+.tiefe-i::before,.tiefe-i::after{ content:''; position:absolute; inset:50% 7px auto 7px; height:1px; background:currentColor;
+  transform-origin:center; transition:transform .3s var(--xfx-ease) }
+.tiefe-i::after{ transform:rotate(90deg) }
+.tiefe[open] > .tiefe-sum{ color:var(--text) }
+.tiefe[open] .tiefe-i::after{ transform:rotate(0deg) }
+.tiefe[open] .tiefe-i{ border-color:var(--accent-strong) }
+.tiefe-body > section:first-of-type{ border-top:1px solid var(--line) }
+@media (prefers-reduced-motion:reduce){ .tiefe-i::before,.tiefe-i::after{ transition:none } }
+@media (max-width:640px){ .tiefe > .tiefe-sum{ padding:20px 18px; gap:12px } .tiefe-t{ font-size:14px } }
 </style>
 <style id="xdab-landing-v3">
 :root{ --navy:#1b3a6b; --navy-soft:rgba(40,86,160,.14); --navy-line:rgba(80,130,210,.32); --mint:#34d399; --mint-soft:rgba(52,211,153,.12); --mint-line:rgba(52,211,153,.34); }
@@ -1022,7 +1043,7 @@ html.xr-on .xr.xr-in{ opacity:1; transform:none }
 <header><div class="wrap nav">
   <a class="logo" href="#top"><span class="x"><svg viewBox="0 0 512 512" fill="currentColor" width="20" height="20"><path d="M126 120 L196 120 L256 224 L226 256 L256 288 L196 392 L126 392 L210 256 Z"/><path d="M386 120 L316 120 L256 224 L286 256 L256 288 L316 392 L386 392 L302 256 Z"/></svg></span>XDAB</a>
   <nav class="nav-links">
-    <a href="#plattform">Plattform</a><a href="#showcase">Funktionen</a><a href="#datenschutz-detail">Datenschutz</a><a href="#cyber-detail">Sicherheit</a><a href="#leistungen">Leistungen</a><a href="#pakete">Pakete</a><a href="#fragerunde">Beratung</a>
+    <a href="#plattform">Plattform</a><a href="#datenschutz-detail">Datenschutz</a><a href="#cyber-detail">Sicherheit</a><a href="#projekte">Leistungen</a><a href="#pakete">Pakete</a><a href="#fragerunde">Beratung</a>
   </nav>
   <div class="nav-cta">
     <a class="btn nav-ws" href="mailto:kontakt@xdab-ki.de?subject=Anfrage%20XDAB">Kontakt</a>
@@ -1092,221 +1113,9 @@ html.xr-on .xr.xr-in{ opacity:1; transform:none }
   </div>
 </section>
 
-<section id="plattform" class="pf-section">
-  <div class="wrap">
-    <div class="sec-head pf-head">
-      <span class="eyebrow pf-eyebrow">Die Plattform</span>
-      <h2 class="pf-h2">Eine Plattform.<br>Vier souveräne Bausteine.</h2>
-      <p class="pf-lead">KI, die für Sie arbeitet &mdash; und Datenschutz, der von Anfang an mitgebaut ist. Vier Bausteine, ein Partner, gemacht für den deutschen Mittelstand.</p>
-    </div>
 
-    <div class="pf-scrolly">
-    <div class="pf-blocks">
-      <!-- 0.1 -->
-      <article class="pf-block">
-        <div class="pf-block-num">/0.1</div>
-        <div class="pf-block-body">
-          <h3 class="pf-block-title">KI&#8209;Workspace</h3>
-          <p class="pf-block-text">Ein Arbeitsplatz für alles: fragen, schreiben, analysieren &mdash; mit den besten KI&#8209;Modellen. Namen und Kundendaten werden automatisch unkenntlich gemacht, bevor irgendetwas Ihr Haus verlässt. Ergebnisse kommen fertig als PDF, Word oder Excel heraus.</p>
-          <div class="pf-block-tags">
-            <span class="pf-tag">Die besten Modelle</span>
-            <span class="pf-tag">Automatischer Datenschutz</span>
-            <span class="pf-tag">Export in Ihre Formate</span>
-          </div>
-        </div>
-      </article>
-      <div class="pf-divider"></div>
 
-      <!-- 0.2 -->
-      <article class="pf-block">
-        <div class="pf-block-num">/0.2</div>
-        <div class="pf-block-body">
-          <h3 class="pf-block-title">Experten&#8209;Agenten</h3>
-          <p class="pf-block-text">Beschreiben Sie Ihre Aufgabe &mdash; der Experten&#8209;Lotse stellt das passende Fachteam zusammen, von der Arztpraxis bis zur Kanzlei. Lange Analysen laufen im Hintergrund weiter und liegen fertig für Sie bereit, auch wenn Sie die App längst geschlossen haben.</p>
-          <div class="pf-block-tags">
-            <span class="pf-tag">Experten&#8209;Lotse</span>
-            <span class="pf-tag">1.880 Fachprofile</span>
-            <span class="pf-tag">Arbeitet im Hintergrund weiter</span>
-          </div>
-        </div>
-      </article>
-      <div class="pf-divider"></div>
 
-      <!-- 0.3 -->
-      <article class="pf-block">
-        <div class="pf-block-num">/0.3</div>
-        <div class="pf-block-body">
-          <h3 class="pf-block-title">Cybersecurity</h3>
-          <p class="pf-block-text">Wir prüfen Ihre Website und Ihre Geräte &mdash; von außen wie von innen &mdash; und sagen Ihnen mit einer klaren Note von A+ bis F, wo Sie stehen und was als Nächstes zu tun ist. Ganz ohne Fachchinesisch.</p>
-          <div class="pf-block-tags">
-            <span class="pf-tag">Website&#8209;Check mit Note</span>
-            <span class="pf-tag">Geräte im Blick</span>
-            <span class="pf-tag">Klare To&#8209;dos</span>
-          </div>
-        </div>
-      </article>
-      <div class="pf-divider"></div>
-
-      <!-- 0.4 -->
-      <article class="pf-block">
-        <div class="pf-block-num">/0.4</div>
-        <div class="pf-block-body">
-          <h3 class="pf-block-title">Datenschutz&#8209;Beratung</h3>
-          <p class="pf-block-text">Echte Menschen statt Hotline: Audits, Verarbeitungsverzeichnis und Schulungen für Ihr Team &mdash; damit KI und Datenschutz bei Ihnen von Anfang an zusammenpassen.</p>
-          <div class="pf-block-tags">
-            <span class="pf-tag">Persönliche Beratung</span>
-            <span class="pf-tag">Audits &amp; VVT</span>
-            <span class="pf-tag">Pflicht&#8209;Schulungen (Art. 4)</span>
-          </div>
-        </div>
-      </article>
-    </div>
-    <aside class="pf-visual" aria-hidden="true">
-      <div class="pf-visual-frame">
-        <img class="pf-vshot is-on" src="assets/d-home.webp" width="2880" height="1800" loading="lazy" alt="">
-        <img class="pf-vshot" src="assets/d-agenten.webp" width="2880" height="1800" loading="lazy" alt="">
-        <img class="pf-vshot" src="assets/d-security.webp" width="2880" height="1800" loading="lazy" alt="">
-        <img class="pf-vshot" src="assets/d-vergleich.webp" width="2880" height="1800" loading="lazy" alt="">
-      </div>
-      <div class="pf-vdots"><i class="on"></i><i></i><i></i><i></i></div>
-    </aside>
-    </div>
-  </div>
-</section>
-
-<section id="unikate" class="uq-section">
-  <div class="wrap">
-    <div class="sec-head"><div class="eyebrow">Nur bei XDAB</div><h2>Systeme, die es woanders nicht gibt.</h2><p>Ein Blick in den echten Arbeitsplatz &mdash; echte Screenshots, keine Konzeptbilder.</p></div>
-    <div class="uq-grid">
-      <figure class="uq-card">
-        <div class="uq-shot"><img src="assets/d-schwarm.webp" width="2880" height="1800" loading="lazy" alt="XDAB Experten-Team: 73 Fach-Spezialisten zur parallelen Auswahl"></div>
-        <figcaption><b>Experten&#8209;Team</b>Bis zu 73 Fach&#8209;Spezialisten arbeiten parallel an Ihrer Frage &mdash; Sie bekommen eine abgestimmte Antwort statt vieler Einzelmeinungen.</figcaption>
-      </figure>
-      <figure class="uq-card">
-        <div class="uq-shot"><img src="assets/d-kosten.webp" width="2880" height="1800" loading="lazy" alt="XDAB Kosten-Killer: Kostenkontrolle für jede KI-Anfrage"></div>
-        <figcaption><b>Kosten&#8209;Killer</b>Sie sehen jede KI&#8209;Ausgabe, bevor sie entsteht &mdash; mit Budget&#8209;Wächter und Kostenvorschau statt böser Überraschung.</figcaption>
-      </figure>
-      <figure class="uq-card">
-        <div class="uq-shot"><img src="assets/d-tierrouter.webp" width="2880" height="1800" loading="lazy" alt="XDAB Tier-Router: automatische Modellwahl nach Aufgabe"></div>
-        <figcaption><b>Tier&#8209;Router</b>Wählt automatisch das günstigste Modell, das Ihre Aufgabe wirklich schafft &mdash; klein für Routine, groß für schwere Fälle.</figcaption>
-      </figure>
-      <figure class="uq-card">
-        <div class="uq-shot"><img src="assets/d-concierge.webp" width="2880" height="1800" loading="lazy" alt="XDAB Concierge: eingebaute Hilfe direkt im Arbeitsplatz"></div>
-        <figcaption><b>Concierge</b>Erklärt Ihnen den Arbeitsplatz direkt in der App, beantwortet Fragen und führt Sie zum richtigen Werkzeug.</figcaption>
-      </figure>
-      <figure class="uq-card">
-        <div class="uq-shot"><img src="assets/d-audit.webp" width="2880" height="1800" loading="lazy" alt="XDAB Audit: Recht- und Security-Prüfung im Arbeitsplatz"></div>
-        <figcaption><b>Recht- &amp; Security-Audit</b>Prüft Vorhaben, Verträge und Websites auf rechtliche und technische Risiken &mdash; mit belegten Befunden statt Bauchgefühl.</figcaption>
-      </figure>
-      <figure class="uq-card">
-        <div class="uq-shot"><img src="assets/d-katalog.webp" width="2880" height="1800" loading="lazy" alt="XDAB Modellkatalog: transparente Übersicht der verfügbaren KI-Modelle"></div>
-        <figcaption><b>Modellkatalog</b>Alle verfügbaren Modelle offen nebeneinander &mdash; Sie sehen, was womit läuft, statt einer Blackbox.</figcaption>
-      </figure>
-    </div>
-  </div>
-</section>
-
-<section id="einsatz" class="pf-section pf-section-einsatz">
-  <div class="wrap">
-    <div class="sec-head pf-head">
-      <span class="eyebrow pf-eyebrow">Einsatzbereiche</span>
-      <h2 class="pf-h2">Wo XDAB konkret arbeitet.</h2>
-      <p class="pf-lead">Von der ersten Bestandsaufnahme bis zum laufenden Betrieb &mdash; abgestimmt auf Branche, Risiko und Datenschutzbedarf.</p>
-    </div>
-
-    <ul class="pf-arrowlist">
-      <li class="pf-arrow-item">
-        <div class="pf-arrow-main">
-          <span class="pf-arrow-idx">01</span>
-          <span class="pf-arrow-label">Datenschutz&#8209;Audit &amp; VVT</span>
-        </div>
-        <span class="pf-arrow-desc">Bestandsaufnahme, Verarbeitungsverzeichnis, Risikobewertung</span>
-        <span class="pf-arrow-go" aria-hidden="true">&rarr;</span>
-      </li>
-      <li class="pf-arrow-item">
-        <div class="pf-arrow-main">
-          <span class="pf-arrow-idx">02</span>
-          <span class="pf-arrow-label">KI&#8209;Integration mit PII&#8209;Schutz</span>
-        </div>
-        <span class="pf-arrow-desc">Anonymisierung per Presidio + Flair NER vor jedem Cloud&#8209;Aufruf</span>
-        <span class="pf-arrow-go" aria-hidden="true">&rarr;</span>
-      </li>
-      <li class="pf-arrow-item">
-        <div class="pf-arrow-main">
-          <span class="pf-arrow-idx">03</span>
-          <span class="pf-arrow-label">NIS2 &amp; Cybersecurity</span>
-        </div>
-        <span class="pf-arrow-desc">Scanner, Endpoint&#8209;Agent, Härtungs&#8209;Empfehlungen</span>
-        <span class="pf-arrow-go" aria-hidden="true">&rarr;</span>
-      </li>
-      <li class="pf-arrow-item">
-        <div class="pf-arrow-main">
-          <span class="pf-arrow-idx">04</span>
-          <span class="pf-arrow-label">Externer Datenschutzbeauftragter</span>
-        </div>
-        <span class="pf-arrow-desc">Mandat, laufende Betreuung, Behördenkontakt</span>
-        <span class="pf-arrow-go" aria-hidden="true">&rarr;</span>
-      </li>
-      <li class="pf-arrow-item">
-        <div class="pf-arrow-main">
-          <span class="pf-arrow-idx">05</span>
-          <span class="pf-arrow-label">KI&#8209;Schulungen (Art. 4 EU AI Act)</span>
-        </div>
-        <span class="pf-arrow-desc">Pflichtschulung zur KI&#8209;Kompetenz für Ihr Team</span>
-        <span class="pf-arrow-go" aria-hidden="true">&rarr;</span>
-      </li>
-      <li class="pf-arrow-item">
-        <div class="pf-arrow-main">
-          <span class="pf-arrow-idx">06</span>
-          <span class="pf-arrow-label">Branchen&#8209;Experten</span>
-        </div>
-        <span class="pf-arrow-desc">Arztpraxis, Kanzlei, Handwerk, Steuerberatung u. v. m.</span>
-        <span class="pf-arrow-go" aria-hidden="true">&rarr;</span>
-      </li>
-    </ul>
-  </div>
-</section>
-
-<section id="leistungen" class="pf-section">
-  <div class="wrap">
-    <div class="sec-head pf-head">
-      <span class="eyebrow pf-eyebrow">Über die Plattform hinaus</span>
-      <h2 class="pf-h2">Technik &amp; Betrieb<br>aus einer Hand.</h2>
-      <p class="pf-lead">Neben der Plattform setzen wir Ihre Digitalisierung praktisch um &mdash; von der datenschutzkonformen Website bis zum dedizierten Server, auf dem Ihre KI dauerhaft läuft.</p>
-    </div>
-
-    <div class="pf-blocks">
-      <!-- 0.5 -->
-      <article class="pf-block">
-        <div class="pf-block-num">/0.5</div>
-        <div class="pf-block-body">
-          <h3 class="pf-block-title">Webseiten &amp; Web&#8209;Apps</h3>
-          <p class="pf-block-text">Moderne, datenschutzkonforme Websites und Web&#8209;Anwendungen (Progressive Web Apps) &mdash; von Anfang an DSGVO&#8209;konform statt nachträglich abgesichert. Dazu Digitalisierung Ihrer Geschäftsprozesse sowie Beratung zu E&#8209;Rechnung und revisionssicherer Archivierung.</p>
-          <div class="pf-block-tags">
-            <span class="pf-tag">DSGVO by Design</span>
-            <span class="pf-tag">Progressive Web Apps</span>
-            <span class="pf-tag">E&#8209;Rechnung &amp; GoBD</span>
-          </div>
-        </div>
-      </article>
-      <div class="pf-divider"></div>
-
-      <!-- 0.6 -->
-      <article class="pf-block">
-        <div class="pf-block-num">/0.6</div>
-        <div class="pf-block-body">
-          <h3 class="pf-block-title">Software&#8209;on&#8209;Demand &amp; Managed Services</h3>
-          <p class="pf-block-text">Wir mieten europäische Server bedarfsgerecht an und betreiben Ihre KI&#8209;Modelle als Managed Service &mdash; auf dedizierter Infrastruktur, vollständig gewartet: Updates, Monitoring und Betrieb übernehmen wir. Für Berufsgeheimnisträger laufen sensible Mandate auf lokaler Infrastruktur und verlassen das kontrollierte Umfeld nie.</p>
-          <div class="pf-block-tags">
-            <span class="pf-tag">Dedizierte EU&#8209;Server</span>
-            <span class="pf-tag">Lokaler Betrieb</span>
-            <span class="pf-tag">Wartung &amp; Monitoring</span>
-          </div>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
 
 <section id="warum" class="pf-section">
   <div class="wrap">
@@ -1396,6 +1205,88 @@ html.xr-on .xr.xr-in{ opacity:1; transform:none }
 
 </div>
 <div class="lp-page" data-page="funktionen">
+<section id="plattform" class="pf-section">
+  <div class="wrap">
+    <div class="sec-head pf-head">
+      <span class="eyebrow pf-eyebrow">Die Plattform</span>
+      <h2 class="pf-h2">Eine Plattform.<br>Vier souveräne Bausteine.</h2>
+      <p class="pf-lead">Vier Bausteine, ein Partner &mdash; gemacht für den deutschen Mittelstand.</p>
+    </div>
+
+    <div class="pf-scrolly">
+    <div class="pf-blocks">
+      <!-- 0.1 -->
+      <article class="pf-block">
+        <div class="pf-block-num">/0.1</div>
+        <div class="pf-block-body">
+          <h3 class="pf-block-title">KI&#8209;Workspace</h3>
+          <p class="pf-block-text">Fragen, schreiben, analysieren &mdash; mit den besten Modellen. Namen und Kundendaten werden maskiert, bevor etwas Ihr Haus verlässt.</p>
+          <div class="pf-block-tags">
+            <span class="pf-tag">Die besten Modelle</span>
+            <span class="pf-tag">Automatischer Datenschutz</span>
+            <span class="pf-tag">Export in Ihre Formate</span>
+          </div>
+        </div>
+      </article>
+      <div class="pf-divider"></div>
+
+      <!-- 0.2 -->
+      <article class="pf-block">
+        <div class="pf-block-num">/0.2</div>
+        <div class="pf-block-body">
+          <h3 class="pf-block-title">Experten&#8209;Agenten</h3>
+          <p class="pf-block-text">Beschreiben Sie Ihre Aufgabe &mdash; der Lotse stellt das passende Fachteam zusammen, von der Arztpraxis bis zur Kanzlei.</p>
+          <div class="pf-block-tags">
+            <span class="pf-tag">Experten&#8209;Lotse</span>
+            <span class="pf-tag">1.880 Fachprofile</span>
+            <span class="pf-tag">Arbeitet im Hintergrund weiter</span>
+          </div>
+        </div>
+      </article>
+      <div class="pf-divider"></div>
+
+      <!-- 0.3 -->
+      <article class="pf-block">
+        <div class="pf-block-num">/0.3</div>
+        <div class="pf-block-body">
+          <h3 class="pf-block-title">Cybersecurity</h3>
+          <p class="pf-block-text">Wir prüfen Website und Geräte von außen wie von innen &mdash; mit einer klaren Note von A+ bis F, ohne Fachchinesisch.</p>
+          <div class="pf-block-tags">
+            <span class="pf-tag">Website&#8209;Check mit Note</span>
+            <span class="pf-tag">Geräte im Blick</span>
+            <span class="pf-tag">Klare To&#8209;dos</span>
+          </div>
+        </div>
+      </article>
+      <div class="pf-divider"></div>
+
+      <!-- 0.4 -->
+      <article class="pf-block">
+        <div class="pf-block-num">/0.4</div>
+        <div class="pf-block-body">
+          <h3 class="pf-block-title">Datenschutz&#8209;Beratung</h3>
+          <p class="pf-block-text">Echte Menschen statt Hotline: Audits, Verarbeitungsverzeichnis und Schulungen für Ihr Team.</p>
+          <div class="pf-block-tags">
+            <span class="pf-tag">Persönliche Beratung</span>
+            <span class="pf-tag">Audits &amp; VVT</span>
+            <span class="pf-tag">Pflicht&#8209;Schulungen (Art. 4)</span>
+          </div>
+        </div>
+      </article>
+    </div>
+    <aside class="pf-visual" aria-hidden="true">
+      <div class="pf-visual-frame">
+        <img class="pf-vshot is-on" src="assets/d-home.webp" width="2880" height="1800" loading="lazy" alt="">
+        <img class="pf-vshot" src="assets/d-agenten.webp" width="2880" height="1800" loading="lazy" alt="">
+        <img class="pf-vshot" src="assets/d-security.webp" width="2880" height="1800" loading="lazy" alt="">
+        <img class="pf-vshot" src="assets/d-vergleich.webp" width="2880" height="1800" loading="lazy" alt="">
+      </div>
+      <div class="pf-vdots"><i class="on"></i><i></i><i></i><i></i></div>
+    </aside>
+    </div>
+  </div>
+</section>
+
 <section id="showcase" class="sc-section">
   <div class="wrap">
     <div class="sec-head sc-head">
@@ -1420,7 +1311,6 @@ html.xr-on .xr.xr-in{ opacity:1; transform:none }
           <span class="sc-kicker">01 &mdash; Multi-Model-KI</span>
           <h3>Fragen Sie. Die besten Modelle antworten.</h3>
           <p>Claude, ChatGPT, Gemini und Mistral &mdash; alle im selben Eingabefeld. Sie wechseln das Modell mit einem Klick, XDAB kümmert sich um den Rest.</p>
-          <p>Quellen aus der Websuche stehen direkt am Ergebnis. Und: Auf Ihren Daten wird nicht trainiert.</p>
           <ul class="sc-pts">
             <li><svg viewBox="0 0 24 24" class="sc-i"><path d="M20 6 9 17l-5-5"/></svg>Modellwechsel mit einem Klick</li>
             <li><svg viewBox="0 0 24 24" class="sc-i"><path d="M20 6 9 17l-5-5"/></svg>Belegte Quellen statt Blackbox</li>
@@ -1457,7 +1347,6 @@ html.xr-on .xr.xr-in{ opacity:1; transform:none }
           <span class="sc-kicker">02 &mdash; 1.880 Experten-Agenten</span>
           <h3>Spezialisierte Agenten plus Lotse, der den richtigen findet.</h3>
           <p>Vom Datenschutz-Audit bis zur Fördermittel-Recherche: 1.880 vorkonfigurierte Experten-Agenten stehen bereit. Der Lotse wählt den passenden, Sie starten per Klick.</p>
-          <p>Lange Analysen laufen im Hintergrund weiter &mdash; auch wenn Sie die App längst geschlossen haben. Das fertige Ergebnis liegt danach automatisch in Ihrer Ablage.</p>
           <ul class="sc-pts">
             <li><svg viewBox="0 0 24 24" class="sc-i"><path d="M20 6 9 17l-5-5"/></svg>Läuft im Hintergrund weiter</li>
             <li><svg viewBox="0 0 24 24" class="sc-i"><path d="M20 6 9 17l-5-5"/></svg>Auto-Speicherung als PDF/Word/Excel</li>
@@ -1505,7 +1394,6 @@ html.xr-on .xr.xr-in{ opacity:1; transform:none }
           <span class="sc-kicker">03 &mdash; PII-Maskierung</span>
           <h3>Namen und Orte verlassen Ihr Haus nie im Klartext.</h3>
           <p>Bevor eine Anfrage Ihr Haus verlässt, erkennt XDAB automatisch Namen, Orte und andere persönliche Daten &mdash; und ersetzt sie durch Platzhalter wie [NAME] oder [ORT].</p>
-          <p>Das Modell verarbeitet nur die maskierte Variante. Nach der Antwort werden die Platzhalter lokal wieder zurückgesetzt &mdash; vollautomatisch.</p>
           <ul class="sc-pts">
             <li><svg viewBox="0 0 24 24" class="sc-i"><path d="M20 6 9 17l-5-5"/></svg>Deutsche NER, kein generisches Regex</li>
             <li><svg viewBox="0 0 24 24" class="sc-i"><path d="M20 6 9 17l-5-5"/></svg>Audit-Log ohne Prompt-Inhalte</li>
@@ -1539,7 +1427,6 @@ html.xr-on .xr.xr-in{ opacity:1; transform:none }
           <span class="sc-kicker">04 &mdash; Security-Scanner</span>
           <h3>Ein echter Sicherheits-Check &mdash; mit Schulnote.</h3>
           <p>XDAB prüft Ihre Website und Ihre Domain auf die Punkte, die Angreifer zuerst suchen &mdash; und fasst alles in einer Note von A+ bis F zusammen.</p>
-          <p>Auf Wunsch schauen wir auch auf Ihre Rechner: Welche Software läuft, ist die Festplatte verschlüsselt, wo fehlt ein Update? Schwachstellen werden konkret benannt, nicht nur gezählt.</p>
           <ul class="sc-pts">
             <li><svg viewBox="0 0 24 24" class="sc-i"><path d="M20 6 9 17l-5-5"/></svg>Konkrete Befunde, keine Pauschalwerte</li>
             <li><svg viewBox="0 0 24 24" class="sc-i"><path d="M20 6 9 17l-5-5"/></svg>Wiederholbar, dokumentiert, exportierbar</li>
@@ -1574,7 +1461,6 @@ html.xr-on .xr.xr-in{ opacity:1; transform:none }
           <span class="sc-kicker">05 &mdash; RAG-Wissensbasis</span>
           <h3>Ihre Dokumente werden zur durchsuchbaren Wissensbasis.</h3>
           <p>Laden Sie Verträge, Richtlinien und Handbücher hoch &mdash; XDAB findet die passende Stelle, nicht nur den Dateinamen. Fragen Sie einfach in Ihren eigenen Worten.</p>
-          <p>Antworten zitieren die Fundstelle mit Quelle und Treffer-Score, sodass jede Aussage nachvollziehbar bleibt.</p>
           <ul class="sc-pts">
             <li><svg viewBox="0 0 24 24" class="sc-i"><path d="M20 6 9 17l-5-5"/></svg>Versteht die Frage, nicht nur Stichworte</li>
             <li><svg viewBox="0 0 24 24" class="sc-i"><path d="M20 6 9 17l-5-5"/></svg>Jede Antwort mit Fundstelle belegt</li>
@@ -1606,6 +1492,41 @@ html.xr-on .xr.xr-in{ opacity:1; transform:none }
   </div>
 </section>
 
+<section id="unikate" class="uq-section">
+  <div class="wrap">
+    <div class="sec-head"><div class="eyebrow">Nur bei XDAB</div><h2>Systeme, die es woanders nicht gibt.</h2><p>Ein Blick in den echten Arbeitsplatz &mdash; echte Screenshots, keine Konzeptbilder.</p></div>
+    <div class="uq-grid">
+      <figure class="uq-card">
+        <div class="uq-shot"><img src="assets/d-schwarm.webp" width="2880" height="1800" loading="lazy" alt="XDAB Experten-Team: 73 Fach-Spezialisten zur parallelen Auswahl"></div>
+        <figcaption><b>Experten&#8209;Team</b>Bis zu 73 Fach&#8209;Spezialisten arbeiten parallel &mdash; eine abgestimmte Antwort statt vieler Einzelmeinungen.</figcaption>
+      </figure>
+      <figure class="uq-card">
+        <div class="uq-shot"><img src="assets/d-kosten.webp" width="2880" height="1800" loading="lazy" alt="XDAB Kosten-Killer: Kostenkontrolle für jede KI-Anfrage"></div>
+        <figcaption><b>Kosten&#8209;Killer</b>Sie sehen jede KI&#8209;Ausgabe, bevor sie entsteht &mdash; Budget&#8209;Wächter statt böser Überraschung.</figcaption>
+      </figure>
+      <figure class="uq-card">
+        <div class="uq-shot"><img src="assets/d-tierrouter.webp" width="2880" height="1800" loading="lazy" alt="XDAB Tier-Router: automatische Modellwahl nach Aufgabe"></div>
+        <figcaption><b>Tier&#8209;Router</b>Wählt automatisch das günstigste Modell, das Ihre Aufgabe wirklich schafft.</figcaption>
+      </figure>
+      <figure class="uq-card">
+        <div class="uq-shot"><img src="assets/d-concierge.webp" width="2880" height="1800" loading="lazy" alt="XDAB Concierge: eingebaute Hilfe direkt im Arbeitsplatz"></div>
+        <figcaption><b>Concierge</b>Erklärt den Arbeitsplatz direkt in der App und führt Sie zum richtigen Werkzeug.</figcaption>
+      </figure>
+      <figure class="uq-card">
+        <div class="uq-shot"><img src="assets/d-audit.webp" width="2880" height="1800" loading="lazy" alt="XDAB Audit: Recht- und Security-Prüfung im Arbeitsplatz"></div>
+        <figcaption><b>Recht- &amp; Security-Audit</b>Prüft Verträge und Websites auf rechtliche und technische Risiken &mdash; mit belegten Befunden.</figcaption>
+      </figure>
+      <figure class="uq-card">
+        <div class="uq-shot"><img src="assets/d-katalog.webp" width="2880" height="1800" loading="lazy" alt="XDAB Modellkatalog: transparente Übersicht der verfügbaren KI-Modelle"></div>
+        <figcaption><b>Modellkatalog</b>Alle Modelle offen nebeneinander statt Blackbox.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<details class="tiefe" id="tiefe-technik">
+<summary class="tiefe-sum"><span class="tiefe-k">Technische Tiefe</span><span class="tiefe-t">Wie eine Anfrage abl&auml;uft &amp; wie Ihre Dokumente zur Wissensbasis werden</span><span class="tiefe-i" aria-hidden="true"></span></summary>
+<div class="tiefe-body">
 <section id="ablauf" class="fl-sec">
   <div class="wrap">
     <div class="sec-head fl-head">
@@ -1729,7 +1650,7 @@ html.xr-on .xr.xr-in{ opacity:1; transform:none }
     <div class="sec-head rg-head">
       <span class="eyebrow rg-eyebrow">Wissensbasis &middot; Vektordatenbank</span>
       <h2 class="rg-h2">Ihre Dokumente werden zum<br><span class="rg-hl">Wissen der KI</span> &mdash; DSGVO-konform in der EU</h2>
-      <p class="rg-lead">Eigene Dateien, Verträge und Handbücher werden eingebettet (Embeddings) und in einer Vektordatenbank (pgvector) gespeichert. Die KI greift per RAG gezielt darauf zu und antwortet mit nachvollziehbaren Quellen &mdash; verarbeitet ausschließlich in Frankfurt, kein Training auf Ihren Daten.</p>
+      <p class="rg-lead">Ihre Dateien werden als Vektoren (pgvector) gespeichert. Die KI greift gezielt darauf zu und antwortet mit belegten Quellen &mdash; ausschließlich in Frankfurt verarbeitet.</p>
     </div>
 
     <div class="rg-grid">
@@ -1870,6 +1791,7 @@ html.xr-on .xr.xr-in{ opacity:1; transform:none }
     </div>
   </div>
 </section>
+</div></details>
 
 </div>
 <div class="lp-page" data-page="datenschutz">
@@ -1878,7 +1800,7 @@ html.xr-on .xr.xr-in{ opacity:1; transform:none }
     <div class="dt-head">
       <span class="dt-eyebrow">Datenschutz im Detail</span>
       <h2 class="dt-h2">DSGVO ist bei uns Architektur &ndash; kein Haftungsausschluss im Kleingedruckten.</h2>
-      <p class="dt-lead">Jede Anfrage durchl&auml;uft denselben Pfad: EU-Verarbeitung in Frankfurt, PII-Maskierung vor jedem Cloud-Aufruf, l&uuml;ckenlose AVV-Kette nach Art.&nbsp;28 DSGVO. Hier ist, was technisch und rechtlich dahintersteht.</p>
+      <p class="dt-lead">Derselbe Pfad bei jeder Anfrage: EU-Verarbeitung in Frankfurt, PII-Maskierung vor dem Cloud-Aufruf, AVV-Kette nach Art.&nbsp;28 DSGVO.</p>
     </div>
 
     <!-- Vertrauens-Block -->
@@ -2055,6 +1977,9 @@ html.xr-on .xr.xr-in{ opacity:1; transform:none }
   </div>
 </section>
 
+<details class="tiefe" id="tiefe-av">
+<summary class="tiefe-sum"><span class="tiefe-k">Transparenz</span><span class="tiefe-t">Wer Ihre Daten verarbeitet &mdash; vollst&auml;ndige Sub-Prozessor-Liste</span><span class="tiefe-i" aria-hidden="true"></span></summary>
+<div class="tiefe-body">
 <section id="auftragsverarbeitung" class="dt-section avv-section"><div class="wrap">
   <div class="sec-head"><div class="eyebrow">Auftragsverarbeitung &amp; Transparenz</div><h2>Wer Ihre Daten verarbeitet — offengelegt</h2><p>XDAB ist Ihr Auftragsverarbeiter nach Art. 28 DSGVO und verarbeitet ausschließlich auf Ihre Weisung. Die Verarbeitungskette legen wir transparent offen — das ist Vertrauenssache.</p></div>
   <div class="avv-grid">
@@ -2076,6 +2001,7 @@ html.xr-on .xr.xr-in{ opacity:1; transform:none }
   </div>
   <p class="dt-table-note"><b>EU-Standardpfad:</b> Im Standard verarbeitet XDAB ausschließlich in der EU (Bedrock-EU Frankfurt) — <b>kein Drittlandtransfer</b>. US-Modelle (z.&nbsp;B. GPT) sind nur als bewusstes Opt-in mit Einwilligung verfügbar. Das ist der Unterschied zu Anbietern, die standardmäßig pseudonymisiert in die USA übermitteln. Stand-Entwurf — die verbindliche Fassung inkl. vollständiger Sub-Prozessor-Liste erhalten Sie im AVV über <a href="mailto:kontakt@xdab-ki.de?subject=AVV%20Auftragsverarbeitung">kontakt@xdab-ki.de</a>.</p>
 </div></section>
+</div></details>
 
 </div>
 <div class="lp-page" data-page="sicherheit">
@@ -2084,7 +2010,7 @@ html.xr-on .xr.xr-in{ opacity:1; transform:none }
     <div class="sec-head cy-head">
       <div class="eyebrow cy-eyebrow">Cybersecurity im Detail</div>
       <h2 class="cy-h2">Zwei Säulen, ein Lagebild: <span class="cy-accent">Außen-Scan</span> und <span class="cy-accent">Endpoint-Agent</span></h2>
-      <p class="cy-lead">Wir prüfen Ihre Angriffsfläche von aussen wie von innen. Der Website-/Domain-Scan bewertet TLS, Header, DNS und Cookies nach OWASP- und Mozilla-Massstab. Der Desktop-Agent inventarisiert Endgeräte, Verschlüsselung und Patch-Stand &mdash; mit pseudonymisierten Hostnames.</p>
+      <p class="cy-lead">Wir prüfen Ihre Angriffsfläche von außen wie von innen &mdash; Website und Domain nach OWASP-Maßstab, Endgeräte auf Verschlüsselung und Patch-Stand.</p>
     </div>
 
     <div class="cy-grid">
@@ -2334,6 +2260,9 @@ html.xr-on .xr.xr-in{ opacity:1; transform:none }
   </div>
 </div></section>
 
+<details class="tiefe" id="tiefe-pakete">
+<summary class="tiefe-sum"><span class="tiefe-k">Klartext</span><span class="tiefe-t">Was die Bausteine bedeuten &amp; wie viel KI in einem Paket steckt</span><span class="tiefe-i" aria-hidden="true"></span></summary>
+<div class="tiefe-body">
 <section id="module" class="pw-glossar"><div class="wrap">
   <div class="sec-head"><div class="eyebrow">Klartext</div><h2>Was die Bausteine bedeuten</h2></div>
   <dl class="pw-dl">
@@ -2360,6 +2289,7 @@ html.xr-on .xr.xr-in{ opacity:1; transform:none }
     <div class="tk-row"><label>Ausführliche Agenten-Analysen (~40.000 Token)</label><div class="tk-bar"><span style="width:14%"></span></div><b>~75</b></div>
   </div>
 </div></section>
+</div></details>
 
 <section id="team" class="team3"><div class="wrap">
   <div class="sec-head"><div class="eyebrow">Wer dahinter steht</div><h2>Das Team hinter XDAB &mdash; Compliance, die hält.</h2></div>
@@ -2372,6 +2302,67 @@ html.xr-on .xr.xr-in{ opacity:1; transform:none }
 
 </div>
 <div class="lp-page" data-page="beratung">
+<section id="einsatz" class="pf-section pf-section-einsatz">
+  <div class="wrap">
+    <div class="sec-head pf-head">
+      <span class="eyebrow pf-eyebrow">Einsatzbereiche</span>
+      <h2 class="pf-h2">Wo XDAB konkret arbeitet.</h2>
+      <p class="pf-lead">Von der ersten Bestandsaufnahme bis zum laufenden Betrieb &mdash; abgestimmt auf Branche, Risiko und Datenschutzbedarf.</p>
+    </div>
+
+    <ul class="pf-arrowlist">
+      <li class="pf-arrow-item">
+        <div class="pf-arrow-main">
+          <span class="pf-arrow-idx">01</span>
+          <span class="pf-arrow-label">Datenschutz&#8209;Audit &amp; VVT</span>
+        </div>
+        <span class="pf-arrow-desc">Bestandsaufnahme, Verarbeitungsverzeichnis, Risikobewertung</span>
+        <span class="pf-arrow-go" aria-hidden="true">&rarr;</span>
+      </li>
+      <li class="pf-arrow-item">
+        <div class="pf-arrow-main">
+          <span class="pf-arrow-idx">02</span>
+          <span class="pf-arrow-label">KI&#8209;Integration mit PII&#8209;Schutz</span>
+        </div>
+        <span class="pf-arrow-desc">Anonymisierung per Presidio + Flair NER vor jedem Cloud&#8209;Aufruf</span>
+        <span class="pf-arrow-go" aria-hidden="true">&rarr;</span>
+      </li>
+      <li class="pf-arrow-item">
+        <div class="pf-arrow-main">
+          <span class="pf-arrow-idx">03</span>
+          <span class="pf-arrow-label">NIS2 &amp; Cybersecurity</span>
+        </div>
+        <span class="pf-arrow-desc">Scanner, Endpoint&#8209;Agent, Härtungs&#8209;Empfehlungen</span>
+        <span class="pf-arrow-go" aria-hidden="true">&rarr;</span>
+      </li>
+      <li class="pf-arrow-item">
+        <div class="pf-arrow-main">
+          <span class="pf-arrow-idx">04</span>
+          <span class="pf-arrow-label">Externer Datenschutzbeauftragter</span>
+        </div>
+        <span class="pf-arrow-desc">Mandat, laufende Betreuung, Behördenkontakt</span>
+        <span class="pf-arrow-go" aria-hidden="true">&rarr;</span>
+      </li>
+      <li class="pf-arrow-item">
+        <div class="pf-arrow-main">
+          <span class="pf-arrow-idx">05</span>
+          <span class="pf-arrow-label">KI&#8209;Schulungen (Art. 4 EU AI Act)</span>
+        </div>
+        <span class="pf-arrow-desc">Pflichtschulung zur KI&#8209;Kompetenz für Ihr Team</span>
+        <span class="pf-arrow-go" aria-hidden="true">&rarr;</span>
+      </li>
+      <li class="pf-arrow-item">
+        <div class="pf-arrow-main">
+          <span class="pf-arrow-idx">06</span>
+          <span class="pf-arrow-label">Branchen&#8209;Experten</span>
+        </div>
+        <span class="pf-arrow-desc">Arztpraxis, Kanzlei, Handwerk, Steuerberatung u. v. m.</span>
+        <span class="pf-arrow-go" aria-hidden="true">&rarr;</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
 <section id="fragerunde" class="fr-section"><div class="wrap">
   <div class="sec-head"><div class="eyebrow">Fragerunde</div><h2>Sagen Sie uns, was Sie brauchen</h2><p>Sieben kurze Fragen — am Ende erstellen wir Ihnen daraus eine fertige E-Mail mit Ihren Angaben. Keine Anmeldung, keine Verbindung zu Ihren Systemen. Sie senden selbst ab.</p></div>
   <form class="fr-form" id="frForm" onsubmit="return false">
@@ -2490,7 +2481,7 @@ html.xr-on .xr.xr-in{ opacity:1; transform:none }
       <a class="sub" href="#auftragsverarbeitung">&#8627; Auftragsverarbeitung &amp; Sub-Prozessoren</a>
       <a href="#cyber-detail">Cybersecurity</a>
       <a href="#einsatz">Einsatzbereiche</a>
-      <a href="#leistungen">Leistungen (Web &amp; Betrieb)</a>
+      <a href="#projekte">Leistungen (Web &amp; Betrieb)</a>
       <a href="#pakete">Pakete &amp; Preise</a>
       <a class="sub" href="#token">&#8627; Token einfach erklärt</a>
       <a href="#fragerunde">Beratung &amp; Fragerunde</a>
@@ -2698,10 +2689,16 @@ document.addEventListener('click',function(e){
 <script id="lp-v6-js">
 (function(){
   'use strict';
-  var MAP={ top:'start', plattform:'start', einsatz:'start', warum:'start', ueberblick:'start', leistungen:'start', produkt:'start', unikate:'start', 'pakete-teaser':'start', 'kontakt-cta':'start',
-    showcase:'funktionen', ablauf:'funktionen', wissensbasis:'funktionen',
+  var MAP={ top:'start',  warum:'start', ueberblick:'start',  produkt:'start',  'pakete-teaser':'start', 'kontakt-cta':'start',
+    plattform:'funktionen', unikate:'funktionen', showcase:'funktionen', ablauf:'funktionen', wissensbasis:'funktionen',
     'datenschutz-detail':'datenschutz', 'auftragsverarbeitung':'datenschutz', 'cyber-detail':'sicherheit',
-    module:'pakete', konfigurator:'pakete', pakete:'pakete', mandat:'pakete', projekte:'pakete', token:'pakete', team:'pakete', fragerunde:'beratung', faq:'beratung' };
+    module:'pakete', konfigurator:'pakete', pakete:'pakete', mandat:'pakete', projekte:'pakete', token:'pakete', team:'pakete', einsatz:'beratung', fragerunde:'beratung', faq:'beratung' };
+  // Anker, die in einem zugeklappten Tiefe-Block liegen, klappen ihn auf
+  function oeffneTiefe(id){
+    var el=document.getElementById(id); if(!el) return;
+    var d=el.closest ? el.closest('details.tiefe') : null;
+    if(d && !d.open) d.open=true;
+  }
   function pages(){ return Array.prototype.slice.call(document.querySelectorAll('.lp-page')); }
   function showPage(pg, anchorId, skipHistory){
     pages().forEach(function(p){ p.classList.toggle('lp-active', p.getAttribute('data-page')===pg); });
@@ -2711,7 +2708,7 @@ document.addEventListener('click',function(e){
     });
     // URL & Back-Button: Zustand in die History schreiben (teilbare Links, funktionierender Zurück-Knopf)
     if(!skipHistory){ try{ history.pushState({pg:pg,anchor:anchorId||null},'','#'+(anchorId||pg)); }catch(e){} }
-    if(anchorId){ var el=document.getElementById(anchorId);
+    if(anchorId){ oeffneTiefe(anchorId); var el=document.getElementById(anchorId);
       if(el){ setTimeout(function(){ el.scrollIntoView({behavior:'smooth',block:'start'}); },40); return; } }
     window.scrollTo({top:0,behavior:'smooth'});
   }
@@ -2730,7 +2727,7 @@ document.addEventListener('click',function(e){
     e.preventDefault();
     var cur=document.querySelector('.lp-page.lp-active');
     var sameId=document.getElementById(id);
-    if(cur && cur.getAttribute('data-page')===pg && sameId){ sameId.scrollIntoView({behavior:'smooth',block:'start'}); }
+    if(cur && cur.getAttribute('data-page')===pg && sameId){ oeffneTiefe(id); sameId.scrollIntoView({behavior:'smooth',block:'start'}); }
     else showPage(pg, (id&&id!=='top'&&MAP[id]===pg)?id:null);
   });
   // Start-Hashes beim Laden

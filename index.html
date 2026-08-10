@@ -252,7 +252,11 @@
 .has-bgfx{ position:relative; isolation:isolate }
 .has-bgfx > .wrap{ position:relative; z-index:1 }
 .bgfx{ position:absolute; inset:0; width:100%; height:100%; z-index:0; pointer-events:none;
-       opacity:0; transition:opacity 1.1s var(--xfx-ease) }
+       opacity:0; transition:opacity 1.1s var(--xfx-ease);
+       /* Kraeftig an den Raendern, fast nichts hinter der Lesespalte -- Hintergrund
+          soll Atmosphaere sein und nie mit dem Text um Aufmerksamkeit ringen. */
+       -webkit-mask-image:linear-gradient(90deg,#000 0%,rgba(0,0,0,.12) 27%,rgba(0,0,0,.12) 73%,#000 100%);
+       mask-image:linear-gradient(90deg,#000 0%,rgba(0,0,0,.12) 27%,rgba(0,0,0,.12) 73%,#000 100%) }
 .bgfx.an{ opacity:.55 }
 @media (prefers-reduced-motion:reduce){ .bgfx{ transition:none } .bgfx.an{ opacity:.4 } }
 
@@ -2980,9 +2984,13 @@ html{scroll-behavior:smooth;}
 .xfx{opacity:0;transform:translateY(26px);transition:opacity .8s var(--xfx-ease),transform .8s var(--xfx-ease);will-change:opacity,transform;}
 .xfx.xin{opacity:1;transform:none;}
 .xfx.d1{transition-delay:.06s}.xfx.d2{transition-delay:.12s}.xfx.d3{transition-delay:.18s}.xfx.d4{transition-delay:.24s}.xfx.d5{transition-delay:.30s}
-.xfx-underline{position:relative;}
-.xfx-underline::after{content:"";position:absolute;left:0;bottom:-.34em;height:2px;width:64px;border-radius:2px;background:linear-gradient(90deg,var(--mint),rgba(52,211,153,0));transform:scaleX(0);transform-origin:left;transition:transform 1s var(--xfx-ease) .2s;}
-.xfx-underline.xin::after{transform:scaleX(1);}
+.xfx-underline{position:relative;padding-bottom:17px;}
+/* Der dekorative Mint-Strich unter jeder Ueberschrift ist entfernt (10.08.):
+   Er sass bei left:0 unter durchweg zentrierten Ueberschriften, bezog sich also auf
+   nichts, fuhr einmal ein und stand dann still. Der gewonnene Abstand bleibt.
+   Zum Zurueckholen: die Regel unten wieder mit Inhalt fuellen. */
+
+
 .pf-block,.cy-tile,.dt-tile,.ov-card{transition:transform .35s var(--xfx-ease),box-shadow .35s var(--xfx-ease),border-color .35s var(--xfx-ease);}
 .pf-block:hover,.cy-tile:hover,.dt-tile:hover{transform:translateY(-3px);}
 .cy-tile:hover,.dt-tile:hover{border-color:var(--mint-line);box-shadow:0 12px 34px rgba(0,0,0,.35);}
@@ -3007,7 +3015,7 @@ html{scroll-behavior:smooth;}
 .ov-card:hover{transform:translateY(-3px);border-color:var(--mint-line);box-shadow:0 12px 30px rgba(0,0,0,.32);}
 .ov-trust{display:flex;flex-wrap:wrap;gap:7px 26px;justify-content:center;margin-top:24px;color:var(--faint);font-size:12.5px;}
 .ov-trust span::before{content:"";display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--mint);margin-right:9px;vertical-align:middle;}
-@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto;}.xfx{opacity:1!important;transform:none!important;transition:none!important;}.xfx-underline::after{transform:scaleX(1)!important;transition:none!important;}.xfx-topscan{display:none!important;}}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto;}.xfx{opacity:1!important;transform:none!important;transition:none!important;}.xfx-topscan{display:none!important;}}
 </style>
 <script id="xdab-fx-js">
 (function(){
@@ -3249,18 +3257,23 @@ html{scroll-behavior:smooth;}
       g.x.fillStyle='rgba('+TON+',.34)';
       for(i=0;i<k.length;i++){ g.x.beginPath(); g.x.arc(k[i].x,k[i].y,1.3,0,6.2832); g.x.fill(); }
     },
-    // Leiterbahnen: Linienbuendel, durch die einzelne Pulse laufen
+    // Leiterbahnen: senkrechte Buendel, durch die lange Streifen nach unten laufen.
+    // Senkrecht, weil waagerechte Striche hinter Fliesstext wie Unterstreichungen wirken.
     strom:function(g,t,z){
-      var reihen=11,i;
-      for(i=0;i<reihen;i++){
-        var y=(i+.5)*g.h/reihen;
-        g.x.strokeStyle='rgba('+TON+',.10)'; g.x.lineWidth=1;
-        g.x.beginPath(); g.x.moveTo(0,y); g.x.lineTo(g.b,y); g.x.stroke();
-        var v=34+((i*37)%46), p=((t*v+i*160)%(g.b+240))-120;
-        var grad=g.x.createLinearGradient(p-110,0,p,0);
-        grad.addColorStop(0,'rgba('+TON+',0)'); grad.addColorStop(1,'rgba('+TON+',.62)');
-        g.x.strokeStyle=grad; g.x.lineWidth=1.6;
-        g.x.beginPath(); g.x.moveTo(p-110,y); g.x.lineTo(p,y); g.x.stroke();
+      var bahnen=Math.max(6,Math.round(g.b/86)),i;
+      var lang=Math.max(180,g.h*.42);          // deutlich laenger als der alte 110px-Stummel
+      for(i=0;i<bahnen;i++){
+        var x0=(i+.5)*g.b/bahnen;
+        g.x.strokeStyle='rgba('+TON+',.09)'; g.x.lineWidth=1;
+        g.x.beginPath(); g.x.moveTo(x0,0); g.x.lineTo(x0,g.h); g.x.stroke();
+        var v=95+((i*53)%85);                  // spuerbar schneller als vorher (34-80)
+        var p=((t*v+i*210)%(g.h+lang+160))-lang;
+        var grad=g.x.createLinearGradient(0,p-lang,0,p);
+        grad.addColorStop(0,'rgba('+TON+',0)');
+        grad.addColorStop(.72,'rgba('+TON+',.20)');
+        grad.addColorStop(1,'rgba('+TON+',.66)');
+        g.x.strokeStyle=grad; g.x.lineWidth=1.5;
+        g.x.beginPath(); g.x.moveTo(x0,p-lang); g.x.lineTo(x0,p); g.x.stroke();
       }
     },
     // Blueprint: isometrisches Gitter, einzelne Zellen leuchten kurz auf

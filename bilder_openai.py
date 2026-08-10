@@ -31,7 +31,7 @@ MOTIVE = {
     "ueber-uns": ("1536x1024",
         "a disused control desk with rows of toggle switches and brass detailing, "
         "seen straight on, unlit and quiet."),
-    "aktenwerk": ("1024x1024",
+    "aktenwerk": ("1536x1024",
         "a dark steel archive cabinet with one drawer half open, suspension files "
         "inside, brass handle catching the light."),
 }

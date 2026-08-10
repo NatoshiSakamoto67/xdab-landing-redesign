@@ -4,23 +4,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>XDAB — DSGVO-konforme KI für den Mittelstand</title>
-<meta name="description" content="DSGVO-konformer KI-Workspace mit PII-Schutz, 1.880 Experten-Agenten, Wissensbasis und echten Cybersecurity-Scans. KI-Verarbeitung in der EU (Frankfurt).">
+<title>XDAB — DSGVO-konforme KI, Datenschutz &amp; Cybersecurity für den Mittelstand</title>
+<meta name="description" content="XDAB: DSGVO-konformer KI-Workspace (Claude, ChatGPT, Gemini, Mistral) mit PII-Schutz, 1.880 Experten-Agenten, RAG/Wissensbasis, echten Cybersecurity-Scans und Datenschutzberatung. EU-gehostet in Frankfurt.">
 <meta property="og:title" content="XDAB — KI nutzen ohne DSGVO-Risiko">
-<meta property="og:description" content="DSGVO-konformer KI-Workspace, Datenschutzberatung und Cybersecurity für den Mittelstand. KI-Verarbeitung in der EU (Frankfurt).">
+<meta property="og:description" content="DSGVO-konformer KI-Workspace, Datenschutzberatung und Cybersecurity für den Mittelstand. EU-gehostet in Frankfurt.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://xdab-ki.de/">
 <meta property="og:site_name" content="XDAB">
 <meta property="og:locale" content="de_DE">
-<meta name="twitter:card" content="summary_large_image">
-<meta property="og:image" content="https://xdab-ki.de/assets/og-image.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="XDAB — DSGVO-konforme KI für den Mittelstand">
-<meta name="twitter:image" content="https://xdab-ki.de/assets/og-image.png">
-<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
-<link rel="alternate icon" href="/favicon.ico" sizes="any">
-<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta name="twitter:card" content="summary">
 <link rel="canonical" href="https://xdab-ki.de/">
 <meta name="theme-color" content="#0f0f11">
 <style>
@@ -121,157 +113,6 @@
   .foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
   .foot a{color:var(--muted)}.foot a:hover{color:var(--text)}
   .foot-links{display:flex;gap:18px;flex-wrap:wrap}
-
-/* --- Falt-Bloecke "Tiefe": Landing bleibt kurz, Belege bleiben erreichbar --- */
-.tiefe{ border-top:1px solid var(--line); background:linear-gradient(180deg,var(--bg) 0%,var(--bg2) 100%) }
-.tiefe > .tiefe-sum{ list-style:none; cursor:pointer; display:flex; align-items:center; gap:16px;
-  max-width:var(--maxw); margin:0 auto; padding:26px 24px; color:var(--muted);
-  transition:color .25s var(--xfx-ease) }
-.tiefe > .tiefe-sum::-webkit-details-marker{ display:none }
-.tiefe > .tiefe-sum:hover,.tiefe > .tiefe-sum:focus-visible{ color:var(--text) }
-.tiefe-k{ font-size:12px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; color:var(--accent);
-  flex:0 0 auto; padding-right:16px; border-right:1px solid var(--line2) }
-.tiefe-t{ flex:1 1 auto; font-size:15px; line-height:1.5 }
-.tiefe-i{ flex:0 0 auto; width:26px; height:26px; position:relative; border:1px solid var(--line2); border-radius:50% }
-.tiefe-i::before,.tiefe-i::after{ content:''; position:absolute; inset:50% 7px auto 7px; height:1px; background:currentColor;
-  transform-origin:center; transition:transform .3s var(--xfx-ease) }
-.tiefe-i::after{ transform:rotate(90deg) }
-.tiefe[open] > .tiefe-sum{ color:var(--text) }
-.tiefe[open] .tiefe-i::after{ transform:rotate(0deg) }
-.tiefe[open] .tiefe-i{ border-color:var(--accent-strong) }
-.tiefe-body > section:first-of-type{ border-top:1px solid var(--line) }
-@media (prefers-reduced-motion:reduce){ .tiefe-i::before,.tiefe-i::after{ transition:none } }
-@media (max-width:640px){ .tiefe > .tiefe-sum{ padding:20px 18px; gap:12px } .tiefe-t{ font-size:14px } }
-
-/* ============ Hero-Handy: choreografierter Arbeitsablauf (14s-Schleife) ============
-   Reines CSS-Stufenwerk auf einer gemeinsamen Zeitachse. Kein Video, kein Ablauf-JS.
-   Akt 1 Auftrag 0-3s | Akt 2 PII-Gate 3-5,8s | Akt 3 EU-Route 5,8-7,2s
-   Akt 4 Ergebnis 7,2-11,5s | Akt 5 Ruhe 11,5-14s, dann Schleife            */
-.h3-pscreen-run{ background:#0d0d0f; overflow:hidden; position:relative }
-.ph{ position:absolute; inset:0; display:flex; flex-direction:column; padding:52px 16px 14px;
-     font-size:11.5px; line-height:1.5; color:var(--text) }
-.ph-bar{ display:flex; align-items:center; gap:7px; font-size:10px; letter-spacing:.08em;
-         text-transform:uppercase; color:var(--faint); padding-bottom:11px; border-bottom:1px solid #1e1e23 }
-.ph-dot{ width:5px; height:5px; border-radius:50%; background:var(--mint) }
-.ph-flow{ flex:1; display:flex; flex-direction:column; justify-content:space-between; padding:18px 0 14px }
-.ph-lbl{ font-size:9px; letter-spacing:.13em; text-transform:uppercase; color:var(--accent); margin-bottom:5px }
-.ph-lbl-pii{ color:#f59e0b }
-
-/* Akt 1 — der Auftrag tippt sich ein */
-.ph-prompt{ background:#17171b; border:1px solid #26262d; border-radius:9px; padding:9px 10px;
-            font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:10.5px; white-space:nowrap }
-.ph-type{ display:inline-block; overflow:hidden; vertical-align:bottom; width:0 }
-.ph-caret{ display:inline-block; width:1px; height:11px; background:var(--accent-strong); vertical-align:-1px }
-
-/* Akt 2 — das PII-Gate maskiert */
-.ph-mask{ display:flex; align-items:center; gap:8px; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:10.5px }
-.ph-was{ color:var(--muted) }
-.ph-arr{ color:var(--faint) }
-.ph-blk{ display:inline-block; height:9px; width:0; overflow:hidden;
-         background:repeating-linear-gradient(90deg,#f59e0b 0 7px,transparent 7px 9px) }
-.ph-note{ color:var(--faint); font-size:9.5px; margin-top:5px }
-
-/* Akt 3 — die Route steht */
-.ph-route{ display:inline-flex; align-items:center; gap:7px; align-self:flex-start;
-           background:rgba(52,211,153,.1); border:1px solid rgba(52,211,153,.34);
-           color:var(--mint); border-radius:999px; padding:5px 11px; font-size:10px; letter-spacing:.04em }
-.ph-check{ width:13px; height:13px; border-radius:50%; border:1px solid currentColor; position:relative; flex:0 0 auto }
-.ph-check::after{ content:''; position:absolute; left:3px; top:3.4px; width:5px; height:2.6px;
-                  border-left:1.6px solid currentColor; border-bottom:1.6px solid currentColor;
-                  transform:rotate(-45deg) scale(0); transform-origin:center }
-
-/* Akt 4 — das Ergebnis baut sich auf */
-.ph-out{ display:flex; flex-direction:column; gap:6px }
-.ph-ln{ height:6px; border-radius:3px; background:linear-gradient(90deg,#3a3a45,#26262e); transform:scaleX(0); transform-origin:left }
-.ph-l1{ width:100% } .ph-l2{ width:88% } .ph-l3{ width:94% } .ph-l4{ width:97% }
-.ph-l5{ width:83% } .ph-l6{ width:58% }
-.ph-file{ display:inline-flex; align-items:center; gap:7px; margin-top:11px; color:var(--muted); font-size:10px; opacity:0 }
-.ph-fi{ width:9px; height:11px; border:1px solid var(--faint); border-radius:2px; flex:0 0 auto }
-
-.ph-foot{ display:flex; justify-content:space-between; align-items:baseline;
-          border-top:1px solid #1e1e23; padding-top:10px; color:var(--faint); font-size:10px }
-.ph-cost{ position:relative; display:inline-block; min-width:52px; text-align:right;
-          color:var(--text); font-variant-numeric:tabular-nums; font-weight:700 }
-.ph-cost i{ position:absolute; right:0; bottom:0; font-style:normal; opacity:0 }
-
-/* ---- die gemeinsame Zeitachse ---- */
-.ph-s1,.ph-s2,.ph-s3,.ph-s4{ opacity:0 }
-.ph-s1{ animation:phIn1 14s infinite both } .ph-s2{ animation:phIn2 14s infinite both }
-.ph-s3{ animation:phIn3 14s infinite both } .ph-s4{ animation:phIn4 14s infinite both }
-@keyframes phIn1{ 0%{opacity:0;transform:translateY(6px)} 3%,95%{opacity:1;transform:none} 99%,100%{opacity:0} }
-@keyframes phIn2{ 0%,21%{opacity:0;transform:translateY(6px)} 25%,95%{opacity:1;transform:none} 99%,100%{opacity:0} }
-@keyframes phIn3{ 0%,41%{opacity:0;transform:translateY(6px)} 45%,95%{opacity:1;transform:none} 99%,100%{opacity:0} }
-@keyframes phIn4{ 0%,51%{opacity:0;transform:translateY(6px)} 55%,95%{opacity:1;transform:none} 99%,100%{opacity:0} }
-
-.ph-type{ animation:phType 14s infinite both }
-@keyframes phType{ 0%,3%{width:0; animation-timing-function:steps(32,end)} 21%,100%{width:32ch} }
-.ph-caret{ animation:phCaret 14s infinite both }
-@keyframes phCaret{ 0%,21%{opacity:1} 21.5%,100%{opacity:0} }
-.ph-blk{ animation:phBlk 14s infinite both }
-@keyframes phBlk{ 0%,29%{width:0; animation-timing-function:steps(5,end)} 34%,100%{width:45px} }
-.ph-was{ animation:phWas 14s infinite both }
-@keyframes phWas{ 0%,29%{opacity:1} 34%,100%{opacity:.3} }
-.ph-lbl-pii{ animation:phGlow 14s infinite both }
-@keyframes phGlow{ 0%,27%{text-shadow:none} 30%{text-shadow:0 0 12px rgba(245,158,11,.9)} 38%,100%{text-shadow:none} }
-.ph-check::after{ animation:phCheck 14s infinite both }
-@keyframes phCheck{ 0%,46%{transform:rotate(-45deg) scale(0)} 49%,100%{transform:rotate(-45deg) scale(1)} }
-.ph-ln{ animation:phLn 14s infinite both }
-.ph-l1{ animation-delay:0s } .ph-l2{ animation-delay:.3s } .ph-l3{ animation-delay:.6s }
-.ph-l4{ animation-delay:.9s } .ph-l5{ animation-delay:1.2s } .ph-l6{ animation-delay:1.5s }
-@keyframes phLn{ 0%,55%{transform:scaleX(0)} 60%,95%{transform:scaleX(1)} 99%,100%{transform:scaleX(0)} }
-.ph-file{ animation:phFile 14s infinite both }
-@keyframes phFile{ 0%,71%{opacity:0;transform:translateY(4px)} 75%,95%{opacity:1;transform:none} 99%,100%{opacity:0} }
-.ph-cost i{ animation:phCost 14s infinite both }
-.ph-cost i:nth-child(1){ animation-name:phC1 } .ph-cost i:nth-child(2){ animation-name:phC2 }
-.ph-cost i:nth-child(3){ animation-name:phC3 } .ph-cost i:nth-child(4){ animation-name:phC4 }
-@keyframes phC1{ 0%,55%{opacity:1} 55.1%,100%{opacity:0} }
-@keyframes phC2{ 0%,55%{opacity:0} 55.1%,63%{opacity:1} 63.1%,100%{opacity:0} }
-@keyframes phC3{ 0%,63%{opacity:0} 63.1%,71%{opacity:1} 71.1%,100%{opacity:0} }
-@keyframes phC4{ 0%,71%{opacity:0} 71.1%,100%{opacity:1} }
-
-/* Sanfter 3D-Neigewinkel beim Scrollen (Wert kommt aus dem Skript) */
-.h3-phone-wrap{ perspective:1400px }
-.h3-phone{ transform:rotateY(var(--ph-tilt,0deg)) rotateX(calc(var(--ph-tilt,0deg) * -.25)); transition:transform .15s linear }
-
-/* Reduced Motion: kein Ablauf, sondern das Endbild */
-@media (prefers-reduced-motion:reduce){
-  .ph-s1,.ph-s2,.ph-s3,.ph-s4,.ph-type,.ph-caret,.ph-blk,.ph-was,.ph-lbl-pii,
-  .ph-check::after,.ph-ln,.ph-file,.ph-cost i{ animation:none !important }
-  .ph-s1,.ph-s2,.ph-s3,.ph-s4{ opacity:1 }
-  .ph-type{ width:32ch } .ph-caret{ opacity:0 } .ph-blk{ width:45px } .ph-was{ opacity:.3 }
-  .ph-check::after{ transform:rotate(-45deg) scale(1) } .ph-ln{ transform:scaleX(1) }
-  .ph-file{ opacity:1 } .ph-cost i{ opacity:0 } .ph-cost i:nth-child(4){ opacity:1 }
-  .h3-phone{ transform:none; transition:none }
-}
-@media (max-width:680px){ .ph{ padding:46px 14px 12px } }
-
-/* ============ Hintergrund-Pool: vier Varianten, eine Formensprache ============
-   Duenne Petrol-Linien auf Tinte. Je Sektion fest zugeordnet (ruhiger als Zufall).
-   Regeln: nur Canvas/opacity, hoechstens eine aktive Flaeche, unsichtbares pausiert,
-   prefers-reduced-motion -> ein einziges statisches Standbild.                      */
-.has-bgfx{ position:relative; isolation:isolate }
-.has-bgfx > .wrap{ position:relative; z-index:1 }
-.bgfx{ position:absolute; inset:0; width:100%; height:100%; z-index:0; pointer-events:none;
-       opacity:0; transition:opacity 1.1s var(--xfx-ease) }
-.bgfx.an{ opacity:.55 }
-@media (prefers-reduced-motion:reduce){ .bgfx{ transition:none } .bgfx.an{ opacity:.4 } }
-
-/* ============ Muster "gestaffeltes Einblenden" (Palantir-Manier) ============
-   Wiederverwendbar: .stagger auf den Behaelter, .stagger.in loest aus.
-   Der Versatz kommt aus --i und wird per nth-child gesetzt -- kein JS noetig,
-   ausser dem Ausloeser. Bewegung nur ueber transform/opacity.               */
-.stagger > *{ opacity:0; transform:translateY(12px);
-  transition:opacity .5s var(--xfx-ease), transform .5s var(--xfx-ease);
-  transition-delay:calc(var(--i,0) * 75ms) }
-.stagger.in > *{ opacity:1; transform:none }
-.stagger > *:nth-child(1){--i:0} .stagger > *:nth-child(2){--i:1}
-.stagger > *:nth-child(3){--i:2} .stagger > *:nth-child(4){--i:3}
-.stagger > *:nth-child(5){--i:4} .stagger > *:nth-child(6){--i:5}
-.stagger > *:nth-child(7){--i:6} .stagger > *:nth-child(8){--i:7}
-.stagger > *:nth-child(n+9){--i:8}
-@media (prefers-reduced-motion:reduce){
-  .stagger > *{ opacity:1; transform:none; transition:none; transition-delay:0s }
-}
 </style>
 <style id="xdab-landing-v3">
 :root{ --navy:#1b3a6b; --navy-soft:rgba(40,86,160,.14); --navy-line:rgba(80,130,210,.32); --mint:#34d399; --mint-soft:rgba(52,211,153,.12); --mint-line:rgba(52,211,153,.34); }
@@ -1175,16 +1016,13 @@ html.xr-on .xr.xr-in{ opacity:1; transform:none }
 @media(max-width:760px){ .avv-grid{ grid-template-columns:1fr } }
 </style>
 
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"XDAB","url":"https://xdab-ki.de/","email":"kontakt@xdab-ki.de","description":"DSGVO-konformer KI-Workspace, Datenschutzberatung und Cybersecurity für den Mittelstand.","founder":{"@type":"Person","name":"David Wolkoff"},"address":{"@type":"PostalAddress","addressLocality":"Braunschweig","addressCountry":"DE"},"areaServed":"DE","knowsLanguage":"de"}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Werden meine Daten zum Training der KI verwendet?","acceptedAnswer":{"@type":"Answer","text":"Nein. Alle eingebundenen Anbieter trainieren nicht auf API-Daten. Die Verarbeitung läuft über eine vertragliche AVV-Kette nach Art. 28 DSGVO, die KI-Verarbeitung erfolgt in der EU (Frankfurt). Sensible Inhalte werden zusätzlich vor jedem Cloud-Aufruf maskiert."}},{"@type":"Question","name":"Wo werden meine Daten verarbeitet?","acceptedAnswer":{"@type":"Answer","text":"In der EU — primär in Frankfurt (AWS Bedrock, EU-Region). Personenbezogene Daten werden vor dem Versand an ein Cloud-Modell automatisch maskiert. Besonders sensible Aufgaben laufen vollständig lokal auf einem EU-Modell, ohne die Cloud zu verlassen."}},{"@type":"Question","name":"Welche KI-Modelle kann ich nutzen?","acceptedAnswer":{"@type":"Answer","text":"Claude (inkl. Opus 4.8), ChatGPT, Google Gemini und Mistral — über einen einzigen, DSGVO-konform gerouteten Zugang. Sie wählen das Modell pro Aufgabe; das System routet sensible Inhalte automatisch sicher."}},{"@type":"Question","name":"Was kostet das, und kann ich monatlich kündigen?","acceptedAnswer":{"@type":"Answer","text":"Vier klare Preise: Schulung 49 €, Basis 99 €, Workspace 379 €, Komplett 549 € — pro Monat, monatlich kündbar, Token inklusive (siehe „Token einfach erklärt\"). Das DSB-Mandat (169/269 €) startet per Erstgespräch — gesetzlich vorgesehen."}},{"@type":"Question","name":"Brauche ich technisches Wissen, um zu starten?","acceptedAnswer":{"@type":"Answer","text":"Nein. Der Workspace läuft im Browser, es ist nichts zu installieren — außer optional dem Cybersecurity-Agent für PC-Scans. Vorkonfigurierte Experten-Agenten übernehmen die Fachaufgaben."}},{"@type":"Question","name":"Was ist der Unterschied zu ChatGPT direkt?","acceptedAnswer":{"@type":"Answer","text":"DSGVO-Konformität (AVV, EU-Verarbeitung, PII-Maskierung), Experten-Agenten für Ihre Branche, eine durchsuchbare Wissensbasis (RAG), Konnektoren (in Vorbereitung) zu DATEV/Microsoft 365/Google und ein Audit-Log ohne Prompt-Inhalte. Ein Zugang statt vieler Einzel-Abos."}},{"@type":"Question","name":"Was ist der Orchestra-Modus („X\")?","acceptedAnswer":{"@type":"Answer","text":"Orchestra ist der proaktive Assistent im Workspace: Er plant mehrstufige Aufgaben, liest auf Wunsch und mit Freigabe Konnektoren (E-Mail, Kalender …) nur lesend und bereitet fertige Entwürfe vor. Er sendet oder ändert nichts automatisch — jeder schreibende oder sendende Schritt muss von Ihnen freigegeben werden („Assist & Approve\"). Verarbeitung in Frankfurt, PII-Maskierung vor jedem Cloud-Aufruf, Audit-Protokoll ohne Inhalte. Nicht für Berufsgeheimnisträger nach §203 StGB (siehe unten)."}},{"@type":"Question","name":"Was gilt für Berufsgeheimnisträger (§203 StGB)?","acceptedAnswer":{"@type":"Answer","text":"Den Orchestra-Vollzugriff (automatischer Konnektor-Zugriff auf E-Mail, Kalender & Co.) bieten wir bewusst nicht für Berufsgeheimnisträger nach §203 StGB an — also nicht für Anwälte, Ärzte, Steuerberater, Notare oder Pflege. Ein bloßer Auftragsverarbeitungsvertrag deckt das Berufsgeheimnis nicht ab. Für diese Berufe gibt es eine abgeschottete, lokale EU-Variante ohne automatischen Konnektor-Zugriff: sensible Verarbeitung bleibt lokal, nichts wird automatisch gesendet (Versand immer durch einen Menschen freigegeben). Sprechen Sie uns für die passende Konfiguration an."}},{"@type":"Question","name":"Wie schnell bin ich startklar?","acceptedAnswer":{"@type":"Answer","text":"Self-Service-Pakete: kurzfristig nach Anfrage und Auftragsbestätigung. Pakete mit formalem DSB-Mandat: nach einem persönlichen Erstgespräch. Module lassen sich später monatlich anpassen."}}]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"XDAB KI-Plattform","provider":{"@type":"Organization","name":"XDAB"},"areaServed":"DE","offers":[{"@type":"Offer","name":"Workspace","price":"379","priceCurrency":"EUR","url":"https://xdab-ki.de/#pakete","priceSpecification":{"@type":"UnitPriceSpecification","price":"379","priceCurrency":"EUR","billingIncrement":1,"unitCode":"MON"}},{"@type":"Offer","name":"Komplett","price":"549","priceCurrency":"EUR","url":"https://xdab-ki.de/#pakete","priceSpecification":{"@type":"UnitPriceSpecification","price":"549","priceCurrency":"EUR","billingIncrement":1,"unitCode":"MON"}},{"@type":"Offer","name":"DSB-Mandat","price":"169","priceCurrency":"EUR","url":"https://xdab-ki.de/#pakete","priceSpecification":{"@type":"UnitPriceSpecification","price":"169","priceCurrency":"EUR","billingIncrement":1,"unitCode":"MON"}}]}</script>
 </head>
 <body>
 <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
 <header><div class="wrap nav">
   <a class="logo" href="#top"><span class="x"><svg viewBox="0 0 512 512" fill="currentColor" width="20" height="20"><path d="M126 120 L196 120 L256 224 L226 256 L256 288 L196 392 L126 392 L210 256 Z"/><path d="M386 120 L316 120 L256 224 L286 256 L256 288 L316 392 L386 392 L302 256 Z"/></svg></span>XDAB</a>
   <nav class="nav-links">
-    <a href="#plattform">Plattform</a><a href="#datenschutz-detail">Datenschutz</a><a href="#cyber-detail">Sicherheit</a><a href="#projekte">Leistungen</a><a href="#pakete">Pakete</a><a href="#fragerunde">Beratung</a>
+    <a href="#plattform">Plattform</a><a href="#showcase">Funktionen</a><a href="#datenschutz-detail">Datenschutz</a><a href="#cyber-detail">Sicherheit</a><a href="#leistungen">Leistungen</a><a href="#pakete">Pakete</a><a href="#fragerunde">Beratung</a>
   </nav>
   <div class="nav-cta">
     <a class="btn nav-ws" href="mailto:kontakt@xdab-ki.de?subject=Anfrage%20XDAB">Kontakt</a>
@@ -1197,7 +1035,7 @@ html.xr-on .xr.xr-in{ opacity:1; transform:none }
 <main id="inhalt">
 <div class="lp-page lp-active" data-page="start">
 <section class="hero3 hero-cine"><div class="hc-bg" aria-hidden="true"><div class="hc-stage"><div class="hc-col hc-col1"><div class="hc-card"><div class="k"><span class="dot" style="background:var(--accent-strong)"></span>CHAT</div><div class="v">Erstelle eine DSFA für unsere Arztpraxis</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:#f59e0b"></span>AGENT</div><div class="v">Datenschutz-Auditor &middot; läuft</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:#10b981"></span>CYBERSECURITY</div><div class="v">TLS 1.3 OK &middot; HSTS OK &middot; Note B</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:var(--accent-strong)"></span>PII-SCHUTZ</div><div class="v">Dr. Müller, Hannover &rarr; [NAME], [ORT]</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:var(--faint)"></span>DATEI</div><div class="v">Analyse_DSFA_Arztpraxis.md</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:var(--mint)"></span>WISSENSBASIS</div><div class="v">RAG &middot; 3 Treffer &middot; EU/Frankfurt</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:var(--accent-strong)"></span>MODELL</div><div class="v">Claude Opus 4.8 &middot; Bedrock Frankfurt</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:#10b981"></span>AGENT</div><div class="v">NIS2-Auditor &middot; fertig</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:var(--mint)"></span>KONNEKTOR</div><div class="v">DATEV verbunden</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:var(--faint)"></span>EXPORT</div><div class="v">Bericht.pdf erstellt</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:#10b981"></span>SICHERHEIT</div><div class="v">DMARC &middot; DNSSEC geprüft</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:var(--faint)"></span>AGENT</div><div class="v">Arbeitsrecht-Experte &middot; bereit</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:var(--accent-strong)"></span>CHAT</div><div class="v">Erstelle eine DSFA für unsere Arztpraxis</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:#f59e0b"></span>AGENT</div><div class="v">Datenschutz-Auditor &middot; läuft</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:#10b981"></span>CYBERSECURITY</div><div class="v">TLS 1.3 OK &middot; HSTS OK &middot; Note B</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:var(--accent-strong)"></span>PII-SCHUTZ</div><div class="v">Dr. Müller, Hannover &rarr; [NAME], [ORT]</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:var(--faint)"></span>DATEI</div><div class="v">Analyse_DSFA_Arztpraxis.md</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:var(--mint)"></span>WISSENSBASIS</div><div class="v">RAG &middot; 3 Treffer &middot; EU/Frankfurt</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:var(--accent-strong)"></span>MODELL</div><div class="v">Claude Opus 4.8 &middot; Bedrock Frankfurt</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:#10b981"></span>AGENT</div><div class="v">NIS2-Auditor &middot; fertig</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:var(--mint)"></span>KONNEKTOR</div><div class="v">DATEV verbunden</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:var(--faint)"></span>EXPORT</div><div class="v">Bericht.pdf erstellt</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:#10b981"></span>SICHERHEIT</div><div class="v">DMARC &middot; DNSSEC geprüft</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:var(--faint)"></span>AGENT</div><div class="v">Arbeitsrecht-Experte &middot; bereit</div></div></div><div class="hc-col hc-col2"><div class="hc-card"><div class="k"><span class="dot" style="background:var(--mint)"></span>WISSENSBASIS</div><div class="v">RAG &middot; 3 Treffer &middot; EU/Frankfurt</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:var(--accent-strong)"></span>MODELL</div><div class="v">Claude Opus 4.8 &middot; Bedrock Frankfurt</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:#10b981"></span>AGENT</div><div class="v">NIS2-Auditor &middot; fertig</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:var(--mint)"></span>KONNEKTOR</div><div class="v">DATEV verbunden</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:var(--faint)"></span>EXPORT</div><div class="v">Bericht.pdf erstellt</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:#10b981"></span>SICHERHEIT</div><div class="v">DMARC &middot; DNSSEC geprüft</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:var(--faint)"></span>AGENT</div><div class="v">Arbeitsrecht-Experte &middot; bereit</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:var(--accent-strong)"></span>PII-SCHUTZ</div><div class="v">12 personenbezogene Daten maskiert</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:var(--mint)"></span>WISSENSBASIS</div><div class="v">Wissensbasis: 1.240 Dokumente</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:var(--accent-strong)"></span>CHAT</div><div class="v">Antwort mit 3 EU-Quellen</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:#f59e0b"></span>AGENT</div><div class="v">Steuer &amp; DATEV &middot; läuft</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:#3b82f6"></span>ORCHESTRA</div><div class="v">Rechnung aus E-Mail + DATEV vorbereitet</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:var(--mint)"></span>WISSENSBASIS</div><div class="v">RAG &middot; 3 Treffer &middot; EU/Frankfurt</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:var(--accent-strong)"></span>MODELL</div><div class="v">Claude Opus 4.8 &middot; Bedrock Frankfurt</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:#10b981"></span>AGENT</div><div class="v">NIS2-Auditor &middot; fertig</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:var(--mint)"></span>KONNEKTOR</div><div class="v">DATEV verbunden</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:var(--faint)"></span>EXPORT</div><div class="v">Bericht.pdf erstellt</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:#10b981"></span>SICHERHEIT</div><div class="v">DMARC &middot; DNSSEC geprüft</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:var(--faint)"></span>AGENT</div><div class="v">Arbeitsrecht-Experte &middot; bereit</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:var(--accent-strong)"></span>PII-SCHUTZ</div><div class="v">12 personenbezogene Daten maskiert</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:var(--mint)"></span>WISSENSBASIS</div><div class="v">Wissensbasis: 1.240 Dokumente</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:var(--accent-strong)"></span>CHAT</div><div class="v">Antwort mit 3 EU-Quellen</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:#f59e0b"></span>AGENT</div><div class="v">Steuer &amp; DATEV &middot; läuft</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:#3b82f6"></span>ORCHESTRA</div><div class="v">Rechnung aus E-Mail + DATEV vorbereitet</div></div></div><div class="hc-col hc-col3"><div class="hc-card"><div class="k"><span class="dot" style="background:#10b981"></span>SICHERHEIT</div><div class="v">DMARC &middot; DNSSEC geprüft</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:var(--faint)"></span>AGENT</div><div class="v">Arbeitsrecht-Experte &middot; bereit</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:var(--accent-strong)"></span>PII-SCHUTZ</div><div class="v">12 personenbezogene Daten maskiert</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:var(--mint)"></span>WISSENSBASIS</div><div class="v">Wissensbasis: 1.240 Dokumente</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:var(--accent-strong)"></span>CHAT</div><div class="v">Antwort mit 3 EU-Quellen</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:#f59e0b"></span>AGENT</div><div class="v">Steuer &amp; DATEV &middot; läuft</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:#3b82f6"></span>ORCHESTRA</div><div class="v">Rechnung aus E-Mail + DATEV vorbereitet</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:var(--mint)"></span>KONNEKTOR</div><div class="v">Gmail &middot; Microsoft 365 verbunden</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:#10b981"></span>AGENT</div><div class="v">Fördermittel-Scout &middot; 4 Treffer</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:var(--accent-strong)"></span>PII-SCHUTZ</div><div class="v">Maskierung vor Cloud-Aufruf aktiv</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:var(--faint)"></span>VORLESEN</div><div class="v">Analyse wird vorgelesen (de-DE)</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:#f59e0b"></span>AGENT</div><div class="v">Vertrags-Prüfer &middot; läuft</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:#10b981"></span>SICHERHEIT</div><div class="v">DMARC &middot; DNSSEC geprüft</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:var(--faint)"></span>AGENT</div><div class="v">Arbeitsrecht-Experte &middot; bereit</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:var(--accent-strong)"></span>PII-SCHUTZ</div><div class="v">12 personenbezogene Daten maskiert</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:var(--mint)"></span>WISSENSBASIS</div><div class="v">Wissensbasis: 1.240 Dokumente</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:var(--accent-strong)"></span>CHAT</div><div class="v">Antwort mit 3 EU-Quellen</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:#f59e0b"></span>AGENT</div><div class="v">Steuer &amp; DATEV &middot; läuft</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:#3b82f6"></span>ORCHESTRA</div><div class="v">Rechnung aus E-Mail + DATEV vorbereitet</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:var(--mint)"></span>KONNEKTOR</div><div class="v">Gmail &middot; Microsoft 365 verbunden</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:#10b981"></span>AGENT</div><div class="v">Fördermittel-Scout &middot; 4 Treffer</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:var(--accent-strong)"></span>PII-SCHUTZ</div><div class="v">Maskierung vor Cloud-Aufruf aktiv</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:var(--faint)"></span>VORLESEN</div><div class="v">Analyse wird vorgelesen (de-DE)</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:#f59e0b"></span>AGENT</div><div class="v">Vertrags-Prüfer &middot; läuft</div></div></div><div class="hc-col hc-col4"><div class="hc-card"><div class="k"><span class="dot" style="background:#f59e0b"></span>AGENT</div><div class="v">Steuer &amp; DATEV &middot; läuft</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:#3b82f6"></span>ORCHESTRA</div><div class="v">Rechnung aus E-Mail + DATEV vorbereitet</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:var(--mint)"></span>KONNEKTOR</div><div class="v">Gmail &middot; Microsoft 365 verbunden</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:#10b981"></span>AGENT</div><div class="v">Fördermittel-Scout &middot; 4 Treffer</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:var(--accent-strong)"></span>PII-SCHUTZ</div><div class="v">Maskierung vor Cloud-Aufruf aktiv</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:var(--faint)"></span>VORLESEN</div><div class="v">Analyse wird vorgelesen (de-DE)</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:#f59e0b"></span>AGENT</div><div class="v">Vertrags-Prüfer &middot; läuft</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:#10b981"></span>CYBERSECURITY</div><div class="v">Endpoint-Scan: 0 kritische Funde</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:var(--mint)"></span>WISSENSBASIS</div><div class="v">Embedding erstellt (EU)</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:var(--accent-strong)"></span>CHAT</div><div class="v">Erstelle eine DSFA für unsere Arztpraxis</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:#f59e0b"></span>AGENT</div><div class="v">Datenschutz-Auditor &middot; läuft</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:#10b981"></span>CYBERSECURITY</div><div class="v">TLS 1.3 OK &middot; HSTS OK &middot; Note B</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:#f59e0b"></span>AGENT</div><div class="v">Steuer &amp; DATEV &middot; läuft</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:#3b82f6"></span>ORCHESTRA</div><div class="v">Rechnung aus E-Mail + DATEV vorbereitet</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:var(--mint)"></span>KONNEKTOR</div><div class="v">Gmail &middot; Microsoft 365 verbunden</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:#10b981"></span>AGENT</div><div class="v">Fördermittel-Scout &middot; 4 Treffer</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:var(--accent-strong)"></span>PII-SCHUTZ</div><div class="v">Maskierung vor Cloud-Aufruf aktiv</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:var(--faint)"></span>VORLESEN</div><div class="v">Analyse wird vorgelesen (de-DE)</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:#f59e0b"></span>AGENT</div><div class="v">Vertrags-Prüfer &middot; läuft</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:#10b981"></span>CYBERSECURITY</div><div class="v">Endpoint-Scan: 0 kritische Funde</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:var(--mint)"></span>WISSENSBASIS</div><div class="v">Embedding erstellt (EU)</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:var(--accent-strong)"></span>CHAT</div><div class="v">Erstelle eine DSFA für unsere Arztpraxis</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:#f59e0b"></span>AGENT</div><div class="v">Datenschutz-Auditor &middot; läuft</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:#10b981"></span>CYBERSECURITY</div><div class="v">TLS 1.3 OK &middot; HSTS OK &middot; Note B</div></div></div><div class="hc-col hc-col5"><div class="hc-card"><div class="k"><span class="dot" style="background:var(--faint)"></span>VORLESEN</div><div class="v">Analyse wird vorgelesen (de-DE)</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:#f59e0b"></span>AGENT</div><div class="v">Vertrags-Prüfer &middot; läuft</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:#10b981"></span>CYBERSECURITY</div><div class="v">Endpoint-Scan: 0 kritische Funde</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:var(--mint)"></span>WISSENSBASIS</div><div class="v">Embedding erstellt (EU)</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:var(--accent-strong)"></span>CHAT</div><div class="v">Erstelle eine DSFA für unsere Arztpraxis</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:#f59e0b"></span>AGENT</div><div class="v">Datenschutz-Auditor &middot; läuft</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:#10b981"></span>CYBERSECURITY</div><div class="v">TLS 1.3 OK &middot; HSTS OK &middot; Note B</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:var(--accent-strong)"></span>PII-SCHUTZ</div><div class="v">Dr. Müller, Hannover &rarr; [NAME], [ORT]</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:var(--faint)"></span>DATEI</div><div class="v">Analyse_DSFA_Arztpraxis.md</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:var(--mint)"></span>WISSENSBASIS</div><div class="v">RAG &middot; 3 Treffer &middot; EU/Frankfurt</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:var(--accent-strong)"></span>MODELL</div><div class="v">Claude Opus 4.8 &middot; Bedrock Frankfurt</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:#10b981"></span>AGENT</div><div class="v">NIS2-Auditor &middot; fertig</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:var(--faint)"></span>VORLESEN</div><div class="v">Analyse wird vorgelesen (de-DE)</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:#f59e0b"></span>AGENT</div><div class="v">Vertrags-Prüfer &middot; läuft</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:#10b981"></span>CYBERSECURITY</div><div class="v">Endpoint-Scan: 0 kritische Funde</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:var(--mint)"></span>WISSENSBASIS</div><div class="v">Embedding erstellt (EU)</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:var(--accent-strong)"></span>CHAT</div><div class="v">Erstelle eine DSFA für unsere Arztpraxis</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:#f59e0b"></span>AGENT</div><div class="v">Datenschutz-Auditor &middot; läuft</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:#10b981"></span>CYBERSECURITY</div><div class="v">TLS 1.3 OK &middot; HSTS OK &middot; Note B</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:var(--accent-strong)"></span>PII-SCHUTZ</div><div class="v">Dr. Müller, Hannover &rarr; [NAME], [ORT]</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:var(--faint)"></span>DATEI</div><div class="v">Analyse_DSFA_Arztpraxis.md</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:var(--mint)"></span>WISSENSBASIS</div><div class="v">RAG &middot; 3 Treffer &middot; EU/Frankfurt</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:var(--accent-strong)"></span>MODELL</div><div class="v">Claude Opus 4.8 &middot; Bedrock Frankfurt</div></div><div class="hc-card"><div class="k"><span class="dot" style="background:#10b981"></span>AGENT</div><div class="v">NIS2-Auditor &middot; fertig</div></div></div></div></div><div class="hc-overlay" aria-hidden="true"></div><div class="wrap hc-content">
-  <div class="h3-badge"><span class="h3-flag">🇩🇪</span> In Deutschland entwickelt &middot; DSGVO-konform &middot; KI-Verarbeitung in der EU</div>
+  <div class="h3-badge"><span class="h3-flag">🇩🇪</span> In Deutschland entwickelt &middot; DSGVO-konform &middot; EU-Hosting Frankfurt</div>
   <h1 class="h3-title">Proaktive KI, die für Sie arbeitet &mdash; DSGVO-konform aus Deutschland.</h1>
   <div class="h3-cta">
     <a class="btn btn-primary btn-lg" href="mailto:kontakt@xdab-ki.de?subject=Kostenlose%20Erstberatung%20XDAB">Kostenlose Erstberatung</a>
@@ -1208,36 +1046,9 @@ html.xr-on .xr.xr-in{ opacity:1; transform:none }
   </div>
   <div class="h3-phone-wrap">
     <div class="h3-phone">
-      <div class="h3-pscreen h3-pscreen-run"><div class="h3-island" aria-hidden="true"></div>
-        <div class="ph" aria-label="Ablauf im XDAB-Arbeitsplatz: Auftrag, PII-Maskierung, EU-Route, Ergebnis">
-          <div class="ph-bar"><span class="ph-dot"></span>XDAB &middot; Arbeitsplatz</div>
-          <div class="ph-flow">
-            <div class="ph-step ph-s1">
-              <div class="ph-lbl">Auftrag</div>
-              <div class="ph-prompt"><span class="ph-type">Mahnung an Kunde Meyer entwerfen</span><i class="ph-caret" aria-hidden="true"></i></div>
-            </div>
-            <div class="ph-step ph-s2">
-              <div class="ph-lbl ph-lbl-pii">PII-Gate</div>
-              <div class="ph-mask"><span class="ph-was">Meyer</span><span class="ph-arr">&rarr;</span><span class="ph-blk"></span></div>
-              <div class="ph-note">2 Angaben maskiert &mdash; vor dem Cloud-Aufruf</div>
-            </div>
-            <div class="ph-step ph-s3">
-              <div class="ph-route"><span class="ph-check" aria-hidden="true"></span>EU &middot; Frankfurt</div>
-            </div>
-            <div class="ph-step ph-s4">
-              <div class="ph-lbl">Ergebnis</div>
-              <div class="ph-out">
-                <span class="ph-ln ph-l1"></span><span class="ph-ln ph-l2"></span>
-                <span class="ph-ln ph-l3"></span><span class="ph-ln ph-l4"></span>
-                <span class="ph-ln ph-l5"></span><span class="ph-ln ph-l6"></span>
-              </div>
-              <div class="ph-file"><span class="ph-fi" aria-hidden="true"></span>Mahnung_Meyer.pdf</div>
-            </div>
-          </div>
-          <div class="ph-foot"><span>Kosten</span>
-            <b class="ph-cost"><i>0,00&nbsp;&euro;</i><i>0,01&nbsp;&euro;</i><i>0,02&nbsp;&euro;</i><i>0,03&nbsp;&euro;</i></b>
-          </div>
-        </div>
+      <div class="h3-pscreen h3-pscreen-shot"><div class="h3-island" aria-hidden="true"></div>
+        <img class="h3-shot h3-shot-a" src="assets/m-home.webp" width="780" height="1688" fetchpriority="high" alt="XDAB auf dem Smartphone: Startbildschirm mit Begrüßung und Arbeitsmodi">
+        <img class="h3-shot h3-shot-b" src="assets/m-chat.webp" width="780" height="1688" loading="lazy" alt="XDAB auf dem Smartphone: Antwort des Experten-Teams mit Art.-50-Kennzeichnung">
       </div>
     </div>
   </div>
@@ -1255,14 +1066,14 @@ html.xr-on .xr.xr-in{ opacity:1; transform:none }
     <div class="sec-head pf-head">
       <span class="eyebrow pf-eyebrow">Auf einen Blick</span>
       <h2 class="pf-h2">Alles aus einer Hand.</h2>
-      <p class="pf-lead">Rechtssichere KI, Webentwicklung und Betrieb &mdash; drei Leistungen, ein Partner. KI&#8209;Verarbeitung in der EU (Frankfurt), begleitet vom externen Datenschutzbeauftragten aus Braunschweig.</p>
+      <p class="pf-lead">Rechtssichere KI, Webentwicklung und Betrieb &mdash; drei Leistungen, ein Partner. EU&#8209;gehostet in Frankfurt, vom zertifizierten Datenschutzbeauftragten aus Braunschweig.</p>
     </div>
     <div class="ov-grid">
       <article class="ov-card"><span class="ov-num">01</span><h3 class="ov-t">KI&#8209;Plattform &amp; Compliance</h3><p class="ov-d">DSGVO&#8209;konformer KI&#8209;Workspace, externer Datenschutzbeauftragter, Cybersecurity &amp; Schulungen &mdash; modular kombinierbar.</p><span class="ov-tag">Schulung 49 &euro; &middot; KI&#8209;Workspace 379 &euro;/Monat</span></article>
       <article class="ov-card"><span class="ov-num">02</span><h3 class="ov-t">Webseiten &amp; Web&#8209;Apps</h3><p class="ov-d">Moderne, datenschutzkonforme Websites und Web&#8209;Anwendungen &mdash; von Anfang an rechtssicher umgesetzt.</p><span class="ov-tag">Projektgeschäft</span></article>
       <article class="ov-card"><span class="ov-num">03</span><h3 class="ov-t">Software&#8209;on&#8209;Demand &amp; Betrieb</h3><p class="ov-d">Ihre KI&#8209;Modelle auf dedizierten EU&#8209;Servern &mdash; vollständig betrieben, gewartet und überwacht.</p><span class="ov-tag">Managed Service</span></article>
     </div>
-    <div class="ov-trust"><span>EU&#8209;Verarbeitung Frankfurt</span><span>Externer Datenschutzbeauftragter</span><span>NIS2&#8209;ready</span><span>E&#8209;Rechnung &amp; GoBD</span></div>
+    <div class="ov-trust"><span>EU&#8209;Hosting Frankfurt</span><span>Zertifizierter Datenschutzbeauftragter</span><span>NIS2&#8209;ready</span><span>E&#8209;Rechnung &amp; GoBD</span></div>
   </div>
 </section>
 
@@ -1281,12 +1092,223 @@ html.xr-on .xr.xr-in{ opacity:1; transform:none }
   </div>
 </section>
 
+<section id="plattform" class="pf-section">
+  <div class="wrap">
+    <div class="sec-head pf-head">
+      <span class="eyebrow pf-eyebrow">Die Plattform</span>
+      <h2 class="pf-h2">Eine Plattform.<br>Vier souveräne Bausteine.</h2>
+      <p class="pf-lead">KI, die für Sie arbeitet &mdash; und Datenschutz, der von Anfang an mitgebaut ist. Vier Bausteine, ein Partner, gemacht für den deutschen Mittelstand.</p>
+    </div>
 
+    <div class="pf-scrolly">
+    <div class="pf-blocks">
+      <!-- 0.1 -->
+      <article class="pf-block">
+        <div class="pf-block-num">/0.1</div>
+        <div class="pf-block-body">
+          <h3 class="pf-block-title">KI&#8209;Workspace</h3>
+          <p class="pf-block-text">Ein Arbeitsplatz für alles: fragen, schreiben, analysieren &mdash; mit den besten KI&#8209;Modellen. Namen und Kundendaten werden automatisch unkenntlich gemacht, bevor irgendetwas Ihr Haus verlässt. Ergebnisse kommen fertig als PDF, Word oder Excel heraus.</p>
+          <div class="pf-block-tags">
+            <span class="pf-tag">Die besten Modelle</span>
+            <span class="pf-tag">Automatischer Datenschutz</span>
+            <span class="pf-tag">Export in Ihre Formate</span>
+          </div>
+        </div>
+      </article>
+      <div class="pf-divider"></div>
 
+      <!-- 0.2 -->
+      <article class="pf-block">
+        <div class="pf-block-num">/0.2</div>
+        <div class="pf-block-body">
+          <h3 class="pf-block-title">Experten&#8209;Agenten</h3>
+          <p class="pf-block-text">Beschreiben Sie Ihre Aufgabe &mdash; der Experten&#8209;Lotse stellt das passende Fachteam zusammen, von der Arztpraxis bis zur Kanzlei. Lange Analysen laufen im Hintergrund weiter und liegen fertig für Sie bereit, auch wenn Sie die App längst geschlossen haben.</p>
+          <div class="pf-block-tags">
+            <span class="pf-tag">Experten&#8209;Lotse</span>
+            <span class="pf-tag">1.880 Fachprofile</span>
+            <span class="pf-tag">Arbeitet im Hintergrund weiter</span>
+          </div>
+        </div>
+      </article>
+      <div class="pf-divider"></div>
 
+      <!-- 0.3 -->
+      <article class="pf-block">
+        <div class="pf-block-num">/0.3</div>
+        <div class="pf-block-body">
+          <h3 class="pf-block-title">Cybersecurity</h3>
+          <p class="pf-block-text">Wir prüfen Ihre Website und Ihre Geräte &mdash; von außen wie von innen &mdash; und sagen Ihnen mit einer klaren Note von A+ bis F, wo Sie stehen und was als Nächstes zu tun ist. Ganz ohne Fachchinesisch.</p>
+          <div class="pf-block-tags">
+            <span class="pf-tag">Website&#8209;Check mit Note</span>
+            <span class="pf-tag">Geräte im Blick</span>
+            <span class="pf-tag">Klare To&#8209;dos</span>
+          </div>
+        </div>
+      </article>
+      <div class="pf-divider"></div>
 
-<section id="warum" class="has-bgfx pf-section">
-  <canvas class="bgfx" data-fx="netz" aria-hidden="true"></canvas>
+      <!-- 0.4 -->
+      <article class="pf-block">
+        <div class="pf-block-num">/0.4</div>
+        <div class="pf-block-body">
+          <h3 class="pf-block-title">Datenschutz&#8209;Beratung</h3>
+          <p class="pf-block-text">Echte Menschen statt Hotline: Audits, Verarbeitungsverzeichnis und Schulungen für Ihr Team &mdash; damit KI und Datenschutz bei Ihnen von Anfang an zusammenpassen.</p>
+          <div class="pf-block-tags">
+            <span class="pf-tag">Persönliche Beratung</span>
+            <span class="pf-tag">Audits &amp; VVT</span>
+            <span class="pf-tag">Pflicht&#8209;Schulungen (Art. 4)</span>
+          </div>
+        </div>
+      </article>
+    </div>
+    <aside class="pf-visual" aria-hidden="true">
+      <div class="pf-visual-frame">
+        <img class="pf-vshot is-on" src="assets/d-home.webp" width="2880" height="1800" loading="lazy" alt="">
+        <img class="pf-vshot" src="assets/d-agenten.webp" width="2880" height="1800" loading="lazy" alt="">
+        <img class="pf-vshot" src="assets/d-security.webp" width="2880" height="1800" loading="lazy" alt="">
+        <img class="pf-vshot" src="assets/d-vergleich.webp" width="2880" height="1800" loading="lazy" alt="">
+      </div>
+      <div class="pf-vdots"><i class="on"></i><i></i><i></i><i></i></div>
+    </aside>
+    </div>
+  </div>
+</section>
+
+<section id="unikate" class="uq-section">
+  <div class="wrap">
+    <div class="sec-head"><div class="eyebrow">Nur bei XDAB</div><h2>Systeme, die es woanders nicht gibt.</h2><p>Ein Blick in den echten Arbeitsplatz &mdash; echte Screenshots, keine Konzeptbilder.</p></div>
+    <div class="uq-grid">
+      <figure class="uq-card">
+        <div class="uq-shot"><img src="assets/d-schwarm.webp" width="2880" height="1800" loading="lazy" alt="XDAB Experten-Team: 73 Fach-Spezialisten zur parallelen Auswahl"></div>
+        <figcaption><b>Experten&#8209;Team</b>Bis zu 73 Fach&#8209;Spezialisten arbeiten parallel an Ihrer Frage &mdash; Sie bekommen eine abgestimmte Antwort statt vieler Einzelmeinungen.</figcaption>
+      </figure>
+      <figure class="uq-card">
+        <div class="uq-shot"><img src="assets/d-kosten.webp" width="2880" height="1800" loading="lazy" alt="XDAB Kosten-Killer: Kostenkontrolle für jede KI-Anfrage"></div>
+        <figcaption><b>Kosten&#8209;Killer</b>Sie sehen jede KI&#8209;Ausgabe, bevor sie entsteht &mdash; mit Budget&#8209;Wächter und Kostenvorschau statt böser Überraschung.</figcaption>
+      </figure>
+      <figure class="uq-card">
+        <div class="uq-shot"><img src="assets/d-tierrouter.webp" width="2880" height="1800" loading="lazy" alt="XDAB Tier-Router: automatische Modellwahl nach Aufgabe"></div>
+        <figcaption><b>Tier&#8209;Router</b>Wählt automatisch das günstigste Modell, das Ihre Aufgabe wirklich schafft &mdash; klein für Routine, groß für schwere Fälle.</figcaption>
+      </figure>
+      <figure class="uq-card">
+        <div class="uq-shot"><img src="assets/d-concierge.webp" width="2880" height="1800" loading="lazy" alt="XDAB Concierge: eingebaute Hilfe direkt im Arbeitsplatz"></div>
+        <figcaption><b>Concierge</b>Erklärt Ihnen den Arbeitsplatz direkt in der App, beantwortet Fragen und führt Sie zum richtigen Werkzeug.</figcaption>
+      </figure>
+      <figure class="uq-card">
+        <div class="uq-shot"><img src="assets/d-audit.webp" width="2880" height="1800" loading="lazy" alt="XDAB Audit: Recht- und Security-Prüfung im Arbeitsplatz"></div>
+        <figcaption><b>Recht- &amp; Security-Audit</b>Prüft Vorhaben, Verträge und Websites auf rechtliche und technische Risiken &mdash; mit belegten Befunden statt Bauchgefühl.</figcaption>
+      </figure>
+      <figure class="uq-card">
+        <div class="uq-shot"><img src="assets/d-katalog.webp" width="2880" height="1800" loading="lazy" alt="XDAB Modellkatalog: transparente Übersicht der verfügbaren KI-Modelle"></div>
+        <figcaption><b>Modellkatalog</b>Alle verfügbaren Modelle offen nebeneinander &mdash; Sie sehen, was womit läuft, statt einer Blackbox.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="einsatz" class="pf-section pf-section-einsatz">
+  <div class="wrap">
+    <div class="sec-head pf-head">
+      <span class="eyebrow pf-eyebrow">Einsatzbereiche</span>
+      <h2 class="pf-h2">Wo XDAB konkret arbeitet.</h2>
+      <p class="pf-lead">Von der ersten Bestandsaufnahme bis zum laufenden Betrieb &mdash; abgestimmt auf Branche, Risiko und Datenschutzbedarf.</p>
+    </div>
+
+    <ul class="pf-arrowlist">
+      <li class="pf-arrow-item">
+        <div class="pf-arrow-main">
+          <span class="pf-arrow-idx">01</span>
+          <span class="pf-arrow-label">Datenschutz&#8209;Audit &amp; VVT</span>
+        </div>
+        <span class="pf-arrow-desc">Bestandsaufnahme, Verarbeitungsverzeichnis, Risikobewertung</span>
+        <span class="pf-arrow-go" aria-hidden="true">&rarr;</span>
+      </li>
+      <li class="pf-arrow-item">
+        <div class="pf-arrow-main">
+          <span class="pf-arrow-idx">02</span>
+          <span class="pf-arrow-label">KI&#8209;Integration mit PII&#8209;Schutz</span>
+        </div>
+        <span class="pf-arrow-desc">Anonymisierung per Presidio + Flair NER vor jedem Cloud&#8209;Aufruf</span>
+        <span class="pf-arrow-go" aria-hidden="true">&rarr;</span>
+      </li>
+      <li class="pf-arrow-item">
+        <div class="pf-arrow-main">
+          <span class="pf-arrow-idx">03</span>
+          <span class="pf-arrow-label">NIS2 &amp; Cybersecurity</span>
+        </div>
+        <span class="pf-arrow-desc">Scanner, Endpoint&#8209;Agent, Härtungs&#8209;Empfehlungen</span>
+        <span class="pf-arrow-go" aria-hidden="true">&rarr;</span>
+      </li>
+      <li class="pf-arrow-item">
+        <div class="pf-arrow-main">
+          <span class="pf-arrow-idx">04</span>
+          <span class="pf-arrow-label">Externer Datenschutzbeauftragter</span>
+        </div>
+        <span class="pf-arrow-desc">Mandat, laufende Betreuung, Behördenkontakt</span>
+        <span class="pf-arrow-go" aria-hidden="true">&rarr;</span>
+      </li>
+      <li class="pf-arrow-item">
+        <div class="pf-arrow-main">
+          <span class="pf-arrow-idx">05</span>
+          <span class="pf-arrow-label">KI&#8209;Schulungen (Art. 4 EU AI Act)</span>
+        </div>
+        <span class="pf-arrow-desc">Pflichtschulung zur KI&#8209;Kompetenz für Ihr Team</span>
+        <span class="pf-arrow-go" aria-hidden="true">&rarr;</span>
+      </li>
+      <li class="pf-arrow-item">
+        <div class="pf-arrow-main">
+          <span class="pf-arrow-idx">06</span>
+          <span class="pf-arrow-label">Branchen&#8209;Experten</span>
+        </div>
+        <span class="pf-arrow-desc">Arztpraxis, Kanzlei, Handwerk, Steuerberatung u. v. m.</span>
+        <span class="pf-arrow-go" aria-hidden="true">&rarr;</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section id="leistungen" class="pf-section">
+  <div class="wrap">
+    <div class="sec-head pf-head">
+      <span class="eyebrow pf-eyebrow">Über die Plattform hinaus</span>
+      <h2 class="pf-h2">Technik &amp; Betrieb<br>aus einer Hand.</h2>
+      <p class="pf-lead">Neben der Plattform setzen wir Ihre Digitalisierung praktisch um &mdash; von der datenschutzkonformen Website bis zum dedizierten Server, auf dem Ihre KI dauerhaft läuft.</p>
+    </div>
+
+    <div class="pf-blocks">
+      <!-- 0.5 -->
+      <article class="pf-block">
+        <div class="pf-block-num">/0.5</div>
+        <div class="pf-block-body">
+          <h3 class="pf-block-title">Webseiten &amp; Web&#8209;Apps</h3>
+          <p class="pf-block-text">Moderne, datenschutzkonforme Websites und Web&#8209;Anwendungen (Progressive Web Apps) &mdash; von Anfang an DSGVO&#8209;konform statt nachträglich abgesichert. Dazu Digitalisierung Ihrer Geschäftsprozesse sowie Beratung zu E&#8209;Rechnung und revisionssicherer Archivierung.</p>
+          <div class="pf-block-tags">
+            <span class="pf-tag">DSGVO by Design</span>
+            <span class="pf-tag">Progressive Web Apps</span>
+            <span class="pf-tag">E&#8209;Rechnung &amp; GoBD</span>
+          </div>
+        </div>
+      </article>
+      <div class="pf-divider"></div>
+
+      <!-- 0.6 -->
+      <article class="pf-block">
+        <div class="pf-block-num">/0.6</div>
+        <div class="pf-block-body">
+          <h3 class="pf-block-title">Software&#8209;on&#8209;Demand &amp; Managed Services</h3>
+          <p class="pf-block-text">Wir mieten europäische Server bedarfsgerecht an und betreiben Ihre KI&#8209;Modelle als Managed Service &mdash; auf dedizierter Infrastruktur, vollständig gewartet: Updates, Monitoring und Betrieb übernehmen wir. Für Berufsgeheimnisträger laufen sensible Mandate auf lokaler Infrastruktur und verlassen das kontrollierte Umfeld nie.</p>
+          <div class="pf-block-tags">
+            <span class="pf-tag">Dedizierte EU&#8209;Server</span>
+            <span class="pf-tag">Lokaler Betrieb</span>
+            <span class="pf-tag">Wartung &amp; Monitoring</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="warum" class="pf-section">
   <div class="wrap">
     <div class="sec-head pf-head">
       <span class="eyebrow pf-eyebrow">Warum XDAB</span>
@@ -1374,88 +1396,6 @@ html.xr-on .xr.xr-in{ opacity:1; transform:none }
 
 </div>
 <div class="lp-page" data-page="funktionen">
-<section id="plattform" class="pf-section">
-  <div class="wrap">
-    <div class="sec-head pf-head">
-      <span class="eyebrow pf-eyebrow">Die Plattform</span>
-      <h2 class="pf-h2">Eine Plattform.<br>Vier souveräne Bausteine.</h2>
-      <p class="pf-lead">Vier Bausteine, ein Partner &mdash; gemacht für den deutschen Mittelstand.</p>
-    </div>
-
-    <div class="pf-scrolly">
-    <div class="pf-blocks">
-      <!-- 0.1 -->
-      <article class="pf-block">
-        <div class="pf-block-num">/0.1</div>
-        <div class="pf-block-body">
-          <h3 class="pf-block-title">KI&#8209;Workspace</h3>
-          <p class="pf-block-text">Fragen, schreiben, analysieren &mdash; mit den besten Modellen. Namen und Kundendaten werden maskiert, bevor etwas Ihr Haus verlässt.</p>
-          <div class="pf-block-tags">
-            <span class="pf-tag">Die besten Modelle</span>
-            <span class="pf-tag">Automatischer Datenschutz</span>
-            <span class="pf-tag">Export in Ihre Formate</span>
-          </div>
-        </div>
-      </article>
-      <div class="pf-divider"></div>
-
-      <!-- 0.2 -->
-      <article class="pf-block">
-        <div class="pf-block-num">/0.2</div>
-        <div class="pf-block-body">
-          <h3 class="pf-block-title">Experten&#8209;Agenten</h3>
-          <p class="pf-block-text">Beschreiben Sie Ihre Aufgabe &mdash; der Lotse stellt das passende Fachteam zusammen, von der Arztpraxis bis zur Kanzlei.</p>
-          <div class="pf-block-tags">
-            <span class="pf-tag">Experten&#8209;Lotse</span>
-            <span class="pf-tag">1.880 Fachprofile</span>
-            <span class="pf-tag">Arbeitet im Hintergrund weiter</span>
-          </div>
-        </div>
-      </article>
-      <div class="pf-divider"></div>
-
-      <!-- 0.3 -->
-      <article class="pf-block">
-        <div class="pf-block-num">/0.3</div>
-        <div class="pf-block-body">
-          <h3 class="pf-block-title">Cybersecurity</h3>
-          <p class="pf-block-text">Wir prüfen Website und Geräte von außen wie von innen &mdash; mit einer klaren Note von A+ bis F, ohne Fachchinesisch.</p>
-          <div class="pf-block-tags">
-            <span class="pf-tag">Website&#8209;Check mit Note</span>
-            <span class="pf-tag">Geräte im Blick</span>
-            <span class="pf-tag">Klare To&#8209;dos</span>
-          </div>
-        </div>
-      </article>
-      <div class="pf-divider"></div>
-
-      <!-- 0.4 -->
-      <article class="pf-block">
-        <div class="pf-block-num">/0.4</div>
-        <div class="pf-block-body">
-          <h3 class="pf-block-title">Datenschutz&#8209;Beratung</h3>
-          <p class="pf-block-text">Echte Menschen statt Hotline: Audits, Verarbeitungsverzeichnis und Schulungen für Ihr Team.</p>
-          <div class="pf-block-tags">
-            <span class="pf-tag">Persönliche Beratung</span>
-            <span class="pf-tag">Audits &amp; VVT</span>
-            <span class="pf-tag">Pflicht&#8209;Schulungen (Art. 4)</span>
-          </div>
-        </div>
-      </article>
-    </div>
-    <aside class="pf-visual" aria-hidden="true">
-      <div class="pf-visual-frame">
-        <img class="pf-vshot is-on" src="assets/d-home.webp" width="2880" height="1800" loading="lazy" alt="">
-        <img class="pf-vshot" src="assets/d-agenten.webp" width="2880" height="1800" loading="lazy" alt="">
-        <img class="pf-vshot" src="assets/d-security.webp" width="2880" height="1800" loading="lazy" alt="">
-        <img class="pf-vshot" src="assets/d-vergleich.webp" width="2880" height="1800" loading="lazy" alt="">
-      </div>
-      <div class="pf-vdots"><i class="on"></i><i></i><i></i><i></i></div>
-    </aside>
-    </div>
-  </div>
-</section>
-
 <section id="showcase" class="sc-section">
   <div class="wrap">
     <div class="sec-head sc-head">
@@ -1480,6 +1420,7 @@ html.xr-on .xr.xr-in{ opacity:1; transform:none }
           <span class="sc-kicker">01 &mdash; Multi-Model-KI</span>
           <h3>Fragen Sie. Die besten Modelle antworten.</h3>
           <p>Claude, ChatGPT, Gemini und Mistral &mdash; alle im selben Eingabefeld. Sie wechseln das Modell mit einem Klick, XDAB kümmert sich um den Rest.</p>
+          <p>Quellen aus der Websuche stehen direkt am Ergebnis. Und: Auf Ihren Daten wird nicht trainiert.</p>
           <ul class="sc-pts">
             <li><svg viewBox="0 0 24 24" class="sc-i"><path d="M20 6 9 17l-5-5"/></svg>Modellwechsel mit einem Klick</li>
             <li><svg viewBox="0 0 24 24" class="sc-i"><path d="M20 6 9 17l-5-5"/></svg>Belegte Quellen statt Blackbox</li>
@@ -1516,6 +1457,7 @@ html.xr-on .xr.xr-in{ opacity:1; transform:none }
           <span class="sc-kicker">02 &mdash; 1.880 Experten-Agenten</span>
           <h3>Spezialisierte Agenten plus Lotse, der den richtigen findet.</h3>
           <p>Vom Datenschutz-Audit bis zur Fördermittel-Recherche: 1.880 vorkonfigurierte Experten-Agenten stehen bereit. Der Lotse wählt den passenden, Sie starten per Klick.</p>
+          <p>Lange Analysen laufen im Hintergrund weiter &mdash; auch wenn Sie die App längst geschlossen haben. Das fertige Ergebnis liegt danach automatisch in Ihrer Ablage.</p>
           <ul class="sc-pts">
             <li><svg viewBox="0 0 24 24" class="sc-i"><path d="M20 6 9 17l-5-5"/></svg>Läuft im Hintergrund weiter</li>
             <li><svg viewBox="0 0 24 24" class="sc-i"><path d="M20 6 9 17l-5-5"/></svg>Auto-Speicherung als PDF/Word/Excel</li>
@@ -1563,6 +1505,7 @@ html.xr-on .xr.xr-in{ opacity:1; transform:none }
           <span class="sc-kicker">03 &mdash; PII-Maskierung</span>
           <h3>Namen und Orte verlassen Ihr Haus nie im Klartext.</h3>
           <p>Bevor eine Anfrage Ihr Haus verlässt, erkennt XDAB automatisch Namen, Orte und andere persönliche Daten &mdash; und ersetzt sie durch Platzhalter wie [NAME] oder [ORT].</p>
+          <p>Das Modell verarbeitet nur die maskierte Variante. Nach der Antwort werden die Platzhalter lokal wieder zurückgesetzt &mdash; vollautomatisch.</p>
           <ul class="sc-pts">
             <li><svg viewBox="0 0 24 24" class="sc-i"><path d="M20 6 9 17l-5-5"/></svg>Deutsche NER, kein generisches Regex</li>
             <li><svg viewBox="0 0 24 24" class="sc-i"><path d="M20 6 9 17l-5-5"/></svg>Audit-Log ohne Prompt-Inhalte</li>
@@ -1596,6 +1539,7 @@ html.xr-on .xr.xr-in{ opacity:1; transform:none }
           <span class="sc-kicker">04 &mdash; Security-Scanner</span>
           <h3>Ein echter Sicherheits-Check &mdash; mit Schulnote.</h3>
           <p>XDAB prüft Ihre Website und Ihre Domain auf die Punkte, die Angreifer zuerst suchen &mdash; und fasst alles in einer Note von A+ bis F zusammen.</p>
+          <p>Auf Wunsch schauen wir auch auf Ihre Rechner: Welche Software läuft, ist die Festplatte verschlüsselt, wo fehlt ein Update? Schwachstellen werden konkret benannt, nicht nur gezählt.</p>
           <ul class="sc-pts">
             <li><svg viewBox="0 0 24 24" class="sc-i"><path d="M20 6 9 17l-5-5"/></svg>Konkrete Befunde, keine Pauschalwerte</li>
             <li><svg viewBox="0 0 24 24" class="sc-i"><path d="M20 6 9 17l-5-5"/></svg>Wiederholbar, dokumentiert, exportierbar</li>
@@ -1630,6 +1574,7 @@ html.xr-on .xr.xr-in{ opacity:1; transform:none }
           <span class="sc-kicker">05 &mdash; RAG-Wissensbasis</span>
           <h3>Ihre Dokumente werden zur durchsuchbaren Wissensbasis.</h3>
           <p>Laden Sie Verträge, Richtlinien und Handbücher hoch &mdash; XDAB findet die passende Stelle, nicht nur den Dateinamen. Fragen Sie einfach in Ihren eigenen Worten.</p>
+          <p>Antworten zitieren die Fundstelle mit Quelle und Treffer-Score, sodass jede Aussage nachvollziehbar bleibt.</p>
           <ul class="sc-pts">
             <li><svg viewBox="0 0 24 24" class="sc-i"><path d="M20 6 9 17l-5-5"/></svg>Versteht die Frage, nicht nur Stichworte</li>
             <li><svg viewBox="0 0 24 24" class="sc-i"><path d="M20 6 9 17l-5-5"/></svg>Jede Antwort mit Fundstelle belegt</li>
@@ -1661,41 +1606,6 @@ html.xr-on .xr.xr-in{ opacity:1; transform:none }
   </div>
 </section>
 
-<section id="unikate" class="uq-section">
-  <div class="wrap">
-    <div class="sec-head"><div class="eyebrow">Nur bei XDAB</div><h2>Systeme, die es woanders nicht gibt.</h2><p>Ein Blick in den echten Arbeitsplatz &mdash; echte Screenshots, keine Konzeptbilder.</p></div>
-    <div class="uq-grid">
-      <figure class="uq-card">
-        <div class="uq-shot"><img src="assets/d-schwarm.webp" width="2880" height="1800" loading="lazy" alt="XDAB Experten-Team: 73 Fach-Spezialisten zur parallelen Auswahl"></div>
-        <figcaption><b>Experten&#8209;Team</b>Bis zu 73 Fach&#8209;Spezialisten arbeiten parallel &mdash; eine abgestimmte Antwort statt vieler Einzelmeinungen.</figcaption>
-      </figure>
-      <figure class="uq-card">
-        <div class="uq-shot"><img src="assets/d-kosten.webp" width="2880" height="1800" loading="lazy" alt="XDAB Kosten-Killer: Kostenkontrolle für jede KI-Anfrage"></div>
-        <figcaption><b>Kosten&#8209;Killer</b>Sie sehen jede KI&#8209;Ausgabe, bevor sie entsteht &mdash; Budget&#8209;Wächter statt böser Überraschung.</figcaption>
-      </figure>
-      <figure class="uq-card">
-        <div class="uq-shot"><img src="assets/d-tierrouter.webp" width="2880" height="1800" loading="lazy" alt="XDAB Tier-Router: automatische Modellwahl nach Aufgabe"></div>
-        <figcaption><b>Tier&#8209;Router</b>Wählt automatisch das günstigste Modell, das Ihre Aufgabe wirklich schafft.</figcaption>
-      </figure>
-      <figure class="uq-card">
-        <div class="uq-shot"><img src="assets/d-concierge.webp" width="2880" height="1800" loading="lazy" alt="XDAB Concierge: eingebaute Hilfe direkt im Arbeitsplatz"></div>
-        <figcaption><b>Concierge</b>Erklärt den Arbeitsplatz direkt in der App und führt Sie zum richtigen Werkzeug.</figcaption>
-      </figure>
-      <figure class="uq-card">
-        <div class="uq-shot"><img src="assets/d-audit.webp" width="2880" height="1800" loading="lazy" alt="XDAB Audit: Recht- und Security-Prüfung im Arbeitsplatz"></div>
-        <figcaption><b>Recht- &amp; Security-Audit</b>Prüft Verträge und Websites auf rechtliche und technische Risiken &mdash; mit belegten Befunden.</figcaption>
-      </figure>
-      <figure class="uq-card">
-        <div class="uq-shot"><img src="assets/d-katalog.webp" width="2880" height="1800" loading="lazy" alt="XDAB Modellkatalog: transparente Übersicht der verfügbaren KI-Modelle"></div>
-        <figcaption><b>Modellkatalog</b>Alle Modelle offen nebeneinander statt Blackbox.</figcaption>
-      </figure>
-    </div>
-  </div>
-</section>
-
-<details class="tiefe" id="tiefe-technik">
-<summary class="tiefe-sum"><span class="tiefe-k">Technische Tiefe</span><span class="tiefe-t">Wie eine Anfrage abl&auml;uft &amp; wie Ihre Dokumente zur Wissensbasis werden</span><span class="tiefe-i" aria-hidden="true"></span></summary>
-<div class="tiefe-body">
 <section id="ablauf" class="fl-sec">
   <div class="wrap">
     <div class="sec-head fl-head">
@@ -1819,7 +1729,7 @@ html.xr-on .xr.xr-in{ opacity:1; transform:none }
     <div class="sec-head rg-head">
       <span class="eyebrow rg-eyebrow">Wissensbasis &middot; Vektordatenbank</span>
       <h2 class="rg-h2">Ihre Dokumente werden zum<br><span class="rg-hl">Wissen der KI</span> &mdash; DSGVO-konform in der EU</h2>
-      <p class="rg-lead">Ihre Dateien werden als Vektoren (pgvector) gespeichert. Die KI greift gezielt darauf zu und antwortet mit belegten Quellen &mdash; ausschließlich in Frankfurt verarbeitet.</p>
+      <p class="rg-lead">Eigene Dateien, Verträge und Handbücher werden eingebettet (Embeddings) und in einer Vektordatenbank (pgvector) gespeichert. Die KI greift per RAG gezielt darauf zu und antwortet mit nachvollziehbaren Quellen &mdash; verarbeitet ausschließlich in Frankfurt, kein Training auf Ihren Daten.</p>
     </div>
 
     <div class="rg-grid">
@@ -1960,17 +1870,15 @@ html.xr-on .xr.xr-in{ opacity:1; transform:none }
     </div>
   </div>
 </section>
-</div></details>
 
 </div>
 <div class="lp-page" data-page="datenschutz">
-<section id="datenschutz-detail" class="has-bgfx dt-section">
-  <canvas class="bgfx" data-fx="strom" aria-hidden="true"></canvas>
+<section id="datenschutz-detail" class="dt-section">
   <div class="wrap">
     <div class="dt-head">
       <span class="dt-eyebrow">Datenschutz im Detail</span>
       <h2 class="dt-h2">DSGVO ist bei uns Architektur &ndash; kein Haftungsausschluss im Kleingedruckten.</h2>
-      <p class="dt-lead">Derselbe Pfad bei jeder Anfrage: EU-Verarbeitung in Frankfurt, PII-Maskierung vor dem Cloud-Aufruf, AVV-Kette nach Art.&nbsp;28 DSGVO.</p>
+      <p class="dt-lead">Jede Anfrage durchl&auml;uft denselben Pfad: EU-Verarbeitung in Frankfurt, PII-Maskierung vor jedem Cloud-Aufruf, l&uuml;ckenlose AVV-Kette nach Art.&nbsp;28 DSGVO. Hier ist, was technisch und rechtlich dahintersteht.</p>
     </div>
 
     <!-- Vertrauens-Block -->
@@ -1984,7 +1892,7 @@ html.xr-on .xr.xr-in{ opacity:1; transform:none }
       <div class="dt-trust-body">
         <h3 class="dt-trust-title">EU-Verarbeitung in Frankfurt &mdash; kein US-Drittland im EU-Pfad</h3>
         <p class="dt-trust-text">
-          Daten werden im EU-Standard-Pfad (Bedrock-EU, AWS-Region Frankfurt) verarbeitet. Personenbezogene Daten werden dabei bereits <strong>vor</strong> dem Cloud-Aufruf automatisiert maskiert. Der Umzug auch des Webservers in die EU ist beauftragt; die KI-Verarbeitung l&auml;uft davon unabh&auml;ngig bereits in Frankfurt. Besonders sensible Aufgaben lassen sich zus&auml;tzlich vollst&auml;ndig lokal auf einem EU-Modell ausf&uuml;hren.
+          Daten werden im EU-Standard-Pfad (Bedrock-EU, AWS-Region Frankfurt) verarbeitet. Personenbezogene Daten werden dabei bereits <strong>vor</strong> dem Cloud-Aufruf automatisiert maskiert. Ziel ist eine durchgehend DSGVO-konforme Verarbeitung mit EU-Hosting; besonders sensible Aufgaben lassen sich zus&auml;tzlich vollst&auml;ndig lokal auf einem EU-Modell ausf&uuml;hren.
         </p>
         <div class="dt-trust-chips">
           <span class="dt-chip"><span class="dt-dot dt-dot-ok"></span>EU-only Default</span>
@@ -2147,9 +2055,6 @@ html.xr-on .xr.xr-in{ opacity:1; transform:none }
   </div>
 </section>
 
-<details class="tiefe" id="tiefe-av">
-<summary class="tiefe-sum"><span class="tiefe-k">Transparenz</span><span class="tiefe-t">Wer Ihre Daten verarbeitet &mdash; vollst&auml;ndige Sub-Prozessor-Liste</span><span class="tiefe-i" aria-hidden="true"></span></summary>
-<div class="tiefe-body">
 <section id="auftragsverarbeitung" class="dt-section avv-section"><div class="wrap">
   <div class="sec-head"><div class="eyebrow">Auftragsverarbeitung &amp; Transparenz</div><h2>Wer Ihre Daten verarbeitet — offengelegt</h2><p>XDAB ist Ihr Auftragsverarbeiter nach Art. 28 DSGVO und verarbeitet ausschließlich auf Ihre Weisung. Die Verarbeitungskette legen wir transparent offen — das ist Vertrauenssache.</p></div>
   <div class="avv-grid">
@@ -2163,7 +2068,7 @@ html.xr-on .xr.xr-in{ opacity:1; transform:none }
       <tbody>
         <tr><td>AWS — Amazon Bedrock</td><td>EU · Frankfurt (eu-central-1)</td><td>KI-Inferenz (Claude) — Standardpfad</td><td>EU-Region, AVV/DPA, EU-US&nbsp;DPF + SCC</td></tr>
         <tr><td>SearXNG (selbst betrieben)</td><td>EU · Frankfurt</td><td>DSGVO-konforme Websuche</td><td>Eigenbetrieb, keine Drittweitergabe</td></tr>
-        <tr><td>Web-Hosting</td><td>Migration in die EU l&auml;uft</td><td>Auslieferung dieser Website</td><td>AVV; der EU-Umzug des Webservers ist beauftragt &mdash; die KI-Verarbeitung l&auml;uft davon unabh&auml;ngig in Frankfurt</td></tr>
+        <tr><td>EU-Hosting</td><td>EU</td><td>Server- &amp; Infrastruktur</td><td>EU-Standort, AVV; Anbieter im AVV ausgewiesen</td></tr>
         <tr><td>Mistral AI <span class="avv-tag">in Vorbereitung</span></td><td>EU · Paris</td><td>EU-natives Modell / Orchestrierung</td><td>EU-nativ, kein Drittlandtransfer</td></tr>
         <tr><td>OpenAI / Azure OpenAI <span class="avv-tag">optional · Opt-in</span></td><td>Azure EU-Datenzone / USA</td><td>GPT-Modelle nur auf ausdrücklichen Wunsch</td><td>Einwilligung + DPF/SCC + PII-Maskierung</td></tr>
       </tbody>
@@ -2171,17 +2076,15 @@ html.xr-on .xr.xr-in{ opacity:1; transform:none }
   </div>
   <p class="dt-table-note"><b>EU-Standardpfad:</b> Im Standard verarbeitet XDAB ausschließlich in der EU (Bedrock-EU Frankfurt) — <b>kein Drittlandtransfer</b>. US-Modelle (z.&nbsp;B. GPT) sind nur als bewusstes Opt-in mit Einwilligung verfügbar. Das ist der Unterschied zu Anbietern, die standardmäßig pseudonymisiert in die USA übermitteln. Stand-Entwurf — die verbindliche Fassung inkl. vollständiger Sub-Prozessor-Liste erhalten Sie im AVV über <a href="mailto:kontakt@xdab-ki.de?subject=AVV%20Auftragsverarbeitung">kontakt@xdab-ki.de</a>.</p>
 </div></section>
-</div></details>
 
 </div>
 <div class="lp-page" data-page="sicherheit">
-<section id="cyber-detail" class="has-bgfx cy-section">
-  <canvas class="bgfx" data-fx="raster" aria-hidden="true"></canvas>
+<section id="cyber-detail" class="cy-section">
   <div class="wrap">
     <div class="sec-head cy-head">
       <div class="eyebrow cy-eyebrow">Cybersecurity im Detail</div>
       <h2 class="cy-h2">Zwei Säulen, ein Lagebild: <span class="cy-accent">Außen-Scan</span> und <span class="cy-accent">Endpoint-Agent</span></h2>
-      <p class="cy-lead">Wir prüfen Ihre Angriffsfläche von außen wie von innen &mdash; Website und Domain nach OWASP-Maßstab, Endgeräte auf Verschlüsselung und Patch-Stand.</p>
+      <p class="cy-lead">Wir prüfen Ihre Angriffsfläche von aussen wie von innen. Der Website-/Domain-Scan bewertet TLS, Header, DNS und Cookies nach OWASP- und Mozilla-Massstab. Der Desktop-Agent inventarisiert Endgeräte, Verschlüsselung und Patch-Stand &mdash; mit pseudonymisierten Hostnames.</p>
     </div>
 
     <div class="cy-grid">
@@ -2388,9 +2291,7 @@ html.xr-on .xr.xr-in{ opacity:1; transform:none }
 
 </div>
 <div class="lp-page" data-page="pakete">
-<section id="konfigurator" class="has-bgfx pw-section">
-  <canvas class="bgfx" data-fx="karte" aria-hidden="true"></canvas>
-  <div class="wrap">
+<section id="konfigurator" class="pw-section"><div class="wrap">
   <div class="sec-head"><div class="eyebrow">Pakete &amp; Preise</div><h2>Zwei Wege. Ein Partner.</h2><p>Eine Frage entscheidet, welcher Weg zu Ihnen passt — der Rest ist ein Festpreis.</p></div>
   <div class="pw-weiche">
     <div class="pw-frage">Sollen wir Ihr benannter Datenschutzbeauftragter werden?</div>
@@ -2433,9 +2334,6 @@ html.xr-on .xr.xr-in{ opacity:1; transform:none }
   </div>
 </div></section>
 
-<details class="tiefe" id="tiefe-pakete">
-<summary class="tiefe-sum"><span class="tiefe-k">Klartext</span><span class="tiefe-t">Was die Bausteine bedeuten &amp; wie viel KI in einem Paket steckt</span><span class="tiefe-i" aria-hidden="true"></span></summary>
-<div class="tiefe-body">
 <section id="module" class="pw-glossar"><div class="wrap">
   <div class="sec-head"><div class="eyebrow">Klartext</div><h2>Was die Bausteine bedeuten</h2></div>
   <dl class="pw-dl">
@@ -2462,7 +2360,6 @@ html.xr-on .xr.xr-in{ opacity:1; transform:none }
     <div class="tk-row"><label>Ausführliche Agenten-Analysen (~40.000 Token)</label><div class="tk-bar"><span style="width:14%"></span></div><b>~75</b></div>
   </div>
 </div></section>
-</div></details>
 
 <section id="team" class="team3"><div class="wrap">
   <div class="sec-head"><div class="eyebrow">Wer dahinter steht</div><h2>Das Team hinter XDAB &mdash; Compliance, die hält.</h2></div>
@@ -2475,67 +2372,6 @@ html.xr-on .xr.xr-in{ opacity:1; transform:none }
 
 </div>
 <div class="lp-page" data-page="beratung">
-<section id="einsatz" class="pf-section pf-section-einsatz">
-  <div class="wrap">
-    <div class="sec-head pf-head">
-      <span class="eyebrow pf-eyebrow">Einsatzbereiche</span>
-      <h2 class="pf-h2">Wo XDAB konkret arbeitet.</h2>
-      <p class="pf-lead">Von der ersten Bestandsaufnahme bis zum laufenden Betrieb &mdash; abgestimmt auf Branche, Risiko und Datenschutzbedarf.</p>
-    </div>
-
-    <ul class="pf-arrowlist">
-      <li class="pf-arrow-item">
-        <div class="pf-arrow-main">
-          <span class="pf-arrow-idx">01</span>
-          <span class="pf-arrow-label">Datenschutz&#8209;Audit &amp; VVT</span>
-        </div>
-        <span class="pf-arrow-desc">Bestandsaufnahme, Verarbeitungsverzeichnis, Risikobewertung</span>
-        <span class="pf-arrow-go" aria-hidden="true">&rarr;</span>
-      </li>
-      <li class="pf-arrow-item">
-        <div class="pf-arrow-main">
-          <span class="pf-arrow-idx">02</span>
-          <span class="pf-arrow-label">KI&#8209;Integration mit PII&#8209;Schutz</span>
-        </div>
-        <span class="pf-arrow-desc">Anonymisierung per Presidio + Flair NER vor jedem Cloud&#8209;Aufruf</span>
-        <span class="pf-arrow-go" aria-hidden="true">&rarr;</span>
-      </li>
-      <li class="pf-arrow-item">
-        <div class="pf-arrow-main">
-          <span class="pf-arrow-idx">03</span>
-          <span class="pf-arrow-label">NIS2 &amp; Cybersecurity</span>
-        </div>
-        <span class="pf-arrow-desc">Scanner, Endpoint&#8209;Agent, Härtungs&#8209;Empfehlungen</span>
-        <span class="pf-arrow-go" aria-hidden="true">&rarr;</span>
-      </li>
-      <li class="pf-arrow-item">
-        <div class="pf-arrow-main">
-          <span class="pf-arrow-idx">04</span>
-          <span class="pf-arrow-label">Externer Datenschutzbeauftragter</span>
-        </div>
-        <span class="pf-arrow-desc">Mandat, laufende Betreuung, Behördenkontakt</span>
-        <span class="pf-arrow-go" aria-hidden="true">&rarr;</span>
-      </li>
-      <li class="pf-arrow-item">
-        <div class="pf-arrow-main">
-          <span class="pf-arrow-idx">05</span>
-          <span class="pf-arrow-label">KI&#8209;Schulungen (Art. 4 EU AI Act)</span>
-        </div>
-        <span class="pf-arrow-desc">Pflichtschulung zur KI&#8209;Kompetenz für Ihr Team</span>
-        <span class="pf-arrow-go" aria-hidden="true">&rarr;</span>
-      </li>
-      <li class="pf-arrow-item">
-        <div class="pf-arrow-main">
-          <span class="pf-arrow-idx">06</span>
-          <span class="pf-arrow-label">Branchen&#8209;Experten</span>
-        </div>
-        <span class="pf-arrow-desc">Arztpraxis, Kanzlei, Handwerk, Steuerberatung u. v. m.</span>
-        <span class="pf-arrow-go" aria-hidden="true">&rarr;</span>
-      </li>
-    </ul>
-  </div>
-</section>
-
 <section id="fragerunde" class="fr-section"><div class="wrap">
   <div class="sec-head"><div class="eyebrow">Fragerunde</div><h2>Sagen Sie uns, was Sie brauchen</h2><p>Sieben kurze Fragen — am Ende erstellen wir Ihnen daraus eine fertige E-Mail mit Ihren Angaben. Keine Anmeldung, keine Verbindung zu Ihren Systemen. Sie senden selbst ab.</p></div>
   <form class="fr-form" id="frForm" onsubmit="return false">
@@ -2620,12 +2456,12 @@ html.xr-on .xr.xr-in{ opacity:1; transform:none }
 <section id="faq" class="faq-section"><div class="wrap">
   <div class="sec-head"><div class="eyebrow">FAQ</div><h2>Häufige Fragen</h2></div>
   <div class="faq-list">
-    <div class="faq-item"><button class="faq-q" type="button">Werden meine Daten zum Training der KI verwendet?<span class="faq-i"></span></button><div class="faq-a"><p>Nein. Alle eingebundenen Anbieter trainieren nicht auf API-Daten. Die Verarbeitung läuft über eine vertragliche AVV-Kette nach Art. 28 DSGVO, die KI-Verarbeitung erfolgt in der EU (Frankfurt). Sensible Inhalte werden zusätzlich vor jedem Cloud-Aufruf maskiert.</p></div></div>
+    <div class="faq-item"><button class="faq-q" type="button">Werden meine Daten zum Training der KI verwendet?<span class="faq-i"></span></button><div class="faq-a"><p>Nein. Alle eingebundenen Anbieter trainieren nicht auf API-Daten. Die Verarbeitung läuft über eine vertragliche AVV-Kette nach Art. 28 DSGVO, gehostet in der EU (Frankfurt). Sensible Inhalte werden zusätzlich vor jedem Cloud-Aufruf maskiert.</p></div></div>
     <div class="faq-item"><button class="faq-q" type="button">Wo werden meine Daten verarbeitet?<span class="faq-i"></span></button><div class="faq-a"><p>In der EU — primär in Frankfurt (AWS Bedrock, EU-Region). Personenbezogene Daten werden vor dem Versand an ein Cloud-Modell automatisch maskiert. Besonders sensible Aufgaben laufen vollständig lokal auf einem EU-Modell, ohne die Cloud zu verlassen.</p></div></div>
     <div class="faq-item"><button class="faq-q" type="button">Welche KI-Modelle kann ich nutzen?<span class="faq-i"></span></button><div class="faq-a"><p>Claude (inkl. Opus 4.8), ChatGPT, Google Gemini und Mistral — über einen einzigen, DSGVO-konform gerouteten Zugang. Sie wählen das Modell pro Aufgabe; das System routet sensible Inhalte automatisch sicher.</p></div></div>
     <div class="faq-item"><button class="faq-q" type="button">Was kostet das, und kann ich monatlich kündigen?<span class="faq-i"></span></button><div class="faq-a"><p>Vier klare Preise: Schulung 49 €, Basis 99 €, Workspace 379 €, Komplett 549 € — pro Monat, monatlich kündbar, Token inklusive (siehe „Token einfach erklärt"). Das DSB-Mandat (169/269 €) startet per Erstgespräch — gesetzlich vorgesehen.</p></div></div>
     <div class="faq-item"><button class="faq-q" type="button">Brauche ich technisches Wissen, um zu starten?<span class="faq-i"></span></button><div class="faq-a"><p>Nein. Der Workspace läuft im Browser, es ist nichts zu installieren — außer optional dem Cybersecurity-Agent für PC-Scans. Vorkonfigurierte Experten-Agenten übernehmen die Fachaufgaben.</p></div></div>
-    <div class="faq-item"><button class="faq-q" type="button">Was ist der Unterschied zu ChatGPT direkt?<span class="faq-i"></span></button><div class="faq-a"><p>DSGVO-Konformität (AVV, EU-Verarbeitung, PII-Maskierung), Experten-Agenten für Ihre Branche, eine durchsuchbare Wissensbasis (RAG), Konnektoren (in Vorbereitung) zu DATEV/Microsoft 365/Google und ein Audit-Log ohne Prompt-Inhalte. Ein Zugang statt vieler Einzel-Abos.</p></div></div>
+    <div class="faq-item"><button class="faq-q" type="button">Was ist der Unterschied zu ChatGPT direkt?<span class="faq-i"></span></button><div class="faq-a"><p>DSGVO-Konformität (AVV, EU-Hosting, PII-Maskierung), Experten-Agenten für Ihre Branche, eine durchsuchbare Wissensbasis (RAG), Konnektoren (in Vorbereitung) zu DATEV/Microsoft 365/Google und ein Audit-Log ohne Prompt-Inhalte. Ein Zugang statt vieler Einzel-Abos.</p></div></div>
     <div class="faq-item"><button class="faq-q" type="button">Was ist der Orchestra-Modus („X")?<span class="faq-i"></span></button><div class="faq-a"><p>Orchestra ist der proaktive Assistent im Workspace: Er <b>plant mehrstufige Aufgaben</b>, liest auf Wunsch und mit Freigabe Konnektoren (E-Mail, Kalender …) <b>nur lesend</b> und bereitet fertige Entwürfe vor. Er <b>sendet oder ändert nichts automatisch</b> — jeder schreibende oder sendende Schritt muss von Ihnen freigegeben werden („Assist &amp; Approve"). Verarbeitung in Frankfurt, PII-Maskierung vor jedem Cloud-Aufruf, Audit-Protokoll ohne Inhalte. Nicht für Berufsgeheimnisträger nach §203 StGB (siehe unten).</p></div></div>
     <div class="faq-item"><button class="faq-q" type="button">Was gilt für Berufsgeheimnisträger (§203 StGB)?<span class="faq-i"></span></button><div class="faq-a"><p>Den <b>Orchestra-Vollzugriff</b> (automatischer Konnektor-Zugriff auf E-Mail, Kalender &amp; Co.) bieten wir <b>bewusst nicht</b> für Berufsgeheimnisträger nach §203 StGB an — also nicht für Anwälte, Ärzte, Steuerberater, Notare oder Pflege. Ein bloßer Auftragsverarbeitungsvertrag deckt das Berufsgeheimnis nicht ab. Für diese Berufe gibt es eine <b>abgeschottete, lokale EU-Variante</b> ohne automatischen Konnektor-Zugriff: sensible Verarbeitung bleibt lokal, nichts wird automatisch gesendet (Versand immer durch einen Menschen freigegeben). Sprechen Sie uns für die passende Konfiguration an.</p></div></div>
     <div class="faq-item"><button class="faq-q" type="button">Wie schnell bin ich startklar?<span class="faq-i"></span></button><div class="faq-a"><p>Self-Service-Pakete: kurzfristig nach Anfrage und Auftragsbestätigung. Pakete mit formalem DSB-Mandat: nach einem persönlichen Erstgespräch. Module lassen sich später monatlich anpassen.</p></div></div>
@@ -2654,7 +2490,7 @@ html.xr-on .xr.xr-in{ opacity:1; transform:none }
       <a class="sub" href="#auftragsverarbeitung">&#8627; Auftragsverarbeitung &amp; Sub-Prozessoren</a>
       <a href="#cyber-detail">Cybersecurity</a>
       <a href="#einsatz">Einsatzbereiche</a>
-      <a href="#projekte">Leistungen (Web &amp; Betrieb)</a>
+      <a href="#leistungen">Leistungen (Web &amp; Betrieb)</a>
       <a href="#pakete">Pakete &amp; Preise</a>
       <a class="sub" href="#token">&#8627; Token einfach erklärt</a>
       <a href="#fragerunde">Beratung &amp; Fragerunde</a>
@@ -2761,11 +2597,6 @@ document.addEventListener('click',function(e){
   var id=t.getAttribute('data-tab');
   sec.querySelectorAll('.sc-tab').forEach(function(b){ b.classList.toggle('is-active',b===t); });
   sec.querySelectorAll('.sc-panel').forEach(function(p){ p.classList.toggle('is-active',p.getAttribute('data-panel')===id); });
-  // gestaffeltes Einblenden des frisch geoeffneten Reiters
-  var offen=sec.querySelector('.sc-panel.is-active');
-  if(offen){ offen.classList.add('stagger'); offen.classList.remove('in');
-    void offen.offsetWidth;                 // Umbruch erzwingen, sonst greift der Uebergang nicht
-    offen.classList.add('in'); }
 });
 
 </script>
@@ -2867,16 +2698,10 @@ document.addEventListener('click',function(e){
 <script id="lp-v6-js">
 (function(){
   'use strict';
-  var MAP={ top:'start',  warum:'start', ueberblick:'start',  produkt:'start',  'pakete-teaser':'start', 'kontakt-cta':'start',
-    plattform:'funktionen', unikate:'funktionen', showcase:'funktionen', ablauf:'funktionen', wissensbasis:'funktionen',
+  var MAP={ top:'start', plattform:'start', einsatz:'start', warum:'start', ueberblick:'start', leistungen:'start', produkt:'start', unikate:'start', 'pakete-teaser':'start', 'kontakt-cta':'start',
+    showcase:'funktionen', ablauf:'funktionen', wissensbasis:'funktionen',
     'datenschutz-detail':'datenschutz', 'auftragsverarbeitung':'datenschutz', 'cyber-detail':'sicherheit',
-    module:'pakete', konfigurator:'pakete', pakete:'pakete', mandat:'pakete', projekte:'pakete', token:'pakete', team:'pakete', einsatz:'beratung', fragerunde:'beratung', faq:'beratung' };
-  // Anker, die in einem zugeklappten Tiefe-Block liegen, klappen ihn auf
-  function oeffneTiefe(id){
-    var el=document.getElementById(id); if(!el) return;
-    var d=el.closest ? el.closest('details.tiefe') : null;
-    if(d && !d.open) d.open=true;
-  }
+    module:'pakete', konfigurator:'pakete', pakete:'pakete', mandat:'pakete', projekte:'pakete', token:'pakete', team:'pakete', fragerunde:'beratung', faq:'beratung' };
   function pages(){ return Array.prototype.slice.call(document.querySelectorAll('.lp-page')); }
   function showPage(pg, anchorId, skipHistory){
     pages().forEach(function(p){ p.classList.toggle('lp-active', p.getAttribute('data-page')===pg); });
@@ -2886,7 +2711,7 @@ document.addEventListener('click',function(e){
     });
     // URL & Back-Button: Zustand in die History schreiben (teilbare Links, funktionierender Zurück-Knopf)
     if(!skipHistory){ try{ history.pushState({pg:pg,anchor:anchorId||null},'','#'+(anchorId||pg)); }catch(e){} }
-    if(anchorId){ oeffneTiefe(anchorId); var el=document.getElementById(anchorId);
+    if(anchorId){ var el=document.getElementById(anchorId);
       if(el){ setTimeout(function(){ el.scrollIntoView({behavior:'smooth',block:'start'}); },40); return; } }
     window.scrollTo({top:0,behavior:'smooth'});
   }
@@ -2905,7 +2730,7 @@ document.addEventListener('click',function(e){
     e.preventDefault();
     var cur=document.querySelector('.lp-page.lp-active');
     var sameId=document.getElementById(id);
-    if(cur && cur.getAttribute('data-page')===pg && sameId){ oeffneTiefe(id); sameId.scrollIntoView({behavior:'smooth',block:'start'}); }
+    if(cur && cur.getAttribute('data-page')===pg && sameId){ sameId.scrollIntoView({behavior:'smooth',block:'start'}); }
     else showPage(pg, (id&&id!=='top'&&MAP[id]===pg)?id:null);
   });
   // Start-Hashes beim Laden
@@ -3188,170 +3013,93 @@ html{scroll-behavior:smooth;}
 .uq-card figcaption{ padding:16px 18px; color:var(--muted); font-size:13.5px; line-height:1.55 }
 .uq-card figcaption b{ display:block; color:var(--text); font-size:15px; margin-bottom:4px }
 </style>
-<script id="xdab-phone-tilt-js">
+
+<style id="probe-3d-hero">
+/* ═══ PROBE V3: Daten-Ebene mit Horizont + Laser-Ebene über dem Overlay ═══ */
+.hero-cine{ perspective:1000px; perspective-origin:50% 36%; background:#0a0a0d }
+.hc-bg{ opacity:.95; inset:-50% -28% -28% -28% }
+.hc-stage, .hc-laserbuehne{
+  transform: rotateX(41deg) rotateZ(-9deg) scale(1.55) translateY(-4%);
+  transform-origin:50% 42%;
+  transition: transform .8s cubic-bezier(.2,.6,.2,1);
+}
+.hc-stage{
+  position:relative;
+  transform-style: preserve-3d;
+  filter:saturate(1.3) contrast(1.06);
+}
+.hc-stage::after{
+  content:""; position:absolute; inset:-24% -30%;
+  background:linear-gradient(180deg, #0a0a0d 6%, rgba(10,10,13,.55) 26%, transparent 52%);
+  z-index:2; pointer-events:none;
+}
+.hc-card{ background:#16161c; border-color:#33343d; box-shadow:0 26px 60px -22px rgba(0,0,0,.8) }
+.hc-card .v{ color:#d6d6df }
+.hc-card .k{ color:#9a9aa6 }
+.hc-overlay{
+  background:
+    radial-gradient(56% 50% at 50% 46%, rgba(9,9,12,.88) 0%, rgba(9,9,12,.55) 55%, rgba(9,9,12,.06) 100%),
+    linear-gradient(180deg, rgba(9,9,12,.6), transparent 20%, transparent 84%, rgba(9,9,12,.85));
+}
+.hc-laserlage{
+  position:absolute; inset:-50% -28% -28% -28%; z-index:1;
+  pointer-events:none; display:flex; justify-content:center; overflow:visible;
+}
+.hc-laserbuehne{ position:relative; width:70%; }
+.hc-laser{
+  position:absolute; left:-32%; right:-32%; top:0; height:3px;
+  background:linear-gradient(90deg, transparent, rgba(58,255,157,.2) 5%, #b6ffd9 22%, #f2fff8 50%, #b6ffd9 78%, rgba(58,255,157,.2) 95%, transparent);
+  box-shadow:
+    0 0 4px #9dffcb, 0 0 14px rgba(58,255,157,.9),
+    0 0 44px rgba(52,211,153,.65), 0 5px 120px 16px rgba(52,211,153,.38);
+  mix-blend-mode:screen;
+  animation:probeLaser 9s cubic-bezier(.45,.05,.55,.95) infinite;
+  will-change:transform;
+}
+.hc-laser::after{
+  content:""; position:absolute; left:0; right:0; top:3px; height:240px;
+  background:linear-gradient(180deg, rgba(52,211,153,.30), rgba(52,211,153,.09) 50%, transparent);
+}
+.hc-laser.l2{ animation-delay:-4.5s; opacity:.55; height:2px }
+@keyframes probeLaser{
+  0%{ transform:translateY(170px) }
+  50%{ transform:translateY(1010px) }
+  100%{ transform:translateY(170px) }
+}
+@media (prefers-reduced-motion:reduce){ .hc-laser{ animation:none; opacity:0 } }
+@media (max-width:680px){
+  .hc-stage, .hc-laserbuehne{ transform:rotateX(24deg) rotateZ(-5deg) scale(1.2) }
+  .hc-laser{ left:-10%; right:-10% }
+}
+</style>
+<script id="probe-3d-js">
 (function(){
-  'use strict';
-  if(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  var phone=document.querySelector('.h3-phone'); if(!phone) return;
-  var laeuft=false, sichtbar=true;
-  if('IntersectionObserver' in window){
-    new IntersectionObserver(function(es){ sichtbar=es[0].isIntersecting; })
-      .observe(phone);
+  "use strict";
+  var held = document.querySelector(".hero-cine");
+  var stage = document.querySelector(".hc-stage");
+  if (!held || !stage) return;
+  var lage = document.createElement("div"); lage.className = "hc-laserlage";
+  lage.setAttribute("aria-hidden", "true");
+  var buehne = document.createElement("div"); buehne.className = "hc-laserbuehne";
+  var l1 = document.createElement("div"); l1.className = "hc-laser";
+  var l2 = document.createElement("div"); l2.className = "hc-laser l2";
+  buehne.appendChild(l1); buehne.appendChild(l2);
+  lage.appendChild(buehne);
+  var overlay = held.querySelector(".hc-overlay");
+  overlay ? overlay.after(lage) : held.appendChild(lage);
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  var zx = 0, zy = 0, laufend = false;
+  addEventListener("pointermove", function(ev){
+    zx = (ev.clientX / innerWidth - 0.5);
+    zy = (ev.clientY / innerHeight - 0.5);
+    if (!laufend) { laufend = true; requestAnimationFrame(setzen); }
+  }, { passive:true });
+  function setzen(){
+    laufend = false;
+    var t = "rotateX(" + (41 - zy * 5) + "deg) rotateY(" + (zx * 6) + "deg) rotateZ(-9deg) scale(1.55) translateY(-4%)";
+    stage.style.transform = t;
+    buehne.style.transform = t;
   }
-  function neigen(){
-    laeuft=false;
-    if(!sichtbar) return;
-    var r=phone.getBoundingClientRect(), vh=window.innerHeight||800;
-    // Mitte des Geraets relativ zur Bildschirmmitte: -1 (oben) .. +1 (unten)
-    var p=((r.top+r.height/2)-vh/2)/(vh/2);
-    p=Math.max(-1,Math.min(1,p));
-    phone.style.setProperty('--ph-tilt',(p*4).toFixed(2)+'deg');
-  }
-  function anstossen(){ if(!laeuft){ laeuft=true; requestAnimationFrame(neigen); } }
-  window.addEventListener('scroll',anstossen,{passive:true});
-  window.addEventListener('resize',anstossen,{passive:true});
-  neigen();
-})();
-</script>
-<script id="xdab-bgfx-js">
-(function(){
-  'use strict';
-  var flaechen=[].slice.call(document.querySelectorAll('canvas.bgfx'));
-  if(!flaechen.length) return;
-  var ruhig = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var TON='52,211,153', TON2='127,168,255';
-
-  function aufbauen(c){
-    var dpr=Math.min(window.devicePixelRatio||1,2);
-    var r=c.getBoundingClientRect();
-    if(r.width<2||r.height<2) return null;
-    c.width=Math.round(r.width*dpr); c.height=Math.round(r.height*dpr);
-    var x=c.getContext('2d'); x.scale(dpr,dpr);
-    return {x:x,b:r.width,h:r.height};
-  }
-
-  // --- die vier Varianten: jede zeichnet einen Zustand zum Zeitpunkt t (Sekunden) ---
-  var muster={
-    // Agenten-Orchestrierung: driftende Knoten mit Verbindungslinien
-    netz:function(g,t,z){
-      if(!z.k){ z.k=[]; for(var i=0;i<52;i++) z.k.push({
-        x:Math.abs(Math.sin(i*12.9898)*g.b), y:Math.abs(Math.sin(i*78.233)*g.h),
-        vx:(Math.sin(i*3.1)*.12), vy:(Math.cos(i*2.7)*.12) }); }
-      var k=z.k,i,j;
-      for(i=0;i<k.length;i++){ var n=k[i];
-        n.x+=n.vx; n.y+=n.vy;
-        if(n.x<0)n.x+=g.b; if(n.x>g.b)n.x-=g.b; if(n.y<0)n.y+=g.h; if(n.y>g.h)n.y-=g.h; }
-      g.x.lineWidth=1;
-      for(i=0;i<k.length;i++) for(j=i+1;j<k.length;j++){
-        var dx=k[i].x-k[j].x, dy=k[i].y-k[j].y, d=Math.sqrt(dx*dx+dy*dy);
-        if(d<118){ g.x.strokeStyle='rgba('+TON+','+(.16*(1-d/118)).toFixed(3)+')';
-          g.x.beginPath(); g.x.moveTo(k[i].x,k[i].y); g.x.lineTo(k[j].x,k[j].y); g.x.stroke(); } }
-      g.x.fillStyle='rgba('+TON+',.34)';
-      for(i=0;i<k.length;i++){ g.x.beginPath(); g.x.arc(k[i].x,k[i].y,1.3,0,6.2832); g.x.fill(); }
-    },
-    // Leiterbahnen: Linienbuendel, durch die einzelne Pulse laufen
-    strom:function(g,t,z){
-      var reihen=11,i;
-      for(i=0;i<reihen;i++){
-        var y=(i+.5)*g.h/reihen;
-        g.x.strokeStyle='rgba('+TON+',.10)'; g.x.lineWidth=1;
-        g.x.beginPath(); g.x.moveTo(0,y); g.x.lineTo(g.b,y); g.x.stroke();
-        var v=34+((i*37)%46), p=((t*v+i*160)%(g.b+240))-120;
-        var grad=g.x.createLinearGradient(p-110,0,p,0);
-        grad.addColorStop(0,'rgba('+TON+',0)'); grad.addColorStop(1,'rgba('+TON+',.62)');
-        g.x.strokeStyle=grad; g.x.lineWidth=1.6;
-        g.x.beginPath(); g.x.moveTo(p-110,y); g.x.lineTo(p,y); g.x.stroke();
-      }
-    },
-    // Blueprint: isometrisches Gitter, einzelne Zellen leuchten kurz auf
-    raster:function(g,t,z){
-      var w=54,i,j;
-      g.x.strokeStyle='rgba('+TON2+',.10)'; g.x.lineWidth=1;
-      for(i=-g.h;i<g.b+g.h;i+=w){
-        g.x.beginPath(); g.x.moveTo(i,0); g.x.lineTo(i+g.h,g.h); g.x.stroke();
-        g.x.beginPath(); g.x.moveTo(i,0); g.x.lineTo(i-g.h,g.h); g.x.stroke();
-      }
-      var sp=Math.ceil(g.b/w)+2;
-      for(i=0;i<sp;i++) for(j=0;j<Math.ceil(g.h/w)+1;j++){
-        var ph=Math.sin(t*.7+i*1.7+j*2.3);
-        if(ph>.93){ g.x.fillStyle='rgba('+TON2+','+((ph-.93)*4).toFixed(3)+')';
-          g.x.fillRect(i*w-w/2, j*w, w, w*.5); }
-      }
-    },
-    // Rechenzentrum: abstrahierte Umrisse, ein Messstrahl wandert hindurch
-    karte:function(g,t,z){
-      if(!z.s){ z.s=[]; for(var i=0;i<26;i++) z.s.push(.22+Math.abs(Math.sin(i*45.3))*.55); }
-      var bb=g.b/z.s.length,i2;
-      g.x.strokeStyle='rgba('+TON+',.20)'; g.x.lineWidth=1;
-      for(i2=0;i2<z.s.length;i2++){
-        var hh=z.s[i2]*g.h, x0=i2*bb+3, y0=g.h-hh;
-        g.x.strokeRect(x0,y0,bb-6,hh);
-        g.x.fillStyle='rgba('+TON+',.07)'; g.x.fillRect(x0,y0,bb-6,hh);
-      }
-      var sy=g.h-((t*26)%(g.h+60))+30;
-      var gr=g.x.createLinearGradient(0,sy-40,0,sy);
-      gr.addColorStop(0,'rgba('+TON+',0)'); gr.addColorStop(1,'rgba('+TON+',.5)');
-      g.x.strokeStyle=gr; g.x.lineWidth=1.4;
-      g.x.beginPath(); g.x.moveTo(0,sy); g.x.lineTo(g.b,sy); g.x.stroke();
-    }
-  };
-
-  var zustand=[];
-  flaechen.forEach(function(c,i){ zustand[i]={c:c,art:c.getAttribute('data-fx'),g:null,z:{},sicht:0}; });
-
-  function zeichnen(e,t){
-    if(!e.g){ e.g=aufbauen(e.c); if(!e.g) return; }
-    e.g.x.clearRect(0,0,e.g.b,e.g.h);
-    (muster[e.art]||muster.netz)(e.g,t,e.z);
-  }
-
-  if(ruhig){                       // Standbild statt Bewegung
-    zustand.forEach(function(e){ zeichnen(e,6); e.c.classList.add('an'); });
-    return;
-  }
-
-  var aktiv=null, laeuft=null, t0=null;
-  if('IntersectionObserver' in window){
-    var io=new IntersectionObserver(function(es){
-      es.forEach(function(ev){
-        var e=zustand.filter(function(q){return q.c===ev.target;})[0];
-        if(e) e.sicht=ev.isIntersecting?ev.intersectionRatio:0;
-      });
-      waehlen();
-    },{threshold:[0,.15,.4,.75]});
-    zustand.forEach(function(e){ io.observe(e.c); });
-  } else { zustand.forEach(function(e){ e.sicht=1; }); waehlen(); }
-
-  function waehlen(){               // hoechstens eine Flaeche rechnet
-    var best=null;
-    zustand.forEach(function(e){ if(e.sicht>0 && (!best||e.sicht>best.sicht)) best=e; });
-    if(best===aktiv) return;
-    if(aktiv) aktiv.c.classList.remove('an');
-    aktiv=best;
-    if(!aktiv){ if(laeuft){ cancelAnimationFrame(laeuft); laeuft=null; } return; }
-    aktiv.c.classList.add('an');
-    if(!laeuft) laeuft=requestAnimationFrame(schritt);
-  }
-
-  var letzte=0;
-  function schritt(ms){
-    laeuft=requestAnimationFrame(schritt);
-    if(t0===null) t0=ms;
-    if(ms-letzte<33) return;        // ~30 Bilder/s reichen und schonen den Akku
-    letzte=ms;
-    if(aktiv) zeichnen(aktiv,(ms-t0)/1000);
-  }
-  var neuMessen;
-  window.addEventListener('resize',function(){
-    clearTimeout(neuMessen);
-    neuMessen=setTimeout(function(){ zustand.forEach(function(e){ e.g=null; }); },180);
-  },{passive:true});
-})();
-</script>
-<script id="xdab-stagger-init-js">
-(function(){
-  var offen=document.querySelector('.sc-panel.is-active');
-  if(offen){ offen.classList.add('stagger','in'); }
 })();
 </script>
 </body>

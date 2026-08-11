@@ -26,7 +26,7 @@
 <meta name="theme-color" content="#0f0f11">
 <style>
   :root{
-    --bg:#0f0f11; --bg2:#17171a; --card:#1c1c20; --card2:#222227;
+    --bg:var(--bg); --bg2:#17171a; --card:#1c1c20; --card2:#222227;
     --line:#2c2c33; --line2:#37373f; --text:#ececef; --muted:#a6a6ae; --faint:#8b8b95;
     --accent:#8A8D93; --accent-strong:#c9ccd2; --ok:#10b981; --warn:#f59e0b; --crit:#ef4444;
     --maxw:1080px; --r:14px;
@@ -44,13 +44,13 @@
   header{position:sticky;top:0;z-index:50;background:rgba(15,15,17,.86);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding:env(safe-area-inset-top) 0 0}
   .nav{display:flex;align-items:center;justify-content:space-between;height:60px}
   .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:18px;letter-spacing:.02em}
-  .logo .x{width:30px;height:30px;border-radius:8px;background:#fff;display:flex;align-items:center;justify-content:center;color:#0f0f11;font-weight:900;font-size:18px}
+  .logo .x{width:30px;height:30px;border-radius:8px;background:#fff;display:flex;align-items:center;justify-content:center;color:var(--bg);font-weight:900;font-size:18px}
   .nav-links{display:flex;gap:26px;font-size:14px;color:var(--muted)}
   .nav-links a:hover{color:var(--text)}
   .nav-cta{display:flex;gap:10px;align-items:center}
   .btn{display:inline-flex;align-items:center;gap:7px;font-size:14px;font-weight:600;padding:9px 16px;border-radius:9px;border:1px solid var(--line2);background:var(--card2);color:var(--text);cursor:pointer;transition:.15s}
   .btn:hover{background:#2b2b31}
-  .btn-primary{background:var(--accent-strong);color:#0f0f11;border-color:transparent}
+  .btn-primary{background:var(--accent-strong);color:var(--bg);border-color:transparent}
   .btn-primary:hover{background:#fff}
   .btn-lg{padding:13px 22px;font-size:15px}
   @media(max-width:760px){.nav-links{display:none}}
@@ -87,7 +87,7 @@
   .mod-opt.on{border-color:var(--accent-strong);background:#222227}
   .mod-opt.locked{opacity:.45;cursor:not-allowed}
   .mod-opt .cb{width:20px;height:20px;border-radius:6px;border:1.5px solid var(--line2);flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;font-size:13px}
-  .mod-opt.on .cb{background:var(--accent-strong);border-color:transparent;color:#0f0f11}
+  .mod-opt.on .cb{background:var(--accent-strong);border-color:transparent;color:var(--bg)}
   .mod-opt .mt{font-weight:700;font-size:14.5px}
   .mod-opt .md{color:var(--muted);font-size:12.5px;margin-top:2px}
   .cfg-out{background:var(--bg2);border:1px solid var(--line);border-radius:13px;padding:18px;display:flex;flex-direction:column}
@@ -103,7 +103,7 @@
   .pkgs{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
   .pkg{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px;display:flex;flex-direction:column}
   .pkg.featured{border-color:var(--accent-strong)}
-  .pkg .badge{align-self:flex-start;font-size:11px;font-weight:800;color:#0f0f11;background:var(--accent-strong);border-radius:6px;padding:2px 8px;margin-bottom:10px}
+  .pkg .badge{align-self:flex-start;font-size:11px;font-weight:800;color:var(--bg);background:var(--accent-strong);border-radius:6px;padding:2px 8px;margin-bottom:10px}
   .pkg h3{font-size:18px}
   .pkg .pp{font-size:28px;font-weight:800;margin:8px 0 2px}
   .pkg .pp span{font-size:14px;color:var(--muted);font-weight:600}
@@ -148,18 +148,18 @@
    Reines CSS-Stufenwerk auf einer gemeinsamen Zeitachse. Kein Video, kein Ablauf-JS.
    Akt 1 Auftrag 0-3s | Akt 2 PII-Gate 3-5,8s | Akt 3 EU-Route 5,8-7,2s
    Akt 4 Ergebnis 7,2-11,5s | Akt 5 Ruhe 11,5-14s, dann Schleife            */
-.h3-pscreen-run{ background:#0d0d0f; overflow:hidden; position:relative }
+.h3-pscreen-run{ background:var(--tief); overflow:hidden; position:relative }
 .ph{ position:absolute; inset:0; display:flex; flex-direction:column; padding:52px 16px 14px;
      font-size:11.5px; line-height:1.5; color:var(--text) }
 .ph-bar{ display:flex; align-items:center; gap:7px; font-size:10px; letter-spacing:.08em;
-         text-transform:uppercase; color:var(--faint); padding-bottom:11px; border-bottom:1px solid #1e1e23 }
+         text-transform:uppercase; color:var(--faint); padding-bottom:11px; border-bottom:1px solid var(--line) }
 .ph-dot{ width:5px; height:5px; border-radius:50%; background:var(--mint) }
 .ph-flow{ flex:1; display:flex; flex-direction:column; justify-content:space-between; padding:18px 0 14px }
 .ph-lbl{ font-size:9px; letter-spacing:.13em; text-transform:uppercase; color:var(--accent); margin-bottom:5px }
 .ph-lbl-pii{ color:#f59e0b }
 
 /* Akt 1 — der Auftrag tippt sich ein */
-.ph-prompt{ background:#17171b; border:1px solid #26262d; border-radius:9px; padding:9px 10px;
+.ph-prompt{ background:var(--card); border:1px solid var(--line2); border-radius:9px; padding:9px 10px;
             font-family:var(--font-mono); font-size:10.5px; white-space:nowrap }
 .ph-type{ display:inline-block; overflow:hidden; vertical-align:bottom; width:0 }
 .ph-caret{ display:inline-block; width:1px; height:11px; background:var(--accent-strong); vertical-align:-1px }
@@ -183,14 +183,14 @@
 
 /* Akt 4 — das Ergebnis baut sich auf */
 .ph-out{ display:flex; flex-direction:column; gap:6px }
-.ph-ln{ height:6px; border-radius:3px; background:linear-gradient(90deg,#3a3a45,#26262e); transform:scaleX(0); transform-origin:left }
+.ph-ln{ height:6px; border-radius:3px; background:linear-gradient(90deg,var(--line2),#26262e); transform:scaleX(0); transform-origin:left }
 .ph-l1{ width:100% } .ph-l2{ width:88% } .ph-l3{ width:94% } .ph-l4{ width:97% }
 .ph-l5{ width:83% } .ph-l6{ width:58% }
 .ph-file{ display:inline-flex; align-items:center; gap:7px; margin-top:11px; color:var(--muted); font-size:10px; opacity:0 }
 .ph-fi{ width:9px; height:11px; border:1px solid var(--faint); border-radius:2px; flex:0 0 auto }
 
 .ph-foot{ display:flex; justify-content:space-between; align-items:baseline;
-          border-top:1px solid #1e1e23; padding-top:10px; color:var(--faint); font-size:10px }
+          border-top:1px solid var(--line); padding-top:10px; color:var(--faint); font-size:10px }
 .ph-cost{ position:relative; display:inline-block; min-width:52px; text-align:right;
           color:var(--text); font-variant-numeric:tabular-nums; font-weight:700 }
 .ph-cost i{ position:absolute; right:0; bottom:0; font-style:normal; opacity:0 }
@@ -280,7 +280,7 @@
 
 /* ---- Motive der Bildsprache: Atmosphaere, nie Beweis (siehe BILDSPRACHE.md) ---- */
 .ov-bild{ margin:-20px -20px 4px; aspect-ratio:3/2; overflow:hidden; border-radius:13px 13px 0 0;
-          position:relative; background:#0a0a0c }
+          position:relative; background:var(--tief) }
 .ov-bild img{ display:block; width:100%; height:100%; object-fit:cover;
               transform:scale(1.02); transition:transform .6s var(--xfx-ease) }
 .ov-card:hover .ov-bild img{ transform:scale(1.06) }
@@ -451,6 +451,51 @@
 .modell-fn{ font-size:12.5px; color:var(--faint); flex-basis:100%; margin-top:8px }
 .marken-hinweis{ display:block; margin-top:10px; font-size:11.5px; line-height:1.6; color:var(--faint);
   max-width:78ch }
+
+/* ===================== Zwei Paletten, ein Schalter =====================
+   "Tinte" ist der Grundzustand, "Papier" die helle Fassung. Beide sind
+   vollstaendig ueber Variablen definiert -- die Seite kennt keine festen
+   Farben mehr an den tragenden Stellen.
+
+   Akzent: bewusst KEIN KI-Gruen und kein Tech-Blau. Zinnober traegt auf
+   Tinte wie auf Papier, ist im Umfeld Compliance/KI unbenutzt und laesst
+   sich sparsam einsetzen -- ein lauter Akzent vertraegt weniger Stellen.  */
+:root, :root[data-thema="tinte"]{
+  --bg:#0f0f11; --bg2:#17171a; --tief:#0a0a0c; --card:#1c1c20; --card2:#222227;
+  --line:#2c2c33; --line2:#37373f; --text:#ececef; --muted:#a6a6ae; --faint:#8b8b95;
+  --accent:#8A8D93; --accent-strong:#c9ccd2;
+  --signal:#FF4A1C;                     /* Zinnober -- der eine laute Akzent */
+  --signal-soft:rgba(255,74,28,.13); --signal-line:rgba(255,74,28,.42);
+  --mint:#FF4A1C; --mint-soft:rgba(255,74,28,.13); --mint-line:rgba(255,74,28,.42);
+  --schatten:rgba(0,0,0,.5);
+}
+:root[data-thema="papier"]{
+  --bg:#F2EFE7; --bg2:#EAE6DC; --tief:#FBF9F4; --card:#FBF9F4; --card2:#F2EFE7;
+  --line:#D8D2C4; --line2:#C2BAA8; --text:#141410; --muted:#4E4B44; --faint:#6B675C;
+  --accent:#6B675C; --accent-strong:#2A2823;
+  --signal:#C7300A; --signal-soft:rgba(199,48,10,.10); --signal-line:rgba(199,48,10,.38);
+  --mint:#C7300A; --mint-soft:rgba(199,48,10,.10); --mint-line:rgba(199,48,10,.38);
+  --schatten:rgba(40,36,28,.14);
+}
+:root[data-thema="papier"] body{ background:var(--bg); color:var(--text) }
+/* Auf Papier tragen die dunklen Zierflaechen nicht -- Hero und Hintergruende zuruecknehmen */
+:root[data-thema="papier"] .hero3::before{ opacity:.20; filter:invert(1) hue-rotate(180deg) }
+:root[data-thema="papier"] .hc-bg{ opacity:.12 !important }
+:root[data-thema="papier"] .hc-overlay{ background:radial-gradient(128% 92% at 50% 30%,
+  rgba(242,239,231,.94) 0%, rgba(242,239,231,.72) 46%, rgba(242,239,231,.30) 100%) !important }
+:root[data-thema="papier"] .bgfx{ opacity:.30 !important; filter:invert(1) hue-rotate(180deg) }
+:root[data-thema="papier"] .lupe-schicht{ background:rgba(250,248,243,.97) }
+
+/* Der Schalter selbst */
+.thema-schalter{ display:inline-flex; align-items:center; gap:0; margin-left:10px;
+  border:1px solid var(--line2); border-radius:2px; overflow:hidden }
+.thema-schalter button{ background:none; border:0; cursor:pointer; padding:7px 10px;
+  font-family:var(--font-mono); font-size:9.5px; letter-spacing:.13em; text-transform:uppercase;
+  color:var(--faint); transition:color .25s var(--xfx-ease), background-color .25s var(--xfx-ease) }
+.thema-schalter button:hover{ color:var(--text) }
+.thema-schalter button[aria-pressed="true"]{ background:var(--text); color:var(--bg) }
+@media (max-width:900px){ .thema-schalter{ display:none } }
+
 </style>
 <style id="xdab-landing-v3">
 :root{ --navy:#1b3a6b; --navy-soft:rgba(40,86,160,.14); --navy-line:rgba(80,130,210,.32); --mint:#34d399; --mint-soft:rgba(52,211,153,.12); --mint-line:rgba(52,211,153,.34); }
@@ -476,7 +521,7 @@
 .team3-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 @media(max-width:680px){.team3-grid{grid-template-columns:1fr}}
 .team3-card{display:flex;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px}
-.team3-av{width:48px;height:48px;border-radius:12px;background:var(--accent-strong);color:#0f0f11;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.team3-av{width:48px;height:48px;border-radius:12px;background:var(--accent-strong);color:var(--bg);font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .team3-av2{background:var(--mint)}
 .team3-n{font-weight:700;font-size:16px}.team3-r{color:var(--accent);font-size:13px;margin-bottom:6px}
 .team3-card p{color:var(--muted);font-size:13.5px}
@@ -485,9 +530,9 @@
 .pkg-cta{display:flex;flex-direction:column;gap:8px}
 .btn-cart{background:var(--card2);border-color:var(--line2)}
 .btn-cart:hover{border-color:var(--mint)}
-.cart-fab{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom));z-index:80;display:flex;align-items:center;gap:8px;background:var(--accent-strong);color:#0f0f11;border:none;border-radius:999px;padding:13px 18px;font-weight:700;font-size:14px;cursor:pointer;box-shadow:0 8px 28px rgba(0,0,0,.4)}
+.cart-fab{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom));z-index:80;display:flex;align-items:center;gap:8px;background:var(--accent-strong);color:var(--bg);border:none;border-radius:999px;padding:13px 18px;font-weight:700;font-size:14px;cursor:pointer;box-shadow:0 8px 28px rgba(0,0,0,.4)}
 .cart-fab[hidden]{display:none}
-.cart-fab .cart-count{background:#0f0f11;color:#fff;border-radius:999px;min-width:20px;height:20px;display:inline-flex;align-items:center;justify-content:center;font-size:12px;padding:0 5px}
+.cart-fab .cart-count{background:var(--bg);color:#fff;border-radius:999px;min-width:20px;height:20px;display:inline-flex;align-items:center;justify-content:center;font-size:12px;padding:0 5px}
 .cart-fab svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.9}
 .cart-back{position:fixed;inset:0;z-index:90;background:rgba(0,0,0,.55);display:none}
 .cart-back.open{display:block}
@@ -728,7 +773,7 @@
 .rg-panel-title svg{ width:14px; height:14px; color:var(--rg); }
 
 .rg-file{ display:flex; align-items:center; gap:8px; padding:7px; border:1px solid var(--line); border-radius:8px; margin-bottom:6px; background:var(--bg2); }
-.rg-file-ic{ flex:none; width:26px; height:26px; border-radius:6px; display:flex; align-items:center; justify-content:center; font-size:8px; font-weight:800; color:#0f0f11; letter-spacing:.02em; }
+.rg-file-ic{ flex:none; width:26px; height:26px; border-radius:6px; display:flex; align-items:center; justify-content:center; font-size:8px; font-weight:800; color:var(--bg); letter-spacing:.02em; }
 .rg-pdf{ background:#e07a7a; } .rg-doc{ background:#7aa3e0; } .rg-xls{ background:var(--mint); }
 .rg-file-meta{ flex:1; min-width:0; display:flex; flex-direction:column; }
 .rg-file-meta b{ font-size:11px; color:var(--text); font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
@@ -1024,7 +1069,7 @@ body{ -webkit-font-smoothing:antialiased; }
 @keyframes nsIn{ from{opacity:0;transform:translateY(-6px)} to{opacity:1;transform:none} }
 .navsheet-inner{ flex:1;display:flex;flex-direction:column;width:100%;max-width:var(--maxw) }
 .navsheet-logo{ font-size:20px;font-weight:600;display:flex;align-items:center;gap:10px;margin-bottom:18px }
-.navsheet-logo .x{ width:30px;height:30px;border-radius:8px;background:#fff;color:#0f0f11;display:flex;align-items:center;justify-content:center }
+.navsheet-logo .x{ width:30px;height:30px;border-radius:8px;background:#fff;color:var(--bg);display:flex;align-items:center;justify-content:center }
 .navsheet-rule{ height:1px;background:var(--line) }
 .navsheet-label{ font-size:11px;letter-spacing:.16em;color:var(--faint);text-transform:uppercase;margin:26px 0 18px }
 .navsheet-nav{ flex:1 }
@@ -1046,8 +1091,8 @@ body{ -webkit-font-smoothing:antialiased; }
 .navsheet-results .nr-empty{ color:var(--faint);font-size:14px;padding:12px 4px }
 /* ---- Hero-Handy-Mockup (geclippt) ---- */
 .h3-phone-wrap{ display:flex;justify-content:center;margin:40px 0 8px }
-.h3-phone{ width:270px;max-width:78vw;border:9px solid #0a0a0c;border-radius:38px;background:#0a0a0c;box-shadow:0 24px 60px -18px rgba(0,0,0,.7) }
-.h3-pscreen{ background:#141416;border-radius:30px;overflow:hidden;height:430px;display:flex;flex-direction:column }
+.h3-phone{ width:270px;max-width:78vw;border:9px solid var(--tief);border-radius:38px;background:var(--tief);box-shadow:0 24px 60px -18px rgba(0,0,0,.7) }
+.h3-pscreen{ background:var(--card);border-radius:30px;overflow:hidden;height:430px;display:flex;flex-direction:column }
 .h3-ptop{ display:flex;align-items:center;justify-content:space-between;padding:12px 12px 8px;border-bottom:1px solid #232327 }
 .h3-pmenu,.h3-pnew{ width:18px;height:13px;position:relative }
 .h3-pmenu::before,.h3-pmenu::after,.h3-pmenu span{ }
@@ -1055,7 +1100,7 @@ body{ -webkit-font-smoothing:antialiased; }
 .h3-pmodel{ font-size:11px;color:var(--text);background:var(--card2);border:1px solid var(--line2);border-radius:999px;padding:4px 10px }
 .h3-pnew{ border:1.6px solid var(--muted);border-radius:4px }
 .h3-pconv{ flex:1;overflow:hidden;padding:12px;display:flex;flex-direction:column;gap:10px }
-.h3-pq{ align-self:flex-end;background:var(--accent-strong);color:#0f0f11;font-size:11.5px;border-radius:12px 12px 3px 12px;padding:8px 11px;max-width:80% }
+.h3-pq{ align-self:flex-end;background:var(--accent-strong);color:var(--bg);font-size:11.5px;border-radius:12px 12px 3px 12px;padding:8px 11px;max-width:80% }
 .h3-pa{ display:flex;gap:7px;font-size:11.5px;color:var(--text);max-width:92% }
 .h3-pax{ width:20px;height:20px;flex-shrink:0;border-radius:6px;background:var(--card2);display:flex;align-items:center;justify-content:center;color:var(--accent-strong) }
 .h3-pax svg{ width:13px;height:13px }
@@ -1103,7 +1148,7 @@ body{ -webkit-font-smoothing:antialiased; }
 .nav-links a.lp-on{ color:var(--text) }
 .navsheet-nav a.lp-on{ color:var(--accent-strong) }
 /* größeres iPhone-16/17-Mockup mit Dynamic Island */
-.h3-phone{ width:320px;max-width:84vw;border:8px solid #050506;border-radius:52px;background:#050506;box-shadow:0 30px 70px -20px rgba(0,0,0,.75),0 0 0 1px rgba(255,255,255,.04) }
+.h3-phone{ width:320px;max-width:84vw;border:8px solid var(--tief);border-radius:52px;background:var(--tief);box-shadow:0 30px 70px -20px rgba(0,0,0,.75),0 0 0 1px rgba(255,255,255,.04) }
 .h3-pscreen{ position:relative;border-radius:44px;height:540px }
 .h3-island{ position:absolute;top:11px;left:50%;transform:translateX(-50%);width:104px;height:30px;background:#000;border-radius:16px;z-index:5 }
 .h3-ptop{ padding-top:50px }     /* Platz für Island/Statusleiste */
@@ -1158,7 +1203,7 @@ section{ padding:84px 0 }
 .hc-card:nth-child(7n+3){ border-color:color-mix(in srgb, #3b82f6 36%, var(--line2)) }
 .hc-overlay{ background:rgba(13,13,16,.64) }
 /* iPhone: schlanker + länger + KLEINE Dynamic Island */
-.h3-phone{ width:300px !important; max-width:80vw; border:10px solid #0a0a0c !important; border-radius:48px !important; box-shadow:0 34px 80px -22px rgba(0,0,0,.8),0 0 0 1px rgba(255,255,255,.05) }
+.h3-phone{ width:300px !important; max-width:80vw; border:10px solid var(--tief) !important; border-radius:48px !important; box-shadow:0 34px 80px -22px rgba(0,0,0,.8),0 0 0 1px rgba(255,255,255,.05) }
 .h3-pscreen{ height:618px !important; border-radius:40px !important; position:relative }
 .h3-island{ width:80px !important; height:23px !important; top:13px !important; border-radius:12px !important }
 .h3-ptop{ padding-top:46px !important }
@@ -1263,7 +1308,7 @@ header{ position:-webkit-sticky; position:sticky; top:0 }
 .tk-section{ padding:64px 0 }
 .tk-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-top:30px }
 .tk-card{ background:var(--card); border:1px solid var(--line); border-radius:16px; padding:22px }
-.tk-ic{ width:30px; height:30px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:14px; color:#0a0a0c; background:var(--accent-strong); margin-bottom:12px }
+.tk-ic{ width:30px; height:30px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:14px; color:var(--tief); background:var(--accent-strong); margin-bottom:12px }
 .tk-card:nth-child(4) .tk-ic{ background:var(--mint) }
 .tk-h{ font-size:16px; font-weight:650; margin-bottom:8px; color:var(--text) }
 .tk-card p{ font-size:14px; line-height:1.6; color:var(--muted); margin:0 }
@@ -1286,7 +1331,7 @@ header{ position:-webkit-sticky; position:sticky; top:0 }
 .fr-opts{ display:flex; flex-wrap:wrap; gap:10px }
 .fr-chip{ font:inherit; font-size:14px; color:var(--text); background:var(--card); border:1px solid var(--line2); border-radius:999px; padding:9px 16px; cursor:pointer; transition:border-color .15s,background .15s,color .15s }
 .fr-chip:hover{ border-color:var(--accent-strong) }
-.fr-chip.is-on{ background:var(--accent-strong); border-color:var(--accent-strong); color:#0a0a0c; font-weight:600 }
+.fr-chip.is-on{ background:var(--accent-strong); border-color:var(--accent-strong); color:var(--tief); font-weight:600 }
 .fr-inputs{ display:grid; grid-template-columns:1fr 1fr; gap:12px }
 .fr-input{ font:inherit; font-size:14px; color:var(--text); background:var(--card); border:1px solid var(--line2); border-radius:10px; padding:12px 14px; width:100% }
 .fr-input:focus{ outline:none; border-color:var(--accent-strong) }
@@ -1366,7 +1411,7 @@ html.xr-on .xr.xr-in{ opacity:1; transform:none }
     <a href="#plattform">Plattform</a><a href="#datenschutz-detail">Datenschutz</a><a href="#cyber-detail">Sicherheit</a><a href="#projekte">Leistungen</a><a href="#pakete">Pakete</a><a href="#fragerunde">Beratung</a>
   </nav>
   <div class="nav-cta">
-    <a class="btn nav-ws" href="mailto:kontakt@xdab-ki.de?subject=Anfrage%20XDAB">Kontakt</a>
+    <div class="thema-schalter" role="group" aria-label="Darstellung"><button type="button" data-thema-wahl="tinte" aria-pressed="true">Tinte</button><button type="button" data-thema-wahl="papier" aria-pressed="false">Papier</button></div><a class="btn nav-ws" href="mailto:kontakt@xdab-ki.de?subject=Anfrage%20XDAB">Kontakt</a>
     <a class="btn btn-primary nav-start" href="#konfigurator">Jetzt starten</a>
     <button class="menu-toggle" id="menuToggle" aria-label="Menü öffnen" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
@@ -3193,7 +3238,7 @@ html{scroll-behavior:smooth;}
 .ov-card{border:1px solid var(--line);border-radius:14px;padding:20px 20px 18px;background:rgba(255,255,255,.014);display:flex;flex-direction:column;gap:9px;}
 .ov-num{font-size:12px;font-weight:800;letter-spacing:.14em;color:var(--mint);font-variant-numeric:tabular-nums;}
 .ov-t{margin:0;font-size:1.12rem;font-weight:700;color:var(--text);line-height:1.25;}
-.ov-d{margin:0;flex:1;font-size:.92rem;line-height:1.55;color:var(--faint);}
+.ov-d{margin:0;flex:1;font-size:.92rem;line-height:1.55;color:var(--muted);}
 .ov-tag{align-self:flex-start;margin-top:4px;font-size:11px;font-weight:700;letter-spacing:.03em;color:var(--mint);border:1px solid var(--mint-line);border-radius:999px;padding:3px 11px;}
 .ov-card:hover{transform:translateY(-3px);border-color:var(--mint-line);box-shadow:0 12px 30px rgba(0,0,0,.32);}
 .ov-trust{display:flex;flex-wrap:wrap;gap:7px 26px;justify-content:center;margin-top:24px;color:var(--faint);font-size:12.5px;}
@@ -3323,7 +3368,7 @@ html{scroll-behavior:smooth;}
 .pt-card{ position:relative; display:flex; flex-direction:column; gap:4px; background:var(--card); border:1px solid var(--line); border-radius:16px; padding:22px; transition:transform .2s var(--xfx-ease,ease), border-color .2s, box-shadow .2s }
 .pt-card:hover{ transform:translateY(-4px); border-color:var(--line2); box-shadow:0 14px 40px rgba(0,0,0,.3) }
 .pt-card.featured{ border-color:var(--mint-line,#34d399); box-shadow:0 0 0 1px var(--mint-line,#34d39944) }
-.pt-card .badge{ position:absolute; top:14px; right:14px; font-size:11px; font-weight:800; color:#0f0f11; background:var(--mint); border-radius:6px; padding:2px 8px }
+.pt-card .badge{ position:absolute; top:14px; right:14px; font-size:11px; font-weight:800; color:var(--bg); background:var(--mint); border-radius:6px; padding:2px 8px }
 .pt-line{ font-size:11px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:var(--accent) }
 .pt-card h3{ font-size:18px }
 .pt-card .pp{ font-size:26px; font-weight:800 }
@@ -3338,7 +3383,7 @@ html{scroll-behavior:smooth;}
 .cta-mail{ margin-top:18px; color:var(--faint); font-size:13.5px }
 .cta-mail a{ color:var(--muted); text-decoration:underline }
 /* Hero-Phone: echte Screenshots mit Crossfade */
-.h3-pscreen-shot{ overflow:hidden; background:#101012 }
+.h3-pscreen-shot{ overflow:hidden; background:var(--tief) }
 .h3-shot{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center bottom; display:block }
 .h3-shot-b{ opacity:0; animation:h3shot 16s ease-in-out infinite }
 @keyframes h3shot{ 0%,42%{opacity:0} 50%,92%{opacity:1} 100%{opacity:0} }
@@ -3347,12 +3392,12 @@ html{scroll-behavior:smooth;}
 /* Produkt-Showcase: Browser-Frame + überlappendes Phone */
 .shot-section{ padding-bottom:110px }
 .shot-stage{ position:relative; max-width:960px; margin:0 auto }
-.shot-browser{ margin:0; border:1px solid var(--line2); border-radius:14px; overflow:hidden; background:#0a0a0c; box-shadow:0 40px 100px -30px rgba(0,0,0,.65), 0 0 0 1px rgba(255,255,255,.03) }
+.shot-browser{ margin:0; border:1px solid var(--line2); border-radius:14px; overflow:hidden; background:var(--tief); box-shadow:0 40px 100px -30px rgba(0,0,0,.65), 0 0 0 1px rgba(255,255,255,.03) }
 .shot-chrome{ display:flex; align-items:center; gap:6px; padding:10px 14px; background:#151518; border-bottom:1px solid var(--line) }
 .shot-chrome span{ width:10px; height:10px; border-radius:50%; background:#2e2e35 }
-.shot-url{ flex:1; text-align:center; font-size:12px; color:var(--faint); background:#0f0f11; border:1px solid var(--line); border-radius:7px; padding:4px 10px; margin:0 8%; max-width:420px }
+.shot-url{ flex:1; text-align:center; font-size:12px; color:var(--faint); background:var(--bg); border:1px solid var(--line); border-radius:7px; padding:4px 10px; margin:0 8%; max-width:420px }
 .shot-browser img{ display:block; width:100%; height:auto }
-.shot-phone{ position:absolute; right:-10px; bottom:-70px; width:190px; margin:0; border:6px solid #050506; border-radius:30px; overflow:hidden; background:#050506; box-shadow:0 30px 70px -18px rgba(0,0,0,.8), 0 0 0 1px rgba(255,255,255,.05); transform:rotate(2deg) }
+.shot-phone{ position:absolute; right:-10px; bottom:-70px; width:190px; margin:0; border:6px solid var(--tief); border-radius:30px; overflow:hidden; background:var(--tief); box-shadow:0 30px 70px -18px rgba(0,0,0,.8), 0 0 0 1px rgba(255,255,255,.05); transform:rotate(2deg) }
 .shot-phone img{ display:block; width:100%; height:auto }
 @media(max-width:760px){ .shot-phone{ display:none } .shot-section{ padding-bottom:56px } }
 /* Scrollytelling Plattform */
@@ -3361,7 +3406,7 @@ html{scroll-behavior:smooth;}
   .pf-scrolly{ display:grid; grid-template-columns:1.02fr .98fr; gap:44px; align-items:start }
   .pf-visual{ display:block; position:sticky; top:96px }
 }
-.pf-visual-frame{ position:relative; aspect-ratio:16/10; border:1px solid var(--line2); border-radius:12px; overflow:hidden; background:#0a0a0c; box-shadow:0 30px 80px -30px rgba(0,0,0,.6) }
+.pf-visual-frame{ position:relative; aspect-ratio:16/10; border:1px solid var(--line2); border-radius:12px; overflow:hidden; background:var(--tief); box-shadow:0 30px 80px -30px rgba(0,0,0,.6) }
 .pf-vshot{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:top; opacity:0; transition:opacity .5s var(--xfx-ease,ease) }
 .pf-vshot.is-on{ opacity:1 }
 .pf-vdots{ display:flex; gap:7px; justify-content:center; margin-top:12px }
@@ -3374,7 +3419,7 @@ html{scroll-behavior:smooth;}
 @media(max-width:600px){ .uq-grid{ grid-template-columns:1fr } }
 .uq-card{ margin:0; background:var(--card); border:1px solid var(--line); border-radius:16px; overflow:hidden; transition:transform .2s var(--xfx-ease,ease), border-color .2s, box-shadow .2s }
 .uq-card:hover{ transform:translateY(-4px); border-color:var(--line2); box-shadow:0 16px 44px rgba(0,0,0,.35) }
-.uq-shot{ aspect-ratio:16/10; overflow:hidden; border-bottom:1px solid var(--line); background:#0a0a0c }
+.uq-shot{ aspect-ratio:16/10; overflow:hidden; border-bottom:1px solid var(--line); background:var(--tief) }
 .uq-shot img{ display:block; width:100%; height:100%; object-fit:cover; object-position:top }
 .uq-card figcaption{ padding:16px 18px; color:var(--muted); font-size:13.5px; line-height:1.55 }
 .uq-card figcaption b{ display:block; color:var(--text); font-size:15px; margin-bottom:4px }
@@ -3471,6 +3516,35 @@ p, li, td{ font-family:var(--font-sans) }
 /* Abdunklung nur dort stark, wo Text steht -- aussen darf das Feld atmen */
 .hc-overlay{ background:radial-gradient(128% 92% at 50% 30%,
   rgba(15,15,17,.92) 0%, rgba(15,15,17,.60) 46%, rgba(15,15,17,.16) 100%) !important }
+/* --- Papier: Kopfleiste und Flaechen mitziehen --- */
+:root[data-thema="papier"] header, :root[data-thema="papier"] .nav,
+:root[data-thema="papier"] .navbar, :root[data-thema="papier"] .site-header{
+  background:rgba(242,239,231,.88) !important; border-color:var(--line) !important }
+:root[data-thema="papier"] .nav-links a{ color:var(--muted) }
+:root[data-thema="papier"] .nav-links a:hover{ color:var(--text) }
+:root[data-thema="papier"] .logo, :root[data-thema="papier"] .logo b{ color:var(--text) }
+
+/* Die Hero-Ueberschrift ist fest auf Weiss gesetzt -- auf Papier muss sie kippen */
+:root[data-thema="papier"] .h3-title{ color:var(--text) !important; text-shadow:none !important }
+:root[data-thema="papier"] .h3-stats b, :root[data-thema="papier"] .h3-stats span,
+:root[data-thema="papier"] .h3-badge, :root[data-thema="papier"] .hc-usecases span,
+:root[data-thema="papier"] .hc-scroll{ color:var(--muted) !important }
+:root[data-thema="papier"] .h3-stats b{ color:var(--text) !important }
+
+/* Nachgebaute Produkt-Oberflaechen bleiben dunkel -- sie zeigen ein dunkles Programm.
+   Ein Screenshot dreht sich ja auch nicht um, wenn das Papier weiss ist. Sie bekommen
+   deshalb ihre eigene, in sich stimmige Palette statt der Themenfarben. */
+:root[data-thema="papier"] .sc-ui, :root[data-thema="papier"] .sc-browser,
+:root[data-thema="papier"] .cy-browser, :root[data-thema="papier"] .cy-mon,
+:root[data-thema="papier"] .rg-browser, :root[data-thema="papier"] .fl-mock,
+:root[data-thema="papier"] .shot-browser, :root[data-thema="papier"] .shot-phone,
+:root[data-thema="papier"] .h3-phone, :root[data-thema="papier"] .pf-visual-frame{
+  --bg:#0f0f11; --bg2:#17171a; --tief:#0a0a0c; --card:#1c1c20; --card2:#222227;
+  --line:#2c2c33; --line2:#37373f; --text:#ececef; --muted:#a6a6ae; --faint:#8b8b95;
+  --accent:#8A8D93; --accent-strong:#c9ccd2;
+  color:#ececef; border-color:#2c2c33;
+  box-shadow:0 18px 50px var(--schatten);
+}
 </style>
 <script id="xdab-phone-tilt-js">
 (function(){
@@ -3683,6 +3757,30 @@ p, li, td{ font-family:var(--font-sans) }
   schicht.addEventListener('click',function(e){ if(e.target===schicht) schliessen(); });
   document.addEventListener('keydown',function(e){
     if(e.key==='Escape' && !schicht.hidden) schliessen(); });
+})();
+</script>
+<script id="xdab-thema-js">
+(function(){
+  'use strict';
+  var W=document.documentElement, SP='xdab-thema';
+  function setzen(t, merken){
+    W.setAttribute('data-thema', t);
+    document.querySelectorAll('[data-thema-wahl]').forEach(function(b){
+      b.setAttribute('aria-pressed', String(b.getAttribute('data-thema-wahl')===t));
+    });
+    var m=document.querySelector('meta[name="theme-color"]');
+    if(m) m.setAttribute('content', t==='papier' ? '#F2EFE7' : '#0f0f11');
+    if(merken){ try{ localStorage.setItem(SP,t); }catch(e){} }
+  }
+  var gemerkt=null;
+  try{ gemerkt=localStorage.getItem(SP); }catch(e){}
+  if(!gemerkt && window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches)
+    gemerkt='papier';                       // Systemwunsch achten, solange nichts gewaehlt wurde
+  setzen(gemerkt||'tinte', false);
+  document.addEventListener('click', function(e){
+    var b=e.target.closest && e.target.closest('[data-thema-wahl]');
+    if(b) setzen(b.getAttribute('data-thema-wahl'), true);
+  });
 })();
 </script>
 </body>

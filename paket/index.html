@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- landing b20260602-20 -->
-<html lang="de">
+<html lang="de" data-stand="gruendung">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -510,6 +510,12 @@
   .roadmap-k{ border-right:0; padding-right:0 } }
 .roadmap-satz{ font-family:var(--font-mono); font-size:11px; letter-spacing:.05em;
   color:var(--signal); margin:-6px 0 12px }
+
+/* ---- Ein Schalter fuer den Gruendungs-Hinweis ----
+   Am Tag der Gewerbeanmeldung genuegt es, im <html>-Tag data-stand="betrieb"
+   zu setzen (oder das Attribut ganz zu entfernen und den Standard zu drehen).
+   Der Hinweis verschwindet dann ueberall, ohne dass Text angefasst wird.      */
+:root[data-stand="betrieb"] .stand-band{ display:none }
 </style>
 <style id="xdab-landing-v3">
 :root{ --navy:#1b3a6b; --navy-soft:rgba(40,86,160,.14); --navy-line:rgba(80,130,210,.32); --mint:#34d399; --mint-soft:rgba(52,211,153,.12); --mint-line:rgba(52,211,153,.34); }

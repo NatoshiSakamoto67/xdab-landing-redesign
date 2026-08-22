@@ -3839,13 +3839,107 @@ p, li, td{ font-family:var(--font-sans) }
   }
   var gemerkt=null;
   try{ gemerkt=localStorage.getItem(SP); }catch(e){}
-  if(!gemerkt && window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches)
-    gemerkt='papier';                       // Systemwunsch achten, solange nichts gewaehlt wurde
-  setzen(gemerkt||'tinte', false);
+  // Hell ist die Vorgabe (Davids Entscheidung 22.08.) — wer Tinte will,
+  // schaltet um; die Wahl bleibt gemerkt.
+  setzen(gemerkt||'papier', false);
   document.addEventListener('click', function(e){
     var b=e.target.closest && e.target.closest('[data-thema-wahl]');
     if(b) setzen(b.getAttribute('data-thema-wahl'), true);
   });
+})();
+</script>
+<style id="lp-v9-ruhe">
+/* ============ RUHE-PASS (Davids Auftrag 22.08.): weniger, praeziser ============
+   Leitbild Palantir: eine grosse ruhige Aussage, ein Produktbild, Farbe nur
+   wo sie etwas BEDEUTET. Drei Regeln:
+   1. Gruen = richtig/erledigt (eigenes Token --gruen; --mint war auf
+      Zinnober umdefiniert worden und faerbte Haekchen rot).
+   2. Zinnober nur noch als Marken-Akzent in kleiner Dosis.
+   3. Das X ist das Logo — ohne App-Kachel, in der Farbe der Schrift. */
+
+/* --- Semantik: Gruen fuer Richtigkeit --- */
+:root{ --gruen:#158a52; --gruen-soft:rgba(21,138,82,.10); --gruen-line:rgba(21,138,82,.38) }
+:root:not([data-thema="papier"]){ --gruen:#2fbf7f; --gruen-soft:rgba(47,191,127,.12); --gruen-line:rgba(47,191,127,.36) }
+.ph-route{ color:var(--gruen) !important; background:var(--gruen-soft) !important; border-color:var(--gruen-line) !important }
+.ov-trust span::before{ background:var(--gruen) !important }
+.cfg-out li::before{ color:var(--gruen) }
+@keyframes phAct3{ 0%,40%{color:var(--faint)} 42%,50%{color:var(--gruen)} 52%,100%{color:var(--faint)} }
+
+/* --- Logo: blankes X statt App-Kachel, groesser --- */
+.logo .x, .navsheet-logo .x{ background:transparent !important; color:var(--text) !important;
+  border-radius:0 !important; box-shadow:none !important }
+.logo .x svg{ width:26px; height:26px }
+:root[data-thema="papier"] .logo .x{ color:var(--text) !important }
+
+/* --- Akzent-Dosis senken --- */
+.xfx-topscan i{ background:linear-gradient(90deg,transparent,var(--text),transparent); opacity:.16 }
+.xfx.xin .pf-block-num{ color:var(--muted) }
+
+/* --- Hero: eine Aussage, Luft, leichtes Grossgewicht --- */
+.hc-usecases{ display:none !important }           /* Aufgaben-Chips raus: eine Botschaft reicht */
+.h3-title{ font-weight:480 !important; letter-spacing:-.03em !important;
+  font-size:clamp(40px,6.8vw,84px) !important; line-height:1.05 !important }
+.hero-cine .h3-badge{ border:0 !important; background:none !important }
+
+/* --- Weissraum: Sektionen atmen --- */
+section{ padding:96px 0 }
+.sec-head{ margin-bottom:38px }
+#pakete-teaser{ display:none }                    /* doppelt zu #pakete */
+
+/* --- Tiefgang: Detail-Sektionen als Aufklapper --- */
+.tg-section{ padding:96px 0 }
+.tg-lead{ color:var(--muted); max-width:640px }
+.tg-liste{ display:flex; flex-direction:column; border-top:1px solid var(--line) }
+.tg-d{ border-bottom:1px solid var(--line) }
+.tg-d > summary{ list-style:none; cursor:pointer; display:flex; align-items:center;
+  justify-content:space-between; gap:16px; padding:22px 4px; font-size:clamp(17px,2.2vw,22px);
+  font-weight:500; letter-spacing:-.02em; color:var(--text) }
+.tg-d > summary::-webkit-details-marker{ display:none }
+.tg-d > summary::after{ content:'+'; font-size:24px; font-weight:300; color:var(--faint);
+  flex:0 0 auto; transition:transform .2s ease }
+.tg-d[open] > summary::after{ transform:rotate(45deg) }
+.tg-d > summary:hover{ color:var(--accent-strong) }
+.tg-d section{ display:block !important; padding:8px 0 34px; border-top:none }
+/* vor dem Einsammeln unsichtbar — kein Aufblitzen beim Laden */
+#showcase,#unikate,#ablauf,#wissensbasis,#auftragsverarbeitung,#cyber-detail,
+#konfigurator,#mandat,#projekte,#module,#token,#einsatz,#fragerunde{ display:none }
+</style>
+<script id="lp-v9-tiefgang">
+(function(){
+  'use strict';
+  /* Struktur-Reduktion: die Tiefen-Sektionen wandern in einen Aufklapp-
+     Bereich "Im Detail" — Inhalt bleibt vollstaendig erhalten und ist
+     ueber seine Anker weiter erreichbar (Anker oeffnet den Aufklapper). */
+  var ids=['showcase','unikate','ablauf','wissensbasis','auftragsverarbeitung',
+           'cyber-detail','konfigurator','mandat','projekte','module','token',
+           'einsatz','fragerunde'];
+  var anker=document.getElementById('team')||document.getElementById('faq');
+  if(!anker) return;
+  var sec=document.createElement('section');
+  sec.id='tiefgang'; sec.className='tg-section';
+  sec.innerHTML='<div class="wrap"><div class="sec-head"><h2>Im Detail</h2>'+
+    '<p class="tg-lead">Alles Weitere zum Nachlesen &mdash; aufklappen, was Sie interessiert.</p></div>'+
+    '<div class="tg-liste"></div></div>';
+  anker.parentNode.insertBefore(sec, anker);
+  var liste=sec.querySelector('.tg-liste');
+  ids.forEach(function(id){
+    var s=document.getElementById(id); if(!s) return;
+    var h=s.querySelector('h2');
+    var titel=h?h.textContent.replace(/\s+/g,' ').trim():id;
+    var d=document.createElement('details'); d.className='tg-d'; d.id='tg-'+id;
+    var su=document.createElement('summary'); su.textContent=titel;
+    d.appendChild(su); s.parentNode.removeChild(s); d.appendChild(s);
+    liste.appendChild(d);
+  });
+  function oeffnen(){
+    var h=location.hash.replace('#','');
+    if(ids.indexOf(h)>-1){
+      var d=document.getElementById('tg-'+h);
+      if(d){ d.open=true; d.scrollIntoView({block:'start'}); }
+    }
+  }
+  window.addEventListener('hashchange', oeffnen);
+  oeffnen();
 })();
 </script>
 </body>

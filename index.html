@@ -479,7 +479,7 @@
 }
 :root[data-thema="papier"] body{ background:var(--bg); color:var(--text) }
 /* Auf Papier tragen die dunklen Zierflaechen nicht -- Hero und Hintergruende zuruecknehmen */
-:root[data-thema="papier"] .hero3::before{ opacity:.20; filter:invert(1) hue-rotate(180deg) }
+/* (Hoehenlinien-Hintergrund entfernt 22.08. — Papier-Sonderregel dafuer entfaellt) */
 :root[data-thema="papier"] .hc-bg{ opacity:.12 !important }
 :root[data-thema="papier"] .hc-overlay{ background:radial-gradient(128% 92% at 50% 30%,
   rgba(242,239,231,.94) 0%, rgba(242,239,231,.72) 46%, rgba(242,239,231,.30) 100%) !important }
@@ -3516,28 +3516,10 @@ th{ font-weight:400; letter-spacing:.1em }
 /* Fliesstext bleibt ruhig, damit der Kontrast wirkt */
 p, li, td{ font-family:var(--font-sans) }
 .pf-lead, .sc-lead, .dt-lead, .cy-lead, .rg-lead{ font-weight:400; letter-spacing:-.005em }
-/* ============ Grosses Hintergrundbild: Hoehenlinienfeld in echtem 4K ============
-   Nicht hochgerechnet, sondern in 3840x2160 gerendert -- deshalb auch auf grossen
-   und hochaufloesenden Bildschirmen scharf. 244 KB, weil dunkle Flaechen sehr gut
-   komprimieren. image-set liefert die kleine Fassung an einfache Bildschirme.     */
-.hero3::before{
-  content:""; position:absolute; inset:0; z-index:0; pointer-events:none;
-  background-image:image-set(url("assets/hintergrund-1920.webp") 1x,
-                             url("assets/hintergrund-4k.webp") 2x);
-  background-image:-webkit-image-set(url("assets/hintergrund-1920.webp") 1x,
-                                     url("assets/hintergrund-4k.webp") 2x);
-  background-size:cover; background-position:center 32%;
-  opacity:.62;
-}
-/* Kein pauschales position:relative auf die Kinder -- das nimmt der absolut
-   gesetzten Kaertchen-Wand ihre Positionierung und schiebt sie in den Textfluss.
-   Das ::before liegt ohnehin hinter allen echten Kindern.
-   Die Wand tritt nur in der Deckkraft zurueck, damit das Feld traegt. */
-.hc-bg{ opacity:.34 !important }
-.hero3::before{ opacity:1 }
-/* Abdunklung nur dort stark, wo Text steht -- aussen darf das Feld atmen */
-.hc-overlay{ background:radial-gradient(128% 92% at 50% 30%,
-  rgba(15,15,17,.92) 0%, rgba(15,15,17,.60) 46%, rgba(15,15,17,.16) 100%) !important }
+/* ============ Hero-Hintergrund: schlicht, wie vor dem Hoehenlinienfeld ============
+   Das 4K-Hoehenlinien-Hintergrundbild ist auf Davids Wunsch (22.08.) wieder
+   raus — der Hero traegt allein die animierte Kaertchen-Wand (hc-col, laeuft
+   von unten nach oben) auf dem ruhigen Flaechenhintergrund. */
 /* --- Papier: Kopfleiste und Flaechen mitziehen --- */
 :root[data-thema="papier"] header, :root[data-thema="papier"] .nav,
 :root[data-thema="papier"] .navbar, :root[data-thema="papier"] .site-header{

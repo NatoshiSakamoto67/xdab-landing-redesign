@@ -1434,11 +1434,10 @@ html.xr-on .xr.xr-in{ opacity:1; transform:none }
   box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.14), inset 0 0 0 4px #0a0b0c,
              0 34px 80px -22px rgba(0,0,0,.8), 0 2px 6px rgba(0,0,0,.5) !important }
 .h3-pscreen{ border-radius:44px }
-/* Antennenlinien in den Rahmenkanten */
-.h3-phone::before, .h3-phone::after{ content:''; position:absolute; width:10px; height:2.5px;
-  background:rgba(10,11,12,.85); border-radius:2px; z-index:1 }
-.h3-phone::before{ top:26px; left:-1px; transform:rotate(90deg) }
-.h3-phone::after{ bottom:26px; right:-1px; transform:rotate(90deg) }
+/* Antennenlinien entfernt (22.08. spaet): sie sassen in der Eckrundung
+   und ragten als dunkler Strich heraus (Davids Handy-Fund). Der Rahmen
+   wirkt ohne sie sauberer — Tasten + Island tragen die iPhone-Anmutung. */
+.h3-phone::before, .h3-phone::after{ content:none !important }
 /* Seitentasten: links Action + Lautstaerke, rechts die Standby-Taste */
 .iph-btn{ position:absolute; width:3.5px; border-radius:2px; z-index:0;
   background:linear-gradient(90deg,#4a4d53,#1c1e21);
@@ -3884,6 +3883,9 @@ p, li, td{ font-family:var(--font-sans) }
 /* --- Akzent-Dosis senken --- */
 .xfx-topscan i{ background:linear-gradient(90deg,transparent,var(--text),transparent); opacity:.16 }
 .xfx.xin .pf-block-num{ color:var(--muted) }
+/* Geister-Deko im Hellen fast weg: die invertierte bgfx-Ebene streute
+   graue Textfetzen ueber die helle Flaeche (Ueberladen-Eindruck). */
+:root[data-thema="papier"] .bgfx{ opacity:.12 !important }
 
 /* --- Hero: eine Aussage, Luft, leichtes Grossgewicht --- */
 .hc-usecases{ display:none !important }           /* Aufgaben-Chips raus: eine Botschaft reicht */

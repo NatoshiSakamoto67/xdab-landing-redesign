@@ -3924,9 +3924,12 @@ section{ padding:96px 0 }
 .tg-d[open] > summary::after{ transform:rotate(45deg) }
 .tg-d > summary:hover{ color:var(--accent-strong) }
 .tg-d section{ display:block !important; padding:8px 0 34px; border-top:none }
-/* vor dem Einsammeln unsichtbar — kein Aufblitzen beim Laden */
-#showcase,#unikate,#ablauf,#wissensbasis,#auftragsverarbeitung,#cyber-detail,
-#konfigurator,#mandat,#projekte,#module,#token,#einsatz,#fragerunde{ display:none }
+/* vor dem Einsammeln unsichtbar — kein Aufblitzen beim Laden.
+   NUR Unterpunkte (↳ im Menue) wandern in den Aufklapper; alles, worauf
+   ein Haupt-Reiter zeigt (Sicherheit, Leistungen, Beratung, Konfigurator),
+   bleibt sichtbar — jeder Reiter behaelt seine Sachen (David 22.08.). */
+#showcase,#unikate,#ablauf,#wissensbasis,#auftragsverarbeitung,
+#mandat,#module,#token,#einsatz{ display:none }
 </style>
 <script id="lp-v9-tiefgang">
 (function(){
@@ -3935,8 +3938,7 @@ section{ padding:96px 0 }
      Bereich "Im Detail" — Inhalt bleibt vollstaendig erhalten und ist
      ueber seine Anker weiter erreichbar (Anker oeffnet den Aufklapper). */
   var ids=['showcase','unikate','ablauf','wissensbasis','auftragsverarbeitung',
-           'cyber-detail','konfigurator','mandat','projekte','module','token',
-           'einsatz','fragerunde'];
+           'mandat','module','token','einsatz'];
   var anker=document.getElementById('team')||document.getElementById('faq');
   if(!anker) return;
   var sec=document.createElement('section');

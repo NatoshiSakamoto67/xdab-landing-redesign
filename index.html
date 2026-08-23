@@ -4047,7 +4047,7 @@ html.xr-on .fl-step.xr{ opacity:1 !important; transform:none !important }
   };
   Object.keys(BILDER).forEach(function(id){
     var s=document.getElementById(id); if(!s) return;
-    var kopf=s.querySelector('.sec-head'); if(!kopf || s.querySelector('.bereich-bild')) return;
+    var kopf=s.querySelector('.sec-head, .dt-head'); if(!kopf || s.querySelector('.bereich-bild')) return;
     var f=document.createElement('figure');
     f.className='bereich-bild';
     f.innerHTML='<img src="'+BILDER[id].b+'" loading="lazy" alt="'+BILDER[id].t+'">'

@@ -3922,21 +3922,12 @@ section{ padding:96px 0 }
    Leitungslinie links, jeder Schritt voll sichtbar und voll deckend.
    Keine Blass-Zustaende, kein Scroll-Effekt. Einzige Bewegung: ein
    feiner gruener Strom, der die Linie entlanglaeuft. */
-.fl-flow{ display:block !important; max-width:760px; margin:0 auto;
-  position:relative; padding-left:34px }
-.fl-flow::before{ content:''; position:absolute; left:12px; top:10px;
-  bottom:10px; width:2px; background:var(--line) }
-.fl-flow::after{ content:''; position:absolute; left:12px; top:10px;
-  bottom:10px; width:2px; opacity:.7;
-  background:repeating-linear-gradient(180deg, var(--gruen) 0 7px, transparent 7px 18px);
-  background-size:2px 18px; animation:flStrom 1.4s linear infinite }
-@keyframes flStrom{ to{ background-position:0 18px } }
+/* Ohne Linie und Knoten (Davids Urteil 23.08.: sah maximal schlecht
+   aus) — nur die ruhige Spalte aus voll sichtbaren Karten, Vorbild
+   ChatGPT/Claude-Webseiten: Nummer, Titel, Text, Luft. */
+.fl-flow{ display:block !important; max-width:720px; margin:0 auto }
 .fl-step{ opacity:1 !important; transform:none !important;
-  margin:0 0 14px; box-shadow:none }
-.fl-step::after{ content:''; position:absolute; left:-25px; top:26px;
-  width:10px; height:10px; border-radius:50%; background:var(--bg);
-  border:2.5px solid var(--gruen); z-index:1 }
-.fl-step{ overflow:visible }
+  margin:0 0 16px; box-shadow:none }
 .fl-step--mask{ grid-column:auto }
 .fl-num, .fl-step--final .fl-num{ background:var(--gruen-soft); color:var(--gruen);
   border-color:var(--gruen-line) }
@@ -3945,7 +3936,6 @@ section{ padding:96px 0 }
 .fl-arrow{ display:none !important }
 /* Der alte Scroll-Reveal darf die Schritte nie wieder verstecken. */
 html.xr-on .fl-step.xr{ opacity:1 !important; transform:none !important }
-@media(prefers-reduced-motion:reduce){ .fl-flow::after{ animation:none } }
 </style>
 <style id="lp-v11-signets">
 /* Wiedererkennung je Reiter (Davids Auftrag 23.08.): jeder Bereich traegt
@@ -4067,13 +4057,13 @@ html.xr-on .fl-step.xr{ opacity:1 !important; transform:none !important }
   if(!sektion) return;
   var lw=document.createElement('canvas');
   lw.className='code-regen'; lw.setAttribute('aria-hidden','true');
-  lw.style.cssText='position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:.85';
+  lw.style.cssText='position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:.45';
   sektion.style.position='relative';
   sektion.insertBefore(lw, sektion.firstChild);
   var innen=sektion.querySelector('.wrap'); if(innen){ innen.style.position='relative'; innen.style.zIndex='1'; }
-  /* Lesbar statt Balken (Davids Vorgabe 23.08.): groessere Zeichen,
-     langsamer Fall, kraeftiger Kopf mit ausklingender Spur. */
-  var ctx=lw.getContext('2d'), spalten=[], SCHRIFT=15, BREITE=26;
+  /* Fein und leise (Davids Justierung 23.08.): kleine Zeichen, wenige
+     Spalten, blass, gemaechlicher Fall — lesbar, aber nie dominant. */
+  var ctx=lw.getContext('2d'), spalten=[], SCHRIFT=11, BREITE=34;
   var ZEICHEN='01ABCDEF<>/#{}$%&';
   function farbe(){
     var wurzel=getComputedStyle(document.documentElement);
@@ -4097,10 +4087,10 @@ html.xr-on .fl-step.xr{ opacity:1 !important; transform:none !important }
     ctx.globalAlpha=.07; ctx.fillStyle=f.grund; ctx.fillRect(0,0,lw.width,lw.height);
     ctx.font=SCHRIFT+'px monospace'; ctx.fillStyle=f.spur;
     spalten.forEach(function(s){
-      ctx.globalAlpha=.9;   // Kopfzeichen deutlich sichtbar
+      ctx.globalAlpha=.34;   // blass — Atmosphaere, kein Vordergrund
       ctx.fillText(ZEICHEN[Math.floor(Math.random()*ZEICHEN.length)], s.x, s.y);
-      s.y+=SCHRIFT*.42*s.takt;   // ruhig genug, um mitzulesen
-      if(s.y>lw.height+20) s.y=-10-Math.random()*160;
+      s.y+=SCHRIFT*.28*s.takt;   // gemaechlich
+      if(s.y>lw.height+20) s.y=-10-Math.random()*200;
     });
     ctx.globalAlpha=1;
   }

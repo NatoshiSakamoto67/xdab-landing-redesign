@@ -1522,7 +1522,12 @@ html.xr-on .xr.xr-in{ opacity:1; transform:none }
 <header><div class="wrap nav">
   <a class="logo" href="#top"><span class="x"><svg viewBox="0 0 512 512" fill="currentColor" width="20" height="20"><path d="M126 120 L196 120 L256 224 L226 256 L256 288 L196 392 L126 392 L210 256 Z"/><path d="M386 120 L316 120 L256 224 L286 256 L256 288 L316 392 L386 392 L302 256 Z"/></svg></span>XDAB</a>
   <nav class="nav-links">
-    <a href="#plattform">Plattform</a><a href="#datenschutz-detail">Datenschutz</a><a href="#cyber-detail">Sicherheit</a><a href="#projekte">Leistungen</a><a href="#pakete">Pakete</a><a href="#fragerunde">Beratung</a>
+    <div class="nd" data-nd="plattform"><button type="button" class="nd-k" aria-expanded="false">Plattform<svg class="nd-p" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button><div class="nd-m"><a class="nd-e" href="#plattform"><span class="nd-i"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 2 7l10 5 10-5-10-5Z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/></svg></span>Allgemein</a><a class="nd-e" href="#plattform"><span class="nd-i"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 11 18-5v12L3 14v-3Z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg></span>Marketing &amp; Vertrieb</a><a class="nd-e" href="#plattform"><span class="nd-i"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/></svg></span>Personal</a><a class="nd-e" href="#plattform"><span class="nd-i"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg></span>Finanzen</a><a class="nd-e" href="#plattform"><span class="nd-i"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 9 9"/></svg></span>Betrieb</a><a class="nd-e" href="#plattform"><span class="nd-i"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9-3 3 3 3"/><path d="m16 9 3 3-3 3"/></svg></span>Entwicklung</a><a class="nd-e" href="#plattform"><span class="nd-i"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="5" rx="1"/><rect x="3" y="16" width="6" height="5" rx="1"/><rect x="15" y="16" width="6" height="5" rx="1"/><path d="M12 8v4M6 16v-2h12v2"/></svg></span>Leitung</a></div></div>
+    <a href="#pakete">Preise</a>
+    <div class="nd" data-nd="branchen"><button type="button" class="nd-k" aria-expanded="false">Branchen<svg class="nd-p" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button><div class="nd-m"><a class="nd-e" href="#einsatz"><span class="nd-i"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 2 7l10 5 10-5-10-5Z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/></svg></span>Allgemeine Unternehmen</a><a class="nd-e" href="#einsatz"><span class="nd-i"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M7 7h10M5 7l-2 6h4L5 7Zm14 0-2 6h4l-2-6Z"/></svg></span>Kanzleien</a><a class="nd-e" href="#einsatz"><span class="nd-i"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h4l2-6 4 12 2-6h6"/></svg></span>Medizin &amp; Gesundheit</a><a class="nd-e" href="#einsatz"><span class="nd-i"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="1"/><path d="M9 8h.01M15 8h.01M9 12h.01M15 12h.01M10 21v-4h4v4"/></svg></span>Öffentliche Einrichtungen</a></div></div>
+    <a href="#cyber-detail">Sicherheit</a>
+    <a href="#fragerunde">Sprechstunde</a>
+    <a href="#projekte">Unternehmen</a>
   </nav>
   <div class="nav-cta">
     <div class="thema-schalter" role="group" aria-label="Darstellung"><button type="button" data-thema-wahl="tinte" aria-pressed="true">Tinte</button><button type="button" data-thema-wahl="papier" aria-pressed="false">Papier</button></div><a class="btn nav-ws" href="mailto:kontakt@xdab-ki.de?subject=Anfrage%20XDAB">Kontakt</a>
@@ -4204,6 +4209,62 @@ html.xr-on .fl-step.xr{ opacity:1 !important; transform:none !important }
       +'<span class="kz-fn">in Vorbereitung</span>';
     wbKopf.insertAdjacentElement('afterend', kz);
   }
+})();
+</script>
+<style id="lp-v17-nav">
+/* ============ Zweistufige Navigation (Vorbild logicc.com, Davids
+   Screenshots): Plattform und Branchen klappen auf, jeder Unterpunkt
+   mit eigenem Symbolkästchen. Der Rest bleibt flach. ============ */
+.nav-links{ align-items:center }
+.nd{ position:relative }
+.nd-k{ display:inline-flex; align-items:center; gap:5px;
+  font:inherit; font-size:.88rem; color:inherit; background:none;
+  border:0; padding:0; cursor:pointer; opacity:.85 }
+.nd-k:hover, .nd.auf .nd-k{ opacity:1 }
+.nd-p{ width:13px; height:13px; fill:none; stroke:currentColor;
+  stroke-width:2; stroke-linecap:round; stroke-linejoin:round;
+  transition:transform .2s ease }
+.nd.auf .nd-p{ transform:rotate(180deg) }
+.nd-m{ display:none; position:absolute; top:calc(100% + 12px); left:-14px;
+  min-width:270px; padding:8px; border-radius:16px; z-index:60;
+  background:var(--card, #fff); border:1px solid var(--line);
+  box-shadow:0 24px 60px -22px rgba(0,0,0,.28) }
+.nd.auf .nd-m{ display:block }
+.nd-e{ display:flex; align-items:center; gap:11px; padding:9px 10px;
+  border-radius:10px; text-decoration:none; color:var(--text);
+  font-size:.9rem; white-space:nowrap }
+.nd-e:hover{ background:var(--card2, rgba(0,0,0,.05)); color:var(--text) }
+.nd-i{ width:30px; height:30px; border-radius:9px; flex:0 0 auto;
+  display:flex; align-items:center; justify-content:center;
+  background:var(--card2, rgba(0,0,0,.06)) }
+.nd-i svg{ width:15px; height:15px; fill:none; stroke:currentColor;
+  stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; opacity:.85 }
+@media(max-width:900px){ .nav-links{ display:none } }
+</style>
+<script id="lp-v17-nav-js">
+(function(){
+  "use strict";
+  document.addEventListener("click", function(e){
+    var k = e.target.closest && e.target.closest(".nd-k");
+    var offen = document.querySelector(".nd.auf");
+    if (k){
+      var nd = k.closest(".nd");
+      if (offen && offen !== nd){ offen.classList.remove("auf");
+        offen.querySelector(".nd-k").setAttribute("aria-expanded","false"); }
+      var auf = nd.classList.toggle("auf");
+      k.setAttribute("aria-expanded", String(auf));
+      e.preventDefault(); return;
+    }
+    if (offen && !e.target.closest(".nd-m")){
+      offen.classList.remove("auf");
+      offen.querySelector(".nd-k").setAttribute("aria-expanded","false");
+    }
+  });
+  document.addEventListener("keydown", function(e){
+    if (e.key !== "Escape") return;
+    var o = document.querySelector(".nd.auf");
+    if (o){ o.classList.remove("auf"); o.querySelector(".nd-k").setAttribute("aria-expanded","false"); }
+  });
 })();
 </script>
 </body>

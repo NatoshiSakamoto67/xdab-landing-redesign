@@ -4011,15 +4011,19 @@ html.xr-on .fl-step.xr{ opacity:1 !important; transform:none !important }
 .marken-lauf{ overflow:hidden;
   -webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);
   mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent) }
+/* Das Band laeuft per Skript (lp-v15): pixelgenaue Endlosschleife ohne
+   Sprung, anfassbar (nur horizontal ziehen, Seite scrollt normal),
+   nach dem Loslassen gleitet es fluessig zurueck ins Grundtempo. */
+.marken-lauf{ touch-action:pan-y; cursor:grab; user-select:none }
+.marken-lauf.zieht{ cursor:grabbing }
 .marken-spur{ display:flex; align-items:center; gap:58px; width:max-content;
-  padding-right:58px; animation:markenLauf 38s linear infinite }
-.marken-lauf:hover .marken-spur{ animation-play-state:paused }
+  padding-right:58px; will-change:transform }
 .marken-spur span{ display:inline-flex; align-items:center; gap:11px;
-  font-size:15px; font-weight:600; color:var(--text); white-space:nowrap }
+  font-size:15px; font-weight:600; color:var(--text); white-space:nowrap;
+  pointer-events:none }
 .marken-spur img{ height:22px; width:auto; display:block }
-@keyframes markenLauf{ to{ transform:translateX(-50%) } }
 @media(prefers-reduced-motion:reduce){
-  .marken-spur{ animation:none; flex-wrap:wrap; justify-content:center; width:auto }
+  .marken-spur{ flex-wrap:wrap; justify-content:center; width:auto }
   .marken-spur span:nth-child(n+8){ display:none }   /* Doppelung nicht zeigen */
   .marken-lauf{ mask-image:none; -webkit-mask-image:none }
 }
@@ -4084,6 +4088,55 @@ html.xr-on .fl-step.xr{ opacity:1 !important; transform:none !important }
     var s=document.getElementById(id);
     if(s) einsetzen(s.querySelector('.sec-head'), SEK[id]);
   });
+})();
+</script>
+<script id="lp-v15-band">
+(function(){
+  'use strict';
+  /* Marken-Laufband: eigene Schleife statt CSS-Animation.
+     - pixelgenauer Umbruch (Mistral sprang vorher am linken Rand)
+     - ziehbar per Finger/Maus, NUR horizontal (Seite scrollt normal)
+     - nach dem Loslassen traegt der Schwung weiter und gleitet
+       fluessig zurueck ins Grundtempo (rechts nach links) */
+  if(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var lauf=document.querySelector('.marken-lauf');
+  var spur=lauf && lauf.querySelector('.marken-spur');
+  if(!spur) return;
+  var halb=0, x=0, GRUND=34;         // Grundtempo in px/s
+  var tempo=GRUND, zieht=false, letztX=0, letztT=0, letztFrame=0;
+  function messen(){ halb=spur.scrollWidth/2; }
+  function frame(t){
+    requestAnimationFrame(frame);
+    if(!letztFrame){ letztFrame=t; return; }
+    var dt=Math.min(64,(t-letztFrame))/1000; letztFrame=t;
+    if(!halb) messen(); if(!halb) return;
+    if(!zieht){
+      tempo+=(GRUND-tempo)*Math.min(1,dt*3);   // fluessig zurueck ins Grundtempo
+      x+=tempo*dt;
+    }
+    x=((x%halb)+halb)%halb;
+    spur.style.transform='translateX('+(-x)+'px)';
+  }
+  lauf.addEventListener('pointerdown', function(e){
+    zieht=true; lauf.classList.add('zieht');
+    letztX=e.clientX; letztT=performance.now();
+    try{ lauf.setPointerCapture(e.pointerId); }catch(f){}
+  });
+  lauf.addEventListener('pointermove', function(e){
+    if(!zieht) return;
+    var dx=e.clientX-letztX, jetzt=performance.now();
+    x-=dx;                                    // Inhalt folgt dem Finger
+    if(jetzt-letztT>0) tempo=-dx/((jetzt-letztT)/1000);  // Schwung merken
+    letztX=e.clientX; letztT=jetzt;
+  });
+  function los(){ zieht=false; lauf.classList.remove('zieht');
+    tempo=Math.max(-900,Math.min(900,tempo)); }
+  lauf.addEventListener('pointerup', los);
+  lauf.addEventListener('pointercancel', los);
+  addEventListener('resize', messen, {passive:true});
+  if(document.readyState==='complete') messen();
+  else addEventListener('load', messen);
+  requestAnimationFrame(frame);
 })();
 </script>
 <script id="lp-v13-bereichsbilder">

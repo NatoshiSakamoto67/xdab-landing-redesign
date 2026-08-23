@@ -165,7 +165,10 @@
 .ph-caret{ display:inline-block; width:1px; height:11px; background:var(--accent-strong); vertical-align:-1px }
 
 /* Akt 2 — das PII-Gate maskiert */
-.ph-mask{ display:flex; align-items:center; gap:8px; font-family:var(--font-mono); font-size:10.5px }
+.ph-mask{ display:flex; align-items:center; gap:8px; font-family:var(--font-mono); font-size:10.5px; margin-bottom:4px }
+.ph-ersatz{ color:#25a06b; font-weight:700 }
+.ph-eu{ margin-left:auto; border:1px solid rgba(52,211,153,.35); color:#4fc593;
+  border-radius:999px; padding:2px 8px; font-size:9px; letter-spacing:.06em }
 .ph-was{ color:var(--muted) }
 .ph-arr{ color:var(--faint) }
 .ph-blk{ display:inline-block; height:9px; width:0; overflow:hidden;
@@ -205,7 +208,7 @@
 @keyframes phIn4{ 0%,51%{opacity:0;transform:translateY(6px)} 55%,95%{opacity:1;transform:none} 99%,100%{opacity:0} }
 
 .ph-type{ animation:phType 14s infinite both }
-@keyframes phType{ 0%,3%{width:0; animation-timing-function:steps(32,end)} 21%,100%{width:32ch} }
+@keyframes phType{ 0%,3%{width:0; animation-timing-function:steps(38,end)} 21%,100%{width:38ch} }
 .ph-caret{ animation:phCaret 14s infinite both }
 @keyframes phCaret{ 0%,21%{opacity:1} 21.5%,100%{opacity:0} }
 .ph-blk{ animation:phBlk 14s infinite both }
@@ -239,7 +242,7 @@
   .ph-s1,.ph-s2,.ph-s3,.ph-s4,.ph-type,.ph-caret,.ph-blk,.ph-was,.ph-lbl-pii,
   .ph-check::after,.ph-ln,.ph-file,.ph-cost i{ animation:none !important }
   .ph-s1,.ph-s2,.ph-s3,.ph-s4{ opacity:1 }
-  .ph-type{ width:32ch } .ph-caret{ opacity:0 } .ph-blk{ width:45px } .ph-was{ opacity:.3 }
+  .ph-type{ width:38ch } .ph-caret{ opacity:0 } .ph-blk{ width:45px } .ph-was{ opacity:.3 }
   .ph-check::after{ transform:rotate(-45deg) scale(1) } .ph-ln{ transform:scaleX(1) }
   .ph-file{ opacity:1 } .ph-cost i{ opacity:0 } .ph-cost i:nth-child(4){ opacity:1 }
   .h3-phone{ transform:none; transition:none }
@@ -1516,16 +1519,17 @@ html.xr-on .xr.xr-in{ opacity:1; transform:none }
       <span class="iph-btn iph-power" aria-hidden="true"></span>
       <div class="h3-pscreen h3-pscreen-run"><div class="h3-island" aria-hidden="true"></div>
         <div class="ph" aria-label="Ablauf im XDAB-Arbeitsplatz: Auftrag, PII-Maskierung, EU-Route, Ergebnis">
-          <div class="ph-bar"><span class="ph-dot"></span>XDAB &middot; Arbeitsplatz</div>
+          <div class="ph-bar"><span class="ph-dot"></span>XDAB<span class="ph-eu">EU &middot; Claude</span></div>
           <div class="ph-flow">
             <div class="ph-step ph-s1">
               <div class="ph-lbl">Auftrag</div>
-              <div class="ph-prompt"><span class="ph-type">Mahnung an Kunde Meyer entwerfen</span><i class="ph-caret" aria-hidden="true"></i></div>
+              <div class="ph-prompt"><span class="ph-type">Mahnung an Herrn Meyer, Bahnhofstr. 12</span><i class="ph-caret" aria-hidden="true"></i></div>
             </div>
             <div class="ph-step ph-s2">
-              <div class="ph-lbl ph-lbl-pii">PII-Gate</div>
-              <div class="ph-mask"><span class="ph-was">Meyer</span><span class="ph-arr">&rarr;</span><span class="ph-blk"></span></div>
-              <div class="ph-note">2 Angaben maskiert, vor dem Cloud-Aufruf</div>
+              <div class="ph-lbl ph-lbl-pii">PII-Schutz</div>
+              <div class="ph-mask"><span class="ph-was">Herrn Meyer</span><span class="ph-arr">&rarr;</span><span class="ph-ersatz">[NAME]</span></div>
+              <div class="ph-mask"><span class="ph-was">Bahnhofstr.&nbsp;12</span><span class="ph-arr">&rarr;</span><span class="ph-ersatz">[ADRESSE]</span></div>
+              <div class="ph-note">Name und Adresse maskiert, bevor etwas Ihr Haus verl&auml;sst</div>
             </div>
             <div class="ph-step ph-s3">
               <div class="ph-route"><span class="ph-check" aria-hidden="true"></span>EU &middot; Frankfurt</div>

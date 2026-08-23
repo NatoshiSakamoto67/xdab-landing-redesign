@@ -1691,9 +1691,11 @@ html.xr-on .xr.xr-in{ opacity:1; transform:none }
       <p class="pf-lead">Vier Bausteine, ein Partner, gemacht für den deutschen Mittelstand.</p>
       <div class="modellzeile" aria-label="Verfügbare Modelle">
         <span class="modell-k">Modelle</span>
-        <span class="modell-n">Claude</span><span class="modell-n">Mistral</span>
-        
-        <span class="modell-fn">über einen Zugang, EU-geroutet. GPT-5.6 (Sol, Terra, Luna) und Gemini folgen</span>
+        <span class="modell-logo"><img src="assets/logos/claude.svg" alt="Claude Logo">Claude</span>
+        <span class="modell-logo"><img src="assets/logos/mistral.svg" alt="Mistral Logo">Mistral</span>
+        <span class="modell-fn">über einen Zugang, EU-geroutet.
+          <span class="modell-logo modell-bald"><img src="assets/logos/openai.svg" alt="OpenAI Logo">ChatGPT</span> und
+          <span class="modell-logo modell-bald"><img src="assets/logos/gemini-symbol.svg" alt="Gemini Logo">Gemini</span> folgen</span>
       </div>
     </div>
 
@@ -2999,7 +3001,7 @@ html.xr-on .xr.xr-in{ opacity:1; transform:none }
 </div>
 
 <footer><div class="wrap foot">
-  <div><div class="logo" style="font-size:15px;margin-bottom:8px"><span class="x" style="width:24px;height:24px"><svg viewBox="0 0 512 512" fill="currentColor" width="15" height="15"><path d="M126 120 L196 120 L256 224 L226 256 L256 288 L196 392 L126 392 L210 256 Z"/><path d="M386 120 L316 120 L256 224 L286 256 L256 288 L316 392 L386 392 L302 256 Z"/></svg></span>XDAB</div>David Wolkoff &middot; DSGVO-konforme KI für den Mittelstand &middot; Braunschweig<br><span class="marken-hinweis">Claude ist eine Marke von Anthropic, ChatGPT von OpenAI, Gemini von Google, Mistral von Mistral AI. Die Nennung erfolgt rein beschreibend. Es besteht keine Partnerschaft, Zertifizierung oder Empfehlung durch diese Anbieter.</span></div>
+  <div><div class="logo" style="font-size:15px;margin-bottom:8px"><span class="x" style="width:24px;height:24px"><svg viewBox="0 0 512 512" fill="currentColor" width="15" height="15"><path d="M126 120 L196 120 L256 224 L226 256 L256 288 L196 392 L126 392 L210 256 Z"/><path d="M386 120 L316 120 L256 224 L286 256 L256 288 L316 392 L386 392 L302 256 Z"/></svg></span>XDAB</div>David Wolkoff &middot; DSGVO-konforme KI für den Mittelstand &middot; Braunschweig<br><span class="marken-hinweis">Claude ist eine Marke von Anthropic, ChatGPT von OpenAI, Gemini und Gmail von Google, Mistral von Mistral AI, Microsoft 365 von Microsoft, DATEV von DATEV eG. Logos und Nennungen dienen rein der Beschreibung der Kompatibilität. Es besteht keine Partnerschaft, Zertifizierung oder Empfehlung durch diese Anbieter.</span></div>
   <div class="foot-links"><a href="/impressum.html">Impressum</a><a href="/datenschutz.html">Datenschutz</a><a href="/agb.html">AGB</a><a href="mailto:kontakt@xdab-ki.de?subject=Anfrage%20XDAB">Kontakt</a></div>
 </div></footer>
 
@@ -3953,9 +3955,24 @@ html.xr-on .fl-step.xr{ opacity:1 !important; transform:none !important }
 .reiter-signet .sg-d{ fill:currentColor; stroke:none }
 @media(max-width:640px){ .reiter-signet{ width:64px; height:64px; margin-bottom:14px } }
 /* Geisterebenen ueberall aus (Davids Linie 'schlichter'): die bgfx-Deko
-   streute ueberall halb sichtbare Textfetzen — weg damit. Atmosphaere
-   macht jetzt gezielt der Code-Regen bei Cybersecurity. */
+   streute ueberall halb sichtbare Textfetzen — weg damit. Der Code-Regen
+   ist ebenfalls raus (Davids Entscheid 23.08.: die Grossen machen solche
+   Spielereien nicht). */
 .bgfx{ display:none !important }
+/* Original-Markenzeichen (selbst gehostet in assets/logos/, farbig,
+   SVG-scharf; Nennung rein beschreibend, Hinweis im Fussbereich). */
+.modell-logo{ display:inline-flex; align-items:center; gap:7px; font-weight:600; color:var(--text) }
+.modell-logo img{ height:19px; width:auto; display:block }
+.modell-bald{ font-weight:500; color:var(--muted) }
+.modell-bald img{ height:15px; opacity:.9 }
+.konnektor-zeile{ display:flex; flex-wrap:wrap; gap:12px 28px; align-items:center;
+  margin:20px 0 4px }
+.konnektor-zeile .kz-k{ font-family:var(--font-mono); font-size:10px;
+  letter-spacing:.16em; text-transform:uppercase; color:var(--faint) }
+.konnektor-zeile span:not(.kz-k){ display:inline-flex; align-items:center; gap:9px;
+  font-size:14px; font-weight:600; color:var(--text) }
+.konnektor-zeile img{ height:20px; width:auto; display:block }
+.konnektor-zeile .kz-fn{ font-size:12px; font-weight:400; color:var(--faint) }
 /* Echte Produktbilder je Bereich (Palantir-Prinzip: Direktbilder aus dem
    echten Betrieb statt Deko). Eingesetzt per lp-v13-Skript. */
 .bereich-bild{ margin:34px auto 8px; max-width:980px }
@@ -3968,38 +3985,25 @@ html.xr-on .fl-step.xr{ opacity:1 !important; transform:none !important }
 (function(){
   'use strict';
   var S={
-    funktionen:'<svg viewBox="0 0 96 96" aria-hidden="true">'
-      +'<rect class="sg-l" x="16" y="20" width="44" height="34" rx="7"/>'
-      +'<rect class="sg-l" x="34" y="40" width="44" height="34" rx="7"/>'
-      +'<path class="sg-l" d="M42 50h28M42 58h20"/></svg>',
+    funktionen:'<svg viewBox="0 0 96 96" aria-hidden="true">'+'<rect class="sg-l" x="18" y="24" width="60" height="48" rx="9"/>'+'<path class="sg-l" d="M30 42h36M30 52h24"/></svg>',
     datenschutz:'<svg viewBox="0 0 96 96" aria-hidden="true">'
       +'<path class="sg-l" d="M48 12 76 22v26c0 17-13 28-28 36C33 76 20 65 20 48V22Z"/>'
-      +'<circle class="sg-d" cx="38" cy="34" r="2.4"/><circle class="sg-d" cx="48" cy="34" r="2.4"/><circle class="sg-d" cx="58" cy="34" r="2.4"/>'
-      +'<circle class="sg-d" cx="38" cy="46" r="2.4"/><circle class="sg-d" cx="58" cy="46" r="2.4"/>'
-      +'<circle class="sg-d" cx="38" cy="58" r="2.4"/><circle class="sg-d" cx="48" cy="58" r="2.4"/><circle class="sg-d" cx="58" cy="58" r="2.4"/>'
       +'<rect class="sg-l" x="43" y="41" width="10" height="10" rx="2"/></svg>',
-    sicherheit:'<svg viewBox="0 0 96 96" aria-hidden="true">'
-      +'<circle class="sg-l" cx="48" cy="48" r="30"/>'
-      +'<path class="sg-l" d="M48 48V18M48 48l21-21"/>'
-      +'<path class="sg-l" d="M48 18a30 30 0 0 1 21 9" opacity=".45"/></svg>',
+    sicherheit:'<svg viewBox="0 0 96 96" aria-hidden="true">'+'<circle class="sg-l" cx="48" cy="48" r="30"/>'+'<path class="sg-l" d="M48 48V20"/></svg>',
     pakete:'<svg viewBox="0 0 96 96" aria-hidden="true">'
-      +'<rect class="sg-l" x="22" y="58" width="52" height="16" rx="4"/>'
-      +'<rect class="sg-l" x="30" y="40" width="52" height="16" rx="4"/>'
-      +'<rect class="sg-l" x="26" y="22" width="52" height="16" rx="4"/></svg>',
-    beratung:'<svg viewBox="0 0 96 96" aria-hidden="true">'
-      +'<path class="sg-l" d="M14 30a10 10 0 0 1 10-10h28a10 10 0 0 1 10 10v14a10 10 0 0 1-10 10H34l-10 9v-9a10 10 0 0 1-10-10Z"/>'
-      +'<path class="sg-l" d="M44 56a9 9 0 0 0 9 9h17l9 8v-8a9 9 0 0 0 9-9v-8a9 9 0 0 0-9-9H62"/>'
-      +'<path class="sg-l" d="M24 32h26M24 40h18"/></svg>'
+      +'<rect class="sg-l" x="24" y="58" width="48" height="14" rx="4"/>'
+      +'<rect class="sg-l" x="24" y="40" width="48" height="14" rx="4"/>'
+      +'<rect class="sg-l" x="24" y="22" width="48" height="14" rx="4"/></svg>',
+    beratung:'<svg viewBox="0 0 96 96" aria-hidden="true">'+'<path class="sg-l" d="M18 34a12 12 0 0 1 12-12h36a12 12 0 0 1 12 12v18a12 12 0 0 1-12 12H42l-12 10V64h-0a12 12 0 0 1-12-12Z"/>'+'<path class="sg-l" d="M32 38h32M32 48h22"/></svg>'
   };
   /* Zusaetzliche Motive fuer abstrakte Begriffe (Davids Wunsch 23.08.:
      man soll sich etwas darunter vorstellen koennen). Ohne Akzent,
      noch leiser als die Reiter-Signets. */
   var SEK={
     wissensbasis:'<svg viewBox="0 0 96 96" aria-hidden="true">'
-      +'<path class="sg-l" d="M20 26h34a8 8 0 0 1 8 8v34H28a8 8 0 0 1-8-8Z"/>'
-      +'<path class="sg-l" d="M28 18h34a8 8 0 0 1 8 8v34"/>'
-      +'<path class="sg-l" d="M30 40h22M30 50h16M30 60h20"/>'
-      +'<circle class="sg-l" cx="64" cy="62" r="9"/><path class="sg-l" d="m71 69 7 7"/></svg>',
+      +'<path class="sg-l" d="M16 22h30a8 8 0 0 1 8 8v44H24a8 8 0 0 1-8-8Z"/>'
+      +'<path class="sg-l" d="M26 38h18M26 48h14M26 58h16"/>'
+      +'<circle class="sg-l" cx="70" cy="40" r="10"/><path class="sg-l" d="m77 47 7 7"/></svg>',
     auftragsverarbeitung:'<svg viewBox="0 0 96 96" aria-hidden="true">'
       +'<rect class="sg-l" x="14" y="38" width="24" height="20" rx="6"/>'
       +'<rect class="sg-l" x="58" y="38" width="24" height="20" rx="6"/>'
@@ -4044,59 +4048,21 @@ html.xr-on .fl-step.xr{ opacity:1 !important; transform:none !important }
       +'<figcaption>'+BILDER[id].t+'</figcaption>';
     kopf.insertAdjacentElement('afterend', f);
   });
-})();
-</script>
-<script id="lp-v12-coderegen">
-(function(){
-  'use strict';
-  /* Sehr feiner Code-Regen hinter der Cybersecurity-Sektion (Davids
-     Wunsch: wie bei Matrix, aber dezent). Canvas, ~20 B/s, laeuft nur
-     wenn die Sektion im Bild ist, nie bei reduzierter Bewegung. */
-  if(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  var sektion=document.getElementById('cyber-detail');
-  if(!sektion) return;
-  var lw=document.createElement('canvas');
-  lw.className='code-regen'; lw.setAttribute('aria-hidden','true');
-  lw.style.cssText='position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:.45';
-  sektion.style.position='relative';
-  sektion.insertBefore(lw, sektion.firstChild);
-  var innen=sektion.querySelector('.wrap'); if(innen){ innen.style.position='relative'; innen.style.zIndex='1'; }
-  /* Fein und leise (Davids Justierung 23.08.): kleine Zeichen, wenige
-     Spalten, blass, gemaechlicher Fall — lesbar, aber nie dominant. */
-  var ctx=lw.getContext('2d'), spalten=[], SCHRIFT=11, BREITE=34;
-  var ZEICHEN='01ABCDEF<>/#{}$%&';
-  function farbe(){
-    var wurzel=getComputedStyle(document.documentElement);
-    return { spur: wurzel.getPropertyValue('--gruen').trim() || '#158a52',
-             grund: wurzel.getPropertyValue('--bg').trim() || '#F2EFE7' };
+  /* Konnektoren mit Original-Markenzeichen (Davids Auftrag 23.08.):
+     farbig, scharf, selbst gehostet — Nennung rein beschreibend. */
+  var wb=document.getElementById('wissensbasis');
+  var wbKopf=wb && wb.querySelector('.sec-head');
+  if(wbKopf && !wb.querySelector('.konnektor-zeile')){
+    var kz=document.createElement('div');
+    kz.className='konnektor-zeile';
+    kz.setAttribute('aria-label','Konnektoren in Vorbereitung');
+    kz.innerHTML='<span class="kz-k">Konnektoren</span>'
+      +'<span><img src="assets/logos/gmail.svg" alt="Gmail Logo">Gmail</span>'
+      +'<span><img src="assets/logos/microsoft.svg" alt="Microsoft Logo">Microsoft 365</span>'
+      +'<span><img src="assets/logos/datev.svg" alt="DATEV Logo">DATEV</span>'
+      +'<span class="kz-fn">in Vorbereitung</span>';
+    wbKopf.insertAdjacentElement('afterend', kz);
   }
-  function messen(){
-    lw.width=sektion.clientWidth; lw.height=sektion.clientHeight;
-    spalten=[];
-    for(var x=0; x<lw.width; x+=BREITE) spalten.push({x:x, y:Math.random()*lw.height, takt:.6+Math.random()*1.2});
-    ctx.font=SCHRIFT+'px monospace';
-  }
-  var sichtbar=false, letzter=0;
-  new IntersectionObserver(function(e){ sichtbar=e[0].isIntersecting; }).observe(sektion);
-  function malen(zeit){
-    requestAnimationFrame(malen);
-    if(!sichtbar || zeit-letzter<50) return;   // 20 Bilder/s reichen
-    letzter=zeit;
-    var f=farbe();
-    // alte Zeichen sanft ausbleichen -> lesbare Spur statt harter Punkte
-    ctx.globalAlpha=.07; ctx.fillStyle=f.grund; ctx.fillRect(0,0,lw.width,lw.height);
-    ctx.font=SCHRIFT+'px monospace'; ctx.fillStyle=f.spur;
-    spalten.forEach(function(s){
-      ctx.globalAlpha=.34;   // blass — Atmosphaere, kein Vordergrund
-      ctx.fillText(ZEICHEN[Math.floor(Math.random()*ZEICHEN.length)], s.x, s.y);
-      s.y+=SCHRIFT*.28*s.takt;   // gemaechlich
-      if(s.y>lw.height+20) s.y=-10-Math.random()*200;
-    });
-    ctx.globalAlpha=1;
-  }
-  messen();
-  addEventListener('resize', messen, {passive:true});
-  requestAnimationFrame(malen);
 })();
 </script>
 </body>

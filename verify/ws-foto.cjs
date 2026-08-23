@@ -26,6 +26,12 @@ const httpJSON = (u) => new Promise((res, rej) => http.get(u, (r) => { let d = "
   await send("Page.navigate", { url: URL0 });
   await sleep(4500);
   if (EXPR) { await send("Runtime.evaluate", { expression: EXPR, awaitPromise: true }); await sleep(WAIT); }
+  const CX = parseInt(process.argv[8] || "0", 10), CY = parseInt(process.argv[9] || "0", 10);
+  if (CX && CY) {
+    for (const type of ["mousePressed", "mouseReleased"])
+      await send("Input.dispatchMouseEvent", { type, x: CX, y: CY, button: "left", clickCount: 1 });
+    await sleep(1500);
+  }
   const shot = await send("Page.captureScreenshot", { format: "png" });
   fs.writeFileSync(OUT, Buffer.from(shot.result.data, "base64"));
   console.log("ok:", OUT);

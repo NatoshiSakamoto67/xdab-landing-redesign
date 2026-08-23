@@ -20,7 +20,7 @@ const httpJSON = (u) => new Promise((res, rej) => http.get(u, (r) => { let d = "
   await send("Page.enable"); await send("Runtime.enable");
   await send("Page.navigate", { url: URL });
   await sleep(4000);
-  const r = await send("Runtime.evaluate", { expression: EXPR, returnByValue: true });
+  const r = await send("Runtime.evaluate", { expression: EXPR, returnByValue: true, awaitPromise: true });
   console.log(JSON.stringify(r.result.result ? r.result.result.value : r.result, null, 1));
   if (errs.length) console.log("JS-FEHLER:", errs.join("\n"));
   edge.kill(); process.exit(0);

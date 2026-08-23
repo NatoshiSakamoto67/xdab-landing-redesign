@@ -3913,6 +3913,109 @@ section{ padding:96px 0 }
    Reitern zu verschieben brach Suche, Zurueck-Navigation und den
    Paket-Konfigurator. Die Reiter selbst sind die richtige Reduktion.
    NIE Sektionen per Skript aus .lp-page-Containern bewegen. */
+
+/* ============ Datenfluss lebendig (Davids Auftrag 23.08.) ============
+   1. Pfeil-Fix mobil: die Scroll-Reveal-Regel (html.xr-on .fl-arrow.xr)
+      ueberschrieb die 90-Grad-Drehung des CONTAINERS. Jetzt dreht das
+      SVG selbst, der Container bleibt frei fuer den Reveal.
+   2. Fluss-Animation: die Anfrage wandert sichtbar durch die Schritte.
+      Jeder Schritt leuchtet der Reihe nach auf (12s-Schleife, Versatz
+      per --fl-i aus kleinem Skript), der Pfeil dahinter stoesst nach. */
+@media(max-width:860px){
+  html.xr-on .fl-arrow.xr, .fl-arrow{ transform:none }
+  .fl-arrow svg{ transform:rotate(90deg) }
+}
+@keyframes flSchritt{
+  0%, 5%   { border-left-color:var(--gruen); box-shadow:0 0 0 1px var(--gruen-line), 0 10px 30px -18px rgba(0,0,0,.35); transform:translateY(-2px) }
+  11%,100% { box-shadow:none; transform:none }
+}
+@keyframes flZahl{
+  0%, 5%   { background:var(--gruen); color:#fff; border-color:var(--gruen) }
+  11%,100% { }
+}
+@keyframes flPfeil{
+  0%, 4%   { color:var(--gruen); transform:translateY(3px) }
+  10%,100% { }
+}
+@media(max-width:860px){
+  @keyframes flPfeil{
+    0%, 4%   { color:var(--gruen) }
+    10%,100% { }
+  }
+}
+.fl-step{ animation:flSchritt 12s linear infinite; animation-delay:calc(var(--fl-i,0) * 2s);
+  transition:box-shadow .4s ease, transform .4s ease, border-left-color .4s ease }
+.fl-step .fl-num{ animation:flZahl 12s linear infinite; animation-delay:calc(var(--fl-i,0) * 2s) }
+.fl-arrow{ animation:flPfeil 12s linear infinite; animation-delay:calc((var(--fl-i,0) + .6) * 2s) }
+@media(prefers-reduced-motion:reduce){
+  .fl-step, .fl-step .fl-num, .fl-arrow{ animation:none !important }
+}
 </style>
+<style id="lp-v11-signets">
+/* Wiedererkennung je Reiter (Davids Auftrag 23.08.): jeder Bereich traegt
+   ein eigenes minimalistisches Signet ueber seiner ersten Ueberschrift.
+   Handgezeichnete SVGs statt KI-Bilder: scharf in jeder Aufloesung, folgen
+   der Schriftfarbe (hell/dunkel automatisch), ein Zinnober-Akzent, 0 KB
+   Ladezeit. Linienfuehrung wie das X-Logo: duenn, geometrisch, ruhig. */
+.reiter-signet{ width:84px; height:84px; margin:0 auto 20px }
+.reiter-signet svg{ width:100%; height:100%; display:block; color:var(--text) }
+.reiter-signet .sg-l{ fill:none; stroke:currentColor; stroke-width:2.2;
+  stroke-linecap:round; stroke-linejoin:round }
+.reiter-signet .sg-a{ fill:var(--mint); stroke:none }
+.reiter-signet .sg-al{ fill:none; stroke:var(--mint); stroke-width:2.6;
+  stroke-linecap:round; stroke-linejoin:round }
+.reiter-signet .sg-d{ fill:currentColor; stroke:none }
+@media(max-width:640px){ .reiter-signet{ width:64px; height:64px; margin-bottom:14px } }
+</style>
+<script id="lp-v11-signets-js">
+(function(){
+  'use strict';
+  var S={
+    funktionen:'<svg viewBox="0 0 96 96" aria-hidden="true">'
+      +'<rect class="sg-l" x="14" y="20" width="42" height="32" rx="7"/>'
+      +'<rect class="sg-l" x="28" y="36" width="42" height="32" rx="7"/>'
+      +'<path class="sg-a" d="M79 14l3.2 7.8 7.8 3.2-7.8 3.2L79 36l-3.2-7.8L68 25l7.8-3.2z"/></svg>',
+    datenschutz:'<svg viewBox="0 0 96 96" aria-hidden="true">'
+      +'<path class="sg-l" d="M48 12 76 22v26c0 17-13 28-28 36C33 76 20 65 20 48V22Z"/>'
+      +'<circle class="sg-d" cx="38" cy="34" r="2.4"/><circle class="sg-d" cx="48" cy="34" r="2.4"/><circle class="sg-d" cx="58" cy="34" r="2.4"/>'
+      +'<circle class="sg-d" cx="38" cy="46" r="2.4"/><circle class="sg-d" cx="58" cy="46" r="2.4"/>'
+      +'<circle class="sg-d" cx="38" cy="58" r="2.4"/><circle class="sg-d" cx="48" cy="58" r="2.4"/><circle class="sg-d" cx="58" cy="58" r="2.4"/>'
+      +'<rect class="sg-a" x="44" y="42" width="8" height="8" rx="1.5"/></svg>',
+    sicherheit:'<svg viewBox="0 0 96 96" aria-hidden="true">'
+      +'<circle class="sg-l" cx="48" cy="48" r="30"/>'
+      +'<path class="sg-l" d="M48 48V18M48 48l21-21"/>'
+      +'<path class="sg-l" d="M48 18a30 30 0 0 1 21 9" opacity=".45"/>'
+      +'<circle class="sg-a" cx="74" cy="60" r="4"/></svg>',
+    pakete:'<svg viewBox="0 0 96 96" aria-hidden="true">'
+      +'<rect class="sg-l" x="22" y="58" width="52" height="16" rx="4"/>'
+      +'<rect class="sg-al" x="30" y="40" width="52" height="16" rx="4"/>'
+      +'<rect class="sg-l" x="26" y="22" width="52" height="16" rx="4"/></svg>',
+    beratung:'<svg viewBox="0 0 96 96" aria-hidden="true">'
+      +'<path class="sg-l" d="M14 30a10 10 0 0 1 10-10h28a10 10 0 0 1 10 10v14a10 10 0 0 1-10 10H34l-10 9v-9a10 10 0 0 1-10-10Z"/>'
+      +'<path class="sg-l" d="M44 56a9 9 0 0 0 9 9h17l9 8v-8a9 9 0 0 0 9-9v-8a9 9 0 0 0-9-9H62"/>'
+      +'<circle class="sg-a" cx="52" cy="49" r="5"/></svg>'
+  };
+  Object.keys(S).forEach(function(pg){
+    var kopf=document.querySelector('.lp-page[data-page="'+pg+'"] .sec-head');
+    if(!kopf || kopf.querySelector('.reiter-signet')) return;
+    var d=document.createElement('div');
+    d.className='reiter-signet'; d.innerHTML=S[pg];
+    kopf.insertBefore(d, kopf.firstChild);
+  });
+})();
+</script>
+<script id="lp-v10-fluss">
+(function(){
+  'use strict';
+  /* Datenfluss-Zeitachse: jeder Schritt bekommt seinen Versatz (--fl-i),
+     der Pfeil dahinter erbt den Index seines Vorgaengers. Reihenfolge
+     kommt aus dem DOM, nichts wird verschoben. */
+  var i=0;
+  document.querySelectorAll('.fl-flow > *').forEach(function(el){
+    if(el.classList.contains('fl-step')){ el.style.setProperty('--fl-i', String(i)); i++; }
+    else if(el.classList.contains('fl-arrow')){ el.style.setProperty('--fl-i', String(Math.max(0,i-1))); }
+  });
+})();
+</script>
 </body>
 </html>

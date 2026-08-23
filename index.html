@@ -1475,6 +1475,47 @@ html.xr-on .xr.xr-in{ opacity:1; transform:none }
   .ph-a1{ color:var(--accent-strong) }
 }
 </style>
+<style id="lp-v16-chatreplik">
+/* ============ Hero-iPhone = echte Chat-Replik, monochrom (23.08.) ============
+   Sieht aus wie der wirkliche Chat (dunkel, Blase rechts, Antwort als
+   blanker Text, Composer unten) — einziger Zusatz: die illustrierte
+   Anonymisierungs-Karte. KEINE Akzentfarbe (Davids Entscheid: Standard
+   ist schwarz-weiss). Text bricht um wie im echten Chat — nie Ueberlauf. */
+.ph{ padding:44px 16px 12px !important }
+.ph-bar{ display:flex; align-items:center; justify-content:space-between; gap:10px;
+  padding-bottom:10px; border-bottom:1px solid rgba(255,255,255,.10);
+  color:#cfd0d4; text-transform:none; letter-spacing:0; font-size:10px }
+.ph-menu i{ display:block; width:14px; height:1.6px; background:#cfd0d4; margin:3px 0; border-radius:1px }
+.ph-eu{ margin:0 !important; border:1px solid rgba(255,255,255,.22) !important;
+  color:#cfd0d4 !important; border-radius:999px; padding:3px 10px !important;
+  font-size:9.5px !important; letter-spacing:.05em !important;
+  display:inline-flex; align-items:center; gap:6px }
+.ph-eu::before{ content:''; width:5px; height:5px; border-radius:50%; background:#cfd0d4 }
+.ph-neu{ font-size:16px; color:#cfd0d4; line-height:1 }
+.ph-chat{ flex:1; display:flex; flex-direction:column; gap:12px; padding:16px 0 10px; overflow:hidden }
+.ph-user{ align-self:flex-end; max-width:86%; background:#26272b; color:#e9eaec;
+  border-radius:14px 14px 4px 14px; padding:9px 12px; font-size:11.5px; line-height:1.5 }
+.ph-anon{ border:1px dashed rgba(255,255,255,.26); border-radius:10px;
+  padding:9px 11px; color:#c7c8cc; font-size:10.5px }
+.ph-anon-k{ display:flex; gap:7px; align-items:center; font-weight:600;
+  color:#e9eaec; margin-bottom:6px }
+.ph-anon-k svg{ width:13px; height:13px; flex:0 0 auto; fill:none;
+  stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round }
+.ph-anon-r{ font-family:var(--font-mono); font-size:10px; margin:2px 0; color:#e9eaec }
+.ph-anon-r s{ color:#84858b }
+.ph-anon-r .ph-arr{ margin:0 6px; color:#84858b }
+.ph-antwort{ color:#d6d7db; font-size:11.5px; line-height:1.6 }
+.ph-antwort p{ margin:0 0 8px }
+.ph-antwort-mehr{ color:#84858b }
+.ph-composer{ display:flex; align-items:center; justify-content:space-between; gap:10px;
+  border:1px solid rgba(255,255,255,.16); border-radius:22px;
+  padding:9px 8px 9px 14px; color:#84858b; font-size:11.5px }
+.ph-composer b{ width:26px; height:26px; border-radius:50%; background:#e8e8ea;
+  color:#101114; display:flex; align-items:center; justify-content:center;
+  font-size:13px; font-weight:700 }
+.ph-artline{ text-align:center; color:#6d6e74; font-size:8.5px; margin-top:8px }
+@media(prefers-reduced-motion:reduce){ .ph-s1,.ph-s2,.ph-s4{ opacity:1 !important; animation:none !important } }
+</style>
 </head>
 <body>
 <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
@@ -1518,38 +1559,23 @@ html.xr-on .xr.xr-in{ opacity:1; transform:none }
       <span class="iph-btn iph-voldn" aria-hidden="true"></span>
       <span class="iph-btn iph-power" aria-hidden="true"></span>
       <div class="h3-pscreen h3-pscreen-run"><div class="h3-island" aria-hidden="true"></div>
-        <div class="ph" aria-label="Ablauf im XDAB-Arbeitsplatz: Auftrag, PII-Maskierung, EU-Route, Ergebnis">
-          <div class="ph-bar"><span class="ph-dot"></span>XDAB<span class="ph-eu">EU &middot; Claude</span></div>
-          <div class="ph-flow">
-            <div class="ph-step ph-s1">
-              <div class="ph-lbl">Auftrag</div>
-              <div class="ph-prompt"><span class="ph-type">Mahnung an Herrn Meyer, Bahnhofstr. 12</span><i class="ph-caret" aria-hidden="true"></i></div>
+        <div class="ph" aria-label="Der echte Chat: Auftrag, Anonymisierung, Antwort">
+          <div class="ph-bar"><span class="ph-menu" aria-hidden="true"><i></i><i></i><i></i></span><span class="ph-eu">EU &middot; Claude</span><span class="ph-neu" aria-hidden="true">+</span></div>
+          <div class="ph-chat">
+            <div class="ph-user ph-s1">Mahnung an Herrn Meyer, Bahnhofstr.&nbsp;12 entwerfen</div>
+            <div class="ph-anon ph-s2">
+              <div class="ph-anon-k"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>Anonymisiert, bevor etwas Ihr Haus verl&auml;sst</div>
+              <div class="ph-anon-r"><s>Herrn Meyer</s><span class="ph-arr">&rarr;</span>[NAME]</div>
+              <div class="ph-anon-r"><s>Bahnhofstr.&nbsp;12</s><span class="ph-arr">&rarr;</span>[ADRESSE]</div>
             </div>
-            <div class="ph-step ph-s2">
-              <div class="ph-lbl ph-lbl-pii">PII-Schutz</div>
-              <div class="ph-mask"><span class="ph-was">Herrn Meyer</span><span class="ph-arr">&rarr;</span><span class="ph-ersatz">[NAME]</span></div>
-              <div class="ph-mask"><span class="ph-was">Bahnhofstr.&nbsp;12</span><span class="ph-arr">&rarr;</span><span class="ph-ersatz">[ADRESSE]</span></div>
-              <div class="ph-note">Name und Adresse maskiert, bevor etwas Ihr Haus verl&auml;sst</div>
-            </div>
-            <div class="ph-step ph-s3">
-              <div class="ph-route"><span class="ph-check" aria-hidden="true"></span>EU &middot; Frankfurt</div>
-            </div>
-            <div class="ph-step ph-s4">
-              <div class="ph-lbl">Ergebnis</div>
-              <div class="ph-out">
-                <span class="ph-ln ph-l1"></span><span class="ph-ln ph-l2"></span>
-                <span class="ph-ln ph-l3"></span><span class="ph-ln ph-l4"></span>
-                <span class="ph-ln ph-l5"></span><span class="ph-ln ph-l6"></span>
-              </div>
-              <div class="ph-file"><span class="ph-fi" aria-hidden="true"></span>Mahnung_Meyer.pdf</div>
+            <div class="ph-antwort ph-s4">
+              <p>Sehr geehrter [NAME],</p>
+              <p>trotz Zahlungsfrist zum 15.08. ist die Rechnung Nr.&nbsp;2043 noch offen. Wir bitten um Ausgleich bis zum 05.09.</p>
+              <p class="ph-antwort-mehr">&hellip;</p>
             </div>
           </div>
-          <div class="ph-acts" aria-hidden="true">
-            <span class="ph-act ph-a1">Auftrag</span><span class="ph-act ph-a2">PII-Schutz</span><span class="ph-act ph-a3">EU-Route</span><span class="ph-act ph-a4">Ergebnis</span>
-          </div>
-          <div class="ph-foot"><span>Kosten</span>
-            <b class="ph-cost"><i>0,00&nbsp;&euro;</i><i>0,01&nbsp;&euro;</i><i>0,02&nbsp;&euro;</i><i>0,03&nbsp;&euro;</i></b>
-          </div>
+          <div class="ph-composer"><span>Frag XDAB</span><b aria-hidden="true">&uarr;</b></div>
+          <div class="ph-artline">KI-System. Inhalte gekennzeichnet (Art.&nbsp;50 KI-VO).</div>
         </div>
       </div>
     </div>

@@ -3925,30 +3925,35 @@ section{ padding:96px 0 }
   html.xr-on .fl-arrow.xr, .fl-arrow{ transform:none }
   .fl-arrow svg{ transform:rotate(90deg) }
 }
-@keyframes flSchritt{
-  0%, 5%   { border-left-color:var(--gruen); box-shadow:0 0 0 1px var(--gruen-line), 0 10px 30px -18px rgba(0,0,0,.35); transform:translateY(-2px) }
-  11%,100% { box-shadow:none; transform:none }
-}
-@keyframes flZahl{
-  0%, 5%   { background:var(--gruen); color:#fff; border-color:var(--gruen) }
-  11%,100% { }
-}
-@keyframes flPfeil{
-  0%, 4%   { color:var(--gruen); transform:translateY(3px) }
-  10%,100% { }
-}
-@media(max-width:860px){
-  @keyframes flPfeil{
-    0%, 4%   { color:var(--gruen) }
-    10%,100% { }
-  }
-}
-.fl-step{ animation:flSchritt 12s linear infinite; animation-delay:calc(var(--fl-i,0) * 2s);
-  transition:box-shadow .4s ease, transform .4s ease, border-left-color .4s ease }
-.fl-step .fl-num{ animation:flZahl 12s linear infinite; animation-delay:calc(var(--fl-i,0) * 2s) }
-.fl-arrow{ animation:flPfeil 12s linear infinite; animation-delay:calc((var(--fl-i,0) + .6) * 2s) }
+/* Scroll-gekoppelt statt Zeittakt (Davids Vorgabe 23.08.): --fl-satt
+   (0..1) sagt je Schritt, wie nah er der Blickmitte ist. Satt = gruen
+   und praesent, fern = blass. Das Skript unten rechnet den Wert beim
+   Scrollen, hier passiert nur weiches Nachziehen. */
+.fl-step{
+  opacity:calc(.45 + var(--fl-satt,0) * .55);
+  transform:translateY(calc((1 - var(--fl-satt,0)) * 10px));
+  border-left-color:color-mix(in srgb, var(--gruen) calc(var(--fl-satt,0) * 100%), var(--navy));
+  box-shadow:0 14px 34px calc(-26px + var(--fl-satt,0) * 8px) rgba(0,0,0,.45);
+  transition:opacity .25s ease-out, transform .25s ease-out,
+             border-left-color .25s ease-out, box-shadow .25s ease-out }
+.fl-step .fl-num{
+  background:color-mix(in srgb, var(--gruen) calc(var(--fl-satt,0) * 100%), var(--navy-soft));
+  color:color-mix(in srgb, #fff calc(var(--fl-satt,0) * 100%), #9cbcf0);
+  border-color:color-mix(in srgb, var(--gruen) calc(var(--fl-satt,0) * 100%), var(--line2));
+  transition:background .25s ease-out, color .25s ease-out, border-color .25s ease-out }
+.fl-arrow{
+  color:color-mix(in srgb, var(--gruen) calc(var(--fl-satt,0) * 100%), var(--navy));
+  opacity:calc(.4 + var(--fl-satt,0) * .6);
+  transition:color .25s ease-out, opacity .25s ease-out }
+/* Der alte Scroll-Reveal (html.xr-on .xr) hielt die Schritte auf 0 —
+   fuer den Datenfluss uebernimmt komplett die Scroll-Saettigung. */
+html.xr-on .fl-step.xr, html.xr-on .fl-step.xr.xr-in{
+  opacity:calc(.45 + var(--fl-satt,0) * .55);
+  transform:translateY(calc((1 - var(--fl-satt,0)) * 10px)) }
+html.xr-on .fl-arrow.xr, html.xr-on .fl-arrow.xr.xr-in{
+  opacity:calc(.4 + var(--fl-satt,0) * .6); transform:none }
 @media(prefers-reduced-motion:reduce){
-  .fl-step, .fl-step .fl-num, .fl-arrow{ animation:none !important }
+  .fl-step, html.xr-on .fl-step.xr{ opacity:1; transform:none }
 }
 </style>
 <style id="lp-v11-signets">
@@ -3966,6 +3971,8 @@ section{ padding:96px 0 }
   stroke-linecap:round; stroke-linejoin:round }
 .reiter-signet .sg-d{ fill:currentColor; stroke:none }
 @media(max-width:640px){ .reiter-signet{ width:64px; height:64px; margin-bottom:14px } }
+/* Cyber-Sektion: der feine Code-Regen ersetzt dort die bgfx-Geisterebene */
+#cyber-detail .bgfx{ display:none }
 </style>
 <script id="lp-v11-signets-js">
 (function(){
@@ -3993,28 +4000,123 @@ section{ padding:96px 0 }
     beratung:'<svg viewBox="0 0 96 96" aria-hidden="true">'
       +'<path class="sg-l" d="M14 30a10 10 0 0 1 10-10h28a10 10 0 0 1 10 10v14a10 10 0 0 1-10 10H34l-10 9v-9a10 10 0 0 1-10-10Z"/>'
       +'<path class="sg-l" d="M44 56a9 9 0 0 0 9 9h17l9 8v-8a9 9 0 0 0 9-9v-8a9 9 0 0 0-9-9H62"/>'
-      +'<circle class="sg-a" cx="52" cy="49" r="5"/></svg>'
+      +'<path class="sg-l" d="M24 32h26M24 40h18"/></svg>'
   };
-  Object.keys(S).forEach(function(pg){
-    var kopf=document.querySelector('.lp-page[data-page="'+pg+'"] .sec-head');
+  /* Zusaetzliche Motive fuer abstrakte Begriffe (Davids Wunsch 23.08.:
+     man soll sich etwas darunter vorstellen koennen). Ohne Akzent,
+     noch leiser als die Reiter-Signets. */
+  var SEK={
+    wissensbasis:'<svg viewBox="0 0 96 96" aria-hidden="true">'
+      +'<path class="sg-l" d="M20 26h34a8 8 0 0 1 8 8v34H28a8 8 0 0 1-8-8Z"/>'
+      +'<path class="sg-l" d="M28 18h34a8 8 0 0 1 8 8v34"/>'
+      +'<path class="sg-l" d="M30 40h22M30 50h16M30 60h20"/>'
+      +'<circle class="sg-l" cx="64" cy="62" r="9"/><path class="sg-l" d="m71 69 7 7"/></svg>',
+    auftragsverarbeitung:'<svg viewBox="0 0 96 96" aria-hidden="true">'
+      +'<rect class="sg-l" x="14" y="38" width="24" height="20" rx="6"/>'
+      +'<rect class="sg-l" x="58" y="38" width="24" height="20" rx="6"/>'
+      +'<path class="sg-l" d="M38 48h20M52 42l6 6-6 6"/></svg>',
+    token:'<svg viewBox="0 0 96 96" aria-hidden="true">'
+      +'<path class="sg-l" d="M18 66V44M32 66V30M46 66V50M60 66V38M74 66V56"/>'
+      +'<path class="sg-l" d="M14 72h68"/></svg>'
+  };
+  function einsetzen(kopf, svg){
     if(!kopf || kopf.querySelector('.reiter-signet')) return;
     var d=document.createElement('div');
-    d.className='reiter-signet'; d.innerHTML=S[pg];
+    d.className='reiter-signet'; d.innerHTML=svg;
     kopf.insertBefore(d, kopf.firstChild);
+  }
+  Object.keys(S).forEach(function(pg){
+    einsetzen(document.querySelector('.lp-page[data-page="'+pg+'"] .sec-head'), S[pg]);
   });
+  Object.keys(SEK).forEach(function(id){
+    var s=document.getElementById(id);
+    if(s) einsetzen(s.querySelector('.sec-head'), SEK[id]);
+  });
+})();
+</script>
+<script id="lp-v12-coderegen">
+(function(){
+  'use strict';
+  /* Sehr feiner Code-Regen hinter der Cybersecurity-Sektion (Davids
+     Wunsch: wie bei Matrix, aber dezent). Canvas, ~20 B/s, laeuft nur
+     wenn die Sektion im Bild ist, nie bei reduzierter Bewegung. */
+  if(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var sektion=document.getElementById('cyber-detail');
+  if(!sektion) return;
+  var lw=document.createElement('canvas');
+  lw.className='code-regen'; lw.setAttribute('aria-hidden','true');
+  lw.style.cssText='position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:.5';
+  sektion.style.position='relative';
+  sektion.insertBefore(lw, sektion.firstChild);
+  var innen=sektion.querySelector('.wrap'); if(innen){ innen.style.position='relative'; innen.style.zIndex='1'; }
+  var ctx=lw.getContext('2d'), spalten=[], SCHRIFT=10, BREITE=18;
+  var ZEICHEN='01ABCDEF<>/#{}$%&';
+  function farbe(){
+    var wurzel=getComputedStyle(document.documentElement);
+    return { spur: wurzel.getPropertyValue('--gruen').trim() || '#158a52',
+             grund: wurzel.getPropertyValue('--bg').trim() || '#F2EFE7' };
+  }
+  function messen(){
+    lw.width=sektion.clientWidth; lw.height=sektion.clientHeight;
+    spalten=[];
+    for(var x=0; x<lw.width; x+=BREITE) spalten.push({x:x, y:Math.random()*lw.height, takt:.6+Math.random()*1.2});
+    ctx.font=SCHRIFT+'px monospace';
+  }
+  var sichtbar=false, letzter=0;
+  new IntersectionObserver(function(e){ sichtbar=e[0].isIntersecting; }).observe(sektion);
+  function malen(zeit){
+    requestAnimationFrame(malen);
+    if(!sichtbar || zeit-letzter<50) return;   // 20 Bilder/s reichen
+    letzter=zeit;
+    var f=farbe();
+    // alte Zeichen sanft ausbleichen -> feine Schweife statt harter Punkte
+    ctx.globalAlpha=.16; ctx.fillStyle=f.grund; ctx.fillRect(0,0,lw.width,lw.height);
+    ctx.globalAlpha=.28; ctx.fillStyle=f.spur; ctx.font=SCHRIFT+'px monospace';
+    spalten.forEach(function(s){
+      ctx.fillText(ZEICHEN[Math.floor(Math.random()*ZEICHEN.length)], s.x, s.y);
+      s.y+=SCHRIFT*s.takt;
+      if(s.y>lw.height+20) s.y=-10-Math.random()*120;
+    });
+    ctx.globalAlpha=1;
+  }
+  messen();
+  addEventListener('resize', messen, {passive:true});
+  requestAnimationFrame(malen);
 })();
 </script>
 <script id="lp-v10-fluss">
 (function(){
   'use strict';
-  /* Datenfluss-Zeitachse: jeder Schritt bekommt seinen Versatz (--fl-i),
-     der Pfeil dahinter erbt den Index seines Vorgaengers. Reihenfolge
-     kommt aus dem DOM, nichts wird verschoben. */
-  var i=0;
-  document.querySelectorAll('.fl-flow > *').forEach(function(el){
-    if(el.classList.contains('fl-step')){ el.style.setProperty('--fl-i', String(i)); i++; }
-    else if(el.classList.contains('fl-arrow')){ el.style.setProperty('--fl-i', String(Math.max(0,i-1))); }
-  });
+  /* Datenfluss folgt dem Scrollen: je naeher ein Schritt der Blickmitte
+     ist, desto satter (--fl-satt 0..1). rAF-gedrosselt, passiv, rechnet
+     nur wenn die Sektion ueberhaupt im Bild ist. */
+  if(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    document.querySelectorAll('.fl-step,.fl-arrow').forEach(function(el){
+      el.style.setProperty('--fl-satt','1');
+    });
+    return;
+  }
+  var sektion=document.getElementById('ablauf');
+  var teile=Array.prototype.slice.call(document.querySelectorAll('.fl-flow .fl-step, .fl-flow .fl-arrow'));
+  if(!sektion || !teile.length) return;
+  var steht=false;
+  function rechnen(){
+    steht=false;
+    var r=sektion.getBoundingClientRect();
+    if(r.bottom<-80 || r.top>innerHeight+80) return;   // nicht im Bild
+    var mitte=innerHeight*.46, spanne=innerHeight*.42;
+    teile.forEach(function(el){
+      var b=el.getBoundingClientRect();
+      var d=Math.abs((b.top+b.bottom)/2 - mitte);
+      var satt=Math.max(0, Math.min(1, 1 - d/spanne));
+      el.style.setProperty('--fl-satt', satt.toFixed(3));
+    });
+  }
+  function anstossen(){ if(!steht){ steht=true; requestAnimationFrame(rechnen); } }
+  addEventListener('scroll', anstossen, {passive:true});
+  addEventListener('resize', anstossen, {passive:true});
+  document.addEventListener('click', function(){ setTimeout(anstossen, 60); }); // Reiterwechsel
+  rechnen();
 })();
 </script>
 </body>
